@@ -87,7 +87,6 @@
 				17856A73B0EC87F176559428 /* Pods-AlexFilms.debug.xcconfig */,
 				278D6196BBABE5EF4D106F2F /* Pods-AlexFilms.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
