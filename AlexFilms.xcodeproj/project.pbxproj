@@ -9,8 +9,7 @@
 /* Begin PBXBuildFile section */
 		FAA84DA42ACA970A00CB1C47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA84DA32ACA970A00CB1C47 /* AppDelegate.swift */; };
 		FAA84DA62ACA970A00CB1C47 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA84DA52ACA970A00CB1C47 /* SceneDelegate.swift */; };
-		FAA84DA82ACA970A00CB1C47 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA84DA72ACA970A00CB1C47 /* ViewController.swift */; };
-		FAA84DAB2ACA970A00CB1C47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAA84DA92ACA970A00CB1C47 /* Main.storyboard */; };
+		FAA84DA82ACA970A00CB1C47 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA84DA72ACA970A00CB1C47 /* MainViewController.swift */; };
 		FAA84DAE2ACA970A00CB1C47 /* AlexFilms.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAA84DAC2ACA970A00CB1C47 /* AlexFilms.xcdatamodeld */; };
 		FAA84DB02ACA970D00CB1C47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAA84DAF2ACA970D00CB1C47 /* Assets.xcassets */; };
 		FAA84DB32ACA970D00CB1C47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAA84DB12ACA970D00CB1C47 /* LaunchScreen.storyboard */; };
@@ -40,8 +39,7 @@
 		FAA84DA02ACA970A00CB1C47 /* AlexFilms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlexFilms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA84DA32ACA970A00CB1C47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAA84DA52ACA970A00CB1C47 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FAA84DA72ACA970A00CB1C47 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FAA84DAA2ACA970A00CB1C47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FAA84DA72ACA970A00CB1C47 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		FAA84DAD2ACA970A00CB1C47 /* AlexFilms.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AlexFilms.xcdatamodel; sourceTree = "<group>"; };
 		FAA84DAF2ACA970D00CB1C47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAA84DB22ACA970D00CB1C47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -103,8 +101,7 @@
 			children = (
 				FAA84DA32ACA970A00CB1C47 /* AppDelegate.swift */,
 				FAA84DA52ACA970A00CB1C47 /* SceneDelegate.swift */,
-				FAA84DA72ACA970A00CB1C47 /* ViewController.swift */,
-				FAA84DA92ACA970A00CB1C47 /* Main.storyboard */,
+				FAA84DA72ACA970A00CB1C47 /* MainViewController.swift */,
 				FAA84DAF2ACA970D00CB1C47 /* Assets.xcassets */,
 				FAA84DB12ACA970D00CB1C47 /* LaunchScreen.storyboard */,
 				FAA84DB42ACA970D00CB1C47 /* Info.plist */,
@@ -236,7 +233,6 @@
 			files = (
 				FAA84DB32ACA970D00CB1C47 /* LaunchScreen.storyboard in Resources */,
 				FAA84DB02ACA970D00CB1C47 /* Assets.xcassets in Resources */,
-				FAA84DAB2ACA970A00CB1C47 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,7 +257,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAA84DA82ACA970A00CB1C47 /* ViewController.swift in Sources */,
+				FAA84DA82ACA970A00CB1C47 /* MainViewController.swift in Sources */,
 				FAA84DA42ACA970A00CB1C47 /* AppDelegate.swift in Sources */,
 				FAA84DA62ACA970A00CB1C47 /* SceneDelegate.swift in Sources */,
 				FAA84DAE2ACA970A00CB1C47 /* AlexFilms.xcdatamodeld in Sources */,
@@ -301,14 +297,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		FAA84DA92ACA970A00CB1C47 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FAA84DAA2ACA970A00CB1C47 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FAA84DB12ACA970D00CB1C47 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -443,11 +431,14 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AlexFilms/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -455,9 +446,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = alex.AlexFilms;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -470,11 +464,14 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AlexFilms/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -482,9 +479,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = alex.AlexFilms;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
