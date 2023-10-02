@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB35EA53E4FFB38B27AA14DE /* Pods_AlexFilms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6D715513FF16D63AA0E613 /* Pods_AlexFilms.framework */; };
 		FAA84DA42ACA970A00CB1C47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA84DA32ACA970A00CB1C47 /* AppDelegate.swift */; };
 		FAA84DA62ACA970A00CB1C47 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA84DA52ACA970A00CB1C47 /* SceneDelegate.swift */; };
 		FAA84DA82ACA970A00CB1C47 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA84DA72ACA970A00CB1C47 /* MainViewController.swift */; };
@@ -36,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		17856A73B0EC87F176559428 /* Pods-AlexFilms.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlexFilms.debug.xcconfig"; path = "Target Support Files/Pods-AlexFilms/Pods-AlexFilms.debug.xcconfig"; sourceTree = "<group>"; };
+		278D6196BBABE5EF4D106F2F /* Pods-AlexFilms.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlexFilms.release.xcconfig"; path = "Target Support Files/Pods-AlexFilms/Pods-AlexFilms.release.xcconfig"; sourceTree = "<group>"; };
+		AE6D715513FF16D63AA0E613 /* Pods_AlexFilms.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AlexFilms.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA84DA02ACA970A00CB1C47 /* AlexFilms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlexFilms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA84DA32ACA970A00CB1C47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAA84DA52ACA970A00CB1C47 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB35EA53E4FFB38B27AA14DE /* Pods_AlexFilms.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +81,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D3A84701251BC22B19E199E6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				17856A73B0EC87F176559428 /* Pods-AlexFilms.debug.xcconfig */,
+				278D6196BBABE5EF4D106F2F /* Pods-AlexFilms.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F467B095582728EA7B175C2F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AE6D715513FF16D63AA0E613 /* Pods_AlexFilms.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FAA84D972ACA970A00CB1C47 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +106,8 @@
 				FAA84DBC2ACA970E00CB1C47 /* AlexFilmsTests */,
 				FAA84DC62ACA970E00CB1C47 /* AlexFilmsUITests */,
 				FAA84DA12ACA970A00CB1C47 /* Products */,
+				D3A84701251BC22B19E199E6 /* Pods */,
+				F467B095582728EA7B175C2F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -134,9 +159,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FAA84DCD2ACA970E00CB1C47 /* Build configuration list for PBXNativeTarget "AlexFilms" */;
 			buildPhases = (
+				4C8C570273FDC1FF416BBB60 /* [CP] Check Pods Manifest.lock */,
 				FAA84D9C2ACA970A00CB1C47 /* Sources */,
 				FAA84D9D2ACA970A00CB1C47 /* Frameworks */,
 				FAA84D9E2ACA970A00CB1C47 /* Resources */,
+				446C4E1003458BB732BD915B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -251,6 +278,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		446C4E1003458BB732BD915B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AlexFilms/Pods-AlexFilms-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AlexFilms/Pods-AlexFilms-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AlexFilms/Pods-AlexFilms-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4C8C570273FDC1FF416BBB60 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AlexFilms-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FAA84D9C2ACA970A00CB1C47 /* Sources */ = {
@@ -424,6 +493,7 @@
 		};
 		FAA84DCE2ACA970E00CB1C47 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17856A73B0EC87F176559428 /* Pods-AlexFilms.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -457,6 +527,7 @@
 		};
 		FAA84DCF2ACA970E00CB1C47 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 278D6196BBABE5EF4D106F2F /* Pods-AlexFilms.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
