@@ -10,7 +10,7 @@
 		DB35EA53E4FFB38B27AA14DE /* Pods_AlexFilms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6D715513FF16D63AA0E613 /* Pods_AlexFilms.framework */; };
 		FAA84DA42ACA970A00CB1C47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA84DA32ACA970A00CB1C47 /* AppDelegate.swift */; };
 		FAA84DA62ACA970A00CB1C47 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA84DA52ACA970A00CB1C47 /* SceneDelegate.swift */; };
-		FAA84DA82ACA970A00CB1C47 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA84DA72ACA970A00CB1C47 /* MainViewController.swift */; };
+		FAA84DA82ACA970A00CB1C47 /* AlexFilms.xcworkspace in Sources */ = {isa = PBXBuildFile; fileRef = FAA84DA72ACA970A00CB1C47 /* AlexFilms.xcworkspace */; };
 		FAA84DAE2ACA970A00CB1C47 /* AlexFilms.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAA84DAC2ACA970A00CB1C47 /* AlexFilms.xcdatamodeld */; };
 		FAA84DB02ACA970D00CB1C47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAA84DAF2ACA970D00CB1C47 /* Assets.xcassets */; };
 		FAA84DB32ACA970D00CB1C47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAA84DB12ACA970D00CB1C47 /* LaunchScreen.storyboard */; };
@@ -43,7 +43,7 @@
 		FAA84DA02ACA970A00CB1C47 /* AlexFilms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlexFilms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA84DA32ACA970A00CB1C47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAA84DA52ACA970A00CB1C47 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FAA84DA72ACA970A00CB1C47 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		FAA84DA72ACA970A00CB1C47 /* AlexFilms.xcworkspace */ = {isa = PBXFileReference; lastKnownFileType = wrapper.workspace; name = AlexFilms.xcworkspace; path = ../AlexFilms.xcworkspace; sourceTree = "<group>"; };
 		FAA84DAD2ACA970A00CB1C47 /* AlexFilms.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AlexFilms.xcdatamodel; sourceTree = "<group>"; };
 		FAA84DAF2ACA970D00CB1C47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAA84DB22ACA970D00CB1C47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -125,7 +125,7 @@
 			children = (
 				FAA84DA32ACA970A00CB1C47 /* AppDelegate.swift */,
 				FAA84DA52ACA970A00CB1C47 /* SceneDelegate.swift */,
-				FAA84DA72ACA970A00CB1C47 /* MainViewController.swift */,
+				FAA84DA72ACA970A00CB1C47 /* AlexFilms.xcworkspace */,
 				FAA84DAF2ACA970D00CB1C47 /* Assets.xcassets */,
 				FAA84DB12ACA970D00CB1C47 /* LaunchScreen.storyboard */,
 				FAA84DB42ACA970D00CB1C47 /* Info.plist */,
@@ -325,7 +325,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAA84DA82ACA970A00CB1C47 /* MainViewController.swift in Sources */,
+				FAA84DA82ACA970A00CB1C47 /* AlexFilms.xcworkspace in Sources */,
 				FAA84DA42ACA970A00CB1C47 /* AppDelegate.swift in Sources */,
 				FAA84DA62ACA970A00CB1C47 /* SceneDelegate.swift in Sources */,
 				FAA84DAE2ACA970A00CB1C47 /* AlexFilms.xcdatamodeld in Sources */,
