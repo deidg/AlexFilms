@@ -98,6 +98,57 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FA591C352ACC330D000644C7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FA591C362ACC3317000644C7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FA591C372ACC3325000644C7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FA591C332ACC2ABF000644C7 /* MainViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		FA591C382ACC3332000644C7 /* Other files */ = {
+			isa = PBXGroup;
+			children = (
+				FAA84DAC2ACA970A00CB1C47 /* AlexFilms.xcdatamodeld */,
+				FAA84DB42ACA970D00CB1C47 /* Info.plist */,
+				FAA84DB12ACA970D00CB1C47 /* LaunchScreen.storyboard */,
+				FA591C3B2ACC3370000644C7 /* Assets */,
+				FA591C392ACC3340000644C7 /* Delegates */,
+			);
+			path = "Other files";
+			sourceTree = "<group>";
+		};
+		FA591C392ACC3340000644C7 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				FAA84DA32ACA970A00CB1C47 /* AppDelegate.swift */,
+				FAA84DA52ACA970A00CB1C47 /* SceneDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		FA591C3B2ACC3370000644C7 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				FAA84DAF2ACA970D00CB1C47 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		FAA84D972ACA970A00CB1C47 = {
 			isa = PBXGroup;
 			children = (
@@ -123,13 +174,10 @@
 		FAA84DA22ACA970A00CB1C47 /* AlexFilms */ = {
 			isa = PBXGroup;
 			children = (
-				FAA84DA32ACA970A00CB1C47 /* AppDelegate.swift */,
-				FAA84DA52ACA970A00CB1C47 /* SceneDelegate.swift */,
-				FA591C332ACC2ABF000644C7 /* MainViewController.swift */,
-				FAA84DAF2ACA970D00CB1C47 /* Assets.xcassets */,
-				FAA84DB12ACA970D00CB1C47 /* LaunchScreen.storyboard */,
-				FAA84DB42ACA970D00CB1C47 /* Info.plist */,
-				FAA84DAC2ACA970A00CB1C47 /* AlexFilms.xcdatamodeld */,
+				FA591C352ACC330D000644C7 /* Models */,
+				FA591C362ACC3317000644C7 /* Views */,
+				FA591C372ACC3325000644C7 /* Controllers */,
+				FA591C382ACC3332000644C7 /* Other files */,
 			);
 			path = AlexFilms;
 			sourceTree = "<group>";
