@@ -42,7 +42,7 @@ final class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        view.backgroundColor = .white
+        view.backgroundColor = .white
         
         
     }
@@ -51,7 +51,7 @@ final class MainViewController: UIViewController {
         view.addSubview(mainLabelAuthPage)
         mainLabelAuthPage.snp.makeConstraints { make in
             make.top.equalTo(view).inset(250)
-            make.center.equalToSuperview()
+            make.centerX.equalToSuperview()
         }
         
     }
@@ -60,3 +60,4 @@ final class MainViewController: UIViewController {
     
     
 }
+

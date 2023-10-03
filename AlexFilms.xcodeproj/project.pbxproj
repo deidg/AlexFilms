@@ -8,16 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		DB35EA53E4FFB38B27AA14DE /* Pods_AlexFilms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6D715513FF16D63AA0E613 /* Pods_AlexFilms.framework */; };
+		FA591C342ACC2ABF000644C7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA591C332ACC2ABF000644C7 /* MainViewController.swift */; };
 		FAA84DA42ACA970A00CB1C47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA84DA32ACA970A00CB1C47 /* AppDelegate.swift */; };
 		FAA84DA62ACA970A00CB1C47 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA84DA52ACA970A00CB1C47 /* SceneDelegate.swift */; };
-		FAA84DA82ACA970A00CB1C47 /* AlexFilms.xcworkspace in Sources */ = {isa = PBXBuildFile; fileRef = FAA84DA72ACA970A00CB1C47 /* AlexFilms.xcworkspace */; };
 		FAA84DAE2ACA970A00CB1C47 /* AlexFilms.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAA84DAC2ACA970A00CB1C47 /* AlexFilms.xcdatamodeld */; };
 		FAA84DB02ACA970D00CB1C47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAA84DAF2ACA970D00CB1C47 /* Assets.xcassets */; };
 		FAA84DB32ACA970D00CB1C47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAA84DB12ACA970D00CB1C47 /* LaunchScreen.storyboard */; };
 		FAA84DBE2ACA970E00CB1C47 /* AlexFilmsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA84DBD2ACA970E00CB1C47 /* AlexFilmsTests.swift */; };
 		FAA84DC82ACA970E00CB1C47 /* AlexFilmsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA84DC72ACA970E00CB1C47 /* AlexFilmsUITests.swift */; };
 		FAA84DCA2ACA970E00CB1C47 /* AlexFilmsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA84DC92ACA970E00CB1C47 /* AlexFilmsUITestsLaunchTests.swift */; };
-		FAA84DD72ACAA5EB00CB1C47 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA84DD62ACAA5EB00CB1C47 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,10 +40,10 @@
 		17856A73B0EC87F176559428 /* Pods-AlexFilms.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlexFilms.debug.xcconfig"; path = "Target Support Files/Pods-AlexFilms/Pods-AlexFilms.debug.xcconfig"; sourceTree = "<group>"; };
 		278D6196BBABE5EF4D106F2F /* Pods-AlexFilms.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlexFilms.release.xcconfig"; path = "Target Support Files/Pods-AlexFilms/Pods-AlexFilms.release.xcconfig"; sourceTree = "<group>"; };
 		AE6D715513FF16D63AA0E613 /* Pods_AlexFilms.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AlexFilms.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA591C332ACC2ABF000644C7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		FAA84DA02ACA970A00CB1C47 /* AlexFilms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlexFilms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA84DA32ACA970A00CB1C47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAA84DA52ACA970A00CB1C47 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FAA84DA72ACA970A00CB1C47 /* AlexFilms.xcworkspace */ = {isa = PBXFileReference; lastKnownFileType = wrapper.workspace; name = AlexFilms.xcworkspace; path = ../AlexFilms.xcworkspace; sourceTree = "<group>"; };
 		FAA84DAD2ACA970A00CB1C47 /* AlexFilms.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AlexFilms.xcdatamodel; sourceTree = "<group>"; };
 		FAA84DAF2ACA970D00CB1C47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAA84DB22ACA970D00CB1C47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -54,7 +53,6 @@
 		FAA84DC32ACA970E00CB1C47 /* AlexFilmsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlexFilmsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA84DC72ACA970E00CB1C47 /* AlexFilmsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlexFilmsUITests.swift; sourceTree = "<group>"; };
 		FAA84DC92ACA970E00CB1C47 /* AlexFilmsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlexFilmsUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		FAA84DD62ACAA5EB00CB1C47 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,8 +125,7 @@
 			children = (
 				FAA84DA32ACA970A00CB1C47 /* AppDelegate.swift */,
 				FAA84DA52ACA970A00CB1C47 /* SceneDelegate.swift */,
-				FAA84DA72ACA970A00CB1C47 /* AlexFilms.xcworkspace */,
-				FAA84DD62ACAA5EB00CB1C47 /* MainViewController.swift */,
+				FA591C332ACC2ABF000644C7 /* MainViewController.swift */,
 				FAA84DAF2ACA970D00CB1C47 /* Assets.xcassets */,
 				FAA84DB12ACA970D00CB1C47 /* LaunchScreen.storyboard */,
 				FAA84DB42ACA970D00CB1C47 /* Info.plist */,
@@ -328,11 +325,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAA84DA82ACA970A00CB1C47 /* AlexFilms.xcworkspace in Sources */,
+				FA591C342ACC2ABF000644C7 /* MainViewController.swift in Sources */,
 				FAA84DA42ACA970A00CB1C47 /* AppDelegate.swift in Sources */,
 				FAA84DA62ACA970A00CB1C47 /* SceneDelegate.swift in Sources */,
 				FAA84DAE2ACA970A00CB1C47 /* AlexFilms.xcdatamodeld in Sources */,
-				FAA84DD72ACAA5EB00CB1C47 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,7 +426,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -484,7 +480,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
