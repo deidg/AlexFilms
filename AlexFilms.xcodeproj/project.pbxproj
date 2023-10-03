@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		DB35EA53E4FFB38B27AA14DE /* Pods_AlexFilms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6D715513FF16D63AA0E613 /* Pods_AlexFilms.framework */; };
 		FA591C342ACC2ABF000644C7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA591C332ACC2ABF000644C7 /* MainViewController.swift */; };
+		FA591C432ACC3BE0000644C7 /* Ubuntu-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA591C422ACC3BE0000644C7 /* Ubuntu-Regular.ttf */; };
 		FAA84DA42ACA970A00CB1C47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA84DA32ACA970A00CB1C47 /* AppDelegate.swift */; };
 		FAA84DA62ACA970A00CB1C47 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA84DA52ACA970A00CB1C47 /* SceneDelegate.swift */; };
 		FAA84DAE2ACA970A00CB1C47 /* AlexFilms.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAA84DAC2ACA970A00CB1C47 /* AlexFilms.xcdatamodeld */; };
@@ -41,6 +42,7 @@
 		278D6196BBABE5EF4D106F2F /* Pods-AlexFilms.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlexFilms.release.xcconfig"; path = "Target Support Files/Pods-AlexFilms/Pods-AlexFilms.release.xcconfig"; sourceTree = "<group>"; };
 		AE6D715513FF16D63AA0E613 /* Pods_AlexFilms.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AlexFilms.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA591C332ACC2ABF000644C7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		FA591C422ACC3BE0000644C7 /* Ubuntu-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Regular.ttf"; sourceTree = "<group>"; };
 		FAA84DA02ACA970A00CB1C47 /* AlexFilms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlexFilms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA84DA32ACA970A00CB1C47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAA84DA52ACA970A00CB1C47 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -123,8 +125,8 @@
 		FA591C382ACC3332000644C7 /* Other files */ = {
 			isa = PBXGroup;
 			children = (
+				FA591C3F2ACC3ABF000644C7 /* fonts */,
 				FAA84DAC2ACA970A00CB1C47 /* AlexFilms.xcdatamodeld */,
-				FAA84DB42ACA970D00CB1C47 /* Info.plist */,
 				FAA84DB12ACA970D00CB1C47 /* LaunchScreen.storyboard */,
 				FA591C3B2ACC3370000644C7 /* Assets */,
 				FA591C392ACC3340000644C7 /* Delegates */,
@@ -147,6 +149,14 @@
 				FAA84DAF2ACA970D00CB1C47 /* Assets.xcassets */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		FA591C3F2ACC3ABF000644C7 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				FA591C422ACC3BE0000644C7 /* Ubuntu-Regular.ttf */,
+			);
+			path = fonts;
 			sourceTree = "<group>";
 		};
 		FAA84D972ACA970A00CB1C47 = {
@@ -178,6 +188,7 @@
 				FA591C362ACC3317000644C7 /* Views */,
 				FA591C372ACC3325000644C7 /* Controllers */,
 				FA591C382ACC3332000644C7 /* Other files */,
+				FAA84DB42ACA970D00CB1C47 /* Info.plist */,
 			);
 			path = AlexFilms;
 			sourceTree = "<group>";
@@ -305,6 +316,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA591C432ACC3BE0000644C7 /* Ubuntu-Regular.ttf in Resources */,
 				FAA84DB32ACA970D00CB1C47 /* LaunchScreen.storyboard in Resources */,
 				FAA84DB02ACA970D00CB1C47 /* Assets.xcassets in Resources */,
 			);
