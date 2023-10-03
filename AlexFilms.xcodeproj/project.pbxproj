@@ -17,6 +17,7 @@
 		FAA84DBE2ACA970E00CB1C47 /* AlexFilmsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA84DBD2ACA970E00CB1C47 /* AlexFilmsTests.swift */; };
 		FAA84DC82ACA970E00CB1C47 /* AlexFilmsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA84DC72ACA970E00CB1C47 /* AlexFilmsUITests.swift */; };
 		FAA84DCA2ACA970E00CB1C47 /* AlexFilmsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA84DC92ACA970E00CB1C47 /* AlexFilmsUITestsLaunchTests.swift */; };
+		FAA84DD72ACAA5EB00CB1C47 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA84DD62ACAA5EB00CB1C47 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		FAA84DC32ACA970E00CB1C47 /* AlexFilmsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlexFilmsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA84DC72ACA970E00CB1C47 /* AlexFilmsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlexFilmsUITests.swift; sourceTree = "<group>"; };
 		FAA84DC92ACA970E00CB1C47 /* AlexFilmsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlexFilmsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FAA84DD62ACAA5EB00CB1C47 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 				FAA84DA32ACA970A00CB1C47 /* AppDelegate.swift */,
 				FAA84DA52ACA970A00CB1C47 /* SceneDelegate.swift */,
 				FAA84DA72ACA970A00CB1C47 /* AlexFilms.xcworkspace */,
+				FAA84DD62ACAA5EB00CB1C47 /* MainViewController.swift */,
 				FAA84DAF2ACA970D00CB1C47 /* Assets.xcassets */,
 				FAA84DB12ACA970D00CB1C47 /* LaunchScreen.storyboard */,
 				FAA84DB42ACA970D00CB1C47 /* Info.plist */,
@@ -329,6 +332,7 @@
 				FAA84DA42ACA970A00CB1C47 /* AppDelegate.swift in Sources */,
 				FAA84DA62ACA970A00CB1C47 /* SceneDelegate.swift in Sources */,
 				FAA84DAE2ACA970A00CB1C47 /* AlexFilms.xcdatamodeld in Sources */,
+				FAA84DD72ACAA5EB00CB1C47 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
