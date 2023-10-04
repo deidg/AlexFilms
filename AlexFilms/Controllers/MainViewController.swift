@@ -13,7 +13,8 @@ import SnapKit
 
 final class MainViewController: UIViewController {
     
-     let myTabBarController = TabBarController()
+    let customTabBarController = TabBarController()
+    let registrationFormVC = RegistrationFormVC()
     
     private let mainLabelAuthPage: UILabel = {
         let label = UILabel()
@@ -110,11 +111,19 @@ final class MainViewController: UIViewController {
     func addTargets() {
         
         signInButton.addTarget(self, action: #selector(openTabBarController), for: .touchUpInside)
+        signUpButton.addTarget(self, action: #selector(openRegistrationFormVC), for: .touchUpInside)
     }
     
-        @objc func openTabBarController() {
-        myTabBarController.modalPresentationStyle = .fullScreen
-        present(myTabBarController, animated: true, completion: nil)
+    @objc func openTabBarController() {
+        customTabBarController.modalPresentationStyle = .fullScreen
+        present(customTabBarController, animated: true, completion: nil)
+    }
+    
+    @objc func openRegistrationFormVC() {
+        registrationFormVC.modalPresentationStyle = .fullScreen
+        present(registrationFormVC, animated: true, completion: nil)
+        
+        print("her")
     }
 }
 
