@@ -112,8 +112,9 @@ final class MainViewController: UIViewController {
         signInButton.addTarget(self, action: #selector(openTabBarController), for: .touchUpInside)
     }
     
-    @objc func openTabBarController() {
-        self.present(myTabBarController, animated: true)
+        @objc func openTabBarController() {
+        myTabBarController.modalPresentationStyle = .fullScreen
+        present(myTabBarController, animated: true, completion: nil)
     }
 }
 
