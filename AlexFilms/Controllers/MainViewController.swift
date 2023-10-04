@@ -13,6 +13,8 @@ import SnapKit
 
 final class MainViewController: UIViewController {
     
+     let myTabBarController = TabBarController()
+    
     private let mainLabelAuthPage: UILabel = {
         let label = UILabel()
         label.text = "Sign In"
@@ -67,6 +69,8 @@ final class MainViewController: UIViewController {
         view.backgroundColor = .white
         setupUI()
     
+        addTargets()
+        
 //        print(UIFont.familyNames)
         
     }
@@ -103,7 +107,13 @@ final class MainViewController: UIViewController {
         
     }
     
+    func addTargets() {
+        
+        signInButton.addTarget(self, action: #selector(openTabBarController), for: .touchUpInside)
+    }
     
-    
+    @objc func openTabBarController() {
+        self.present(myTabBarController, animated: true)
+    }
 }
 
