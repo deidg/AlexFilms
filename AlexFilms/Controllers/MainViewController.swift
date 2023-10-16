@@ -14,7 +14,7 @@ import SnapKit
 final class MainViewController: UIViewController {
     
     let customTabBarController = TabBarController()
-    let registrationFormViewController = RegistrationFormVC()
+//    let registrationFormViewController = RegistrationFormVC()
     
     private let mainLabelAuthPage: UILabel = {
         let label = UILabel()
@@ -121,7 +121,7 @@ final class MainViewController: UIViewController {
     
     @objc func openRegistrationFormVC() {
 //        registrationFormViewController.modalPresentationStyle = .fullScreen
-        present(registrationFormViewController, animated: true, completion: nil)
+//        present(registrationFormViewController, animated: true, completion: nil)
         
         print("her")
     }
