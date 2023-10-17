@@ -45,23 +45,75 @@ class RegistrationFormVC: UIViewController {
         return textField
     }()
     
-    private let nameLabel: UILabel = {
+    private let secondNameLabel: UILabel = {
         let label = UILabel()
-        
+        label.text = "Last name"
         return label
     }()
-    private let nameTextField: UITextField = {
+    private let lastNameTextField: UITextField = {
         let textField = UITextField()
-        
+        textField.placeholder = "Enter last name"
+        textField.backgroundColor = .white
+        textField.borderStyle = .roundedRect
         return textField
     }()
     
     
-    private let birthdayLabel: UILabel = {
+    private let birthDateLabel: UILabel = {
         let label = UILabel()
+        label.text = "Age"   // ?? -  разве age? а не дата рождения?
+        return label
+    }()
+    
+    // DATE of birthday
+    
+    
+    
+    private let emailLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Email"
         
         return label
     }()
+    
+    private let emailTextField: UITextField = {
+        let textField = UITextField()
+        textField.placeholder = "Enter email"
+        textField.backgroundColor = .white
+        textField.borderStyle = .roundedRect
+        return textField
+    }()
+    
+    
+    private let passwordLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Password"
+        
+        return label
+    }()
+    
+    private let passwordTextField: UITextField = {
+        let textField = UITextField()
+        textField.placeholder = "Enter password"
+        textField.backgroundColor = .white
+        textField.borderStyle = .roundedRect
+        return textField
+    }()
+    
+    private let signUpButton: UIButton = {
+        let button = UIButton()
+        
+        button.frame = CGRect(x: 0, y: 0, width: 120, height: 120)
+        button.backgroundColor = .yellow
+        button.layer.cornerRadius = 10
+        button.setTitle("Sign Up", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.isEnabled = true
+        
+        
+        return button
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,6 +155,73 @@ class RegistrationFormVC: UIViewController {
             make.horizontalEdges.equalToSuperview().inset(20)
             
         }
+        
+        view.addSubview(secondNameLabel)
+        secondNameLabel.snp.makeConstraints { make in
+            make.leading.equalToSuperview().inset(20)
+            make.top.equalTo(firstNameTextField.snp.bottom).offset(10)
+        }
+        
+        view.addSubview(lastNameTextField)
+        lastNameTextField.snp.makeConstraints { make in
+            make.height.equalTo(40)
+            make.leading.equalToSuperview().inset(20)
+            make.top.equalTo(secondNameLabel.snp.bottom).offset(5)
+            make.horizontalEdges.equalToSuperview().inset(20)
+        }
+        
+        view.addSubview(birthDateLabel)
+        birthDateLabel.snp.makeConstraints { make in
+            make.leading.equalToSuperview().inset(20)
+            make.top.equalTo(lastNameTextField.snp.bottom).offset(10)
+        }
+        
+        // AGE Textfield?
+        
+        
+        
+        view.addSubview(emailLabel)
+        emailLabel.snp.makeConstraints { make in
+            make.leading.equalToSuperview().inset(20)
+            make.top.equalTo(lastNameTextField.snp.bottom).offset(60) // привязать к AGE Textfield.bottom
+        }
+        
+        view.addSubview(emailTextField)
+        emailTextField.snp.makeConstraints { make in
+            make.height.equalTo(40)
+            make.leading.equalToSuperview().inset(20)
+            make.top.equalTo(emailLabel.snp.bottom).offset(5)
+            make.horizontalEdges.equalToSuperview().inset(20)
+        }
+        
+        
+        view.addSubview(passwordLabel)
+        passwordLabel.snp.makeConstraints { make in
+            make.leading.equalToSuperview().inset(20)
+            make.top.equalTo(emailTextField.snp.bottom).offset(10) // привязать к AGE Textfield.bottom
+        }
+        
+        view.addSubview(passwordTextField)
+        passwordTextField.snp.makeConstraints { make in
+            make.height.equalTo(40)
+            make.leading.equalToSuperview().inset(20)
+            make.top.equalTo(passwordLabel.snp.bottom).offset(5)
+            make.horizontalEdges.equalToSuperview().inset(20)
+        }
+        
+        
+        view.addSubview(signUpButton)
+        signUpButton.snp.makeConstraints { make in
+//            make.height.equalTo(40)
+//            make.leading.equalToSuperview().inset(20)
+//            make.top.equalTo(passwordLabel.snp.bottom).offset(5)
+//            make.horizontalEdges.equalToSuperview().inset(20)
+            
+            make.top.equalTo(passwordTextField.snp.bottom).offset(20)
+            make.horizontalEdges.equalToSuperview().inset(30)
+            
+        }
+        
         
     }
     
