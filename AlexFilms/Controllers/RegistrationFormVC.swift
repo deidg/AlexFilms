@@ -18,19 +18,34 @@ class RegistrationFormVC: UIViewController {
         return label
     }()
     
-//    private let photoImage: UIImage = {
-//        let image = UIImage()
-//
-//        return image
-//    }()
+    private let photoImage: UIImageView = {
+        let imageView = UIImageView()
+//        imageView.frame = CGRect(x: <#T##Int#>, y: <#T##Int#>, width: <#T##Int#>, height: <#T##Int#>)
+        imageView.backgroundColor = .gray
+        return imageView
+    }()
+    
+    private let selectPhotoButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Choose photo", for: .normal)
+        button.frame = CGRect(x: 0, y: 0, width: 80, height: 30)
+        button.setTitleColor(.black, for: .normal)
+        
+        button.backgroundColor = .cyan
+        button.isEnabled = true
+
+        return button
+    }()
 //
 //    private let userImagePicker: UIImagePickerController
     
     private let firstNameLabel: UILabel = {
         let label = UILabel()
         label.text = "First name"
+        
 //        label.font =
         
+
         return label
     }()
     private let firstNameTextField: UITextField = {
@@ -128,18 +143,39 @@ class RegistrationFormVC: UIViewController {
         
         view.addSubview(headLabel)
         headLabel.snp.makeConstraints { make in
-            make.top.equalTo(view).inset(100)
+            make.top.equalTo(view).inset(80)
             make.centerX.equalToSuperview()
         }
         
-        //        view.addSubview(photoImage)
-        //        photoImage.snp.makeConstraints { <#ConstraintMaker#> in
-        //            <#code#>
-        //        }
-        //        view.addSubview(userImagePicker)
-        //        userImagePicker.snp.makeConstraints { <#ConstraintMaker#> in
-        //            <#code#>
-        //        }
+        view.addSubview(photoImage)
+        photoImage.snp.makeConstraints { make in
+            make.top.equalTo(headLabel.snp.bottom).offset(10)
+            make.centerX.equalToSuperview()
+            make.horizontalEdges.equalToSuperview().inset(150)
+            make.height.equalTo(100)
+
+        }
+        
+        view.addSubview(photoImage)
+        photoImage.snp.makeConstraints { make in
+            make.top.equalTo(headLabel.snp.bottom).offset(10)
+            make.centerX.equalToSuperview()
+            make.horizontalEdges.equalToSuperview().inset(150)
+            make.height.equalTo(100)
+
+        }
+        
+        view.addSubview(selectPhotoButton)
+        selectPhotoButton.snp.makeConstraints { make in
+            make.top.equalTo(photoImage.snp.bottom).offset(10)
+            make.centerX.equalToSuperview().inset(50)
+//            make.horizontalEdges.equalToSuperview().inset(30)
+//            make.height.equalTo(100)
+        }
+//                view.addSubview(userImagePicker)
+//                userImagePicker.snp.makeConstraints { <#ConstraintMaker#> in
+//                    <#code#>
+//                }
         
         view.addSubview(firstNameLabel)
         firstNameLabel.snp.makeConstraints { make in
