@@ -20,32 +20,32 @@ class RegistrationFormVC: UIViewController {
     
     private let photoImage: UIImageView = {
         let imageView = UIImageView()
-//        imageView.frame = CGRect(x: <#T##Int#>, y: <#T##Int#>, width: <#T##Int#>, height: <#T##Int#>)
+        //        imageView.frame = CGRect(x: <#T##Int#>, y: <#T##Int#>, width: <#T##Int#>, height: <#T##Int#>)
         imageView.backgroundColor = .gray
         return imageView
     }()
     
     private let selectPhotoButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Choose photo", for: .normal)
+        button.setTitle("Select photo", for: .normal)  // сделать дефолтный голубой шрифт
         button.frame = CGRect(x: 0, y: 0, width: 80, height: 30)
         button.setTitleColor(.black, for: .normal)
         
         button.backgroundColor = .cyan
         button.isEnabled = true
-
+        
         return button
     }()
-//
-//    private let userImagePicker: UIImagePickerController
+    //
+    //    private let userImagePicker: UIImagePickerController
     
     private let firstNameLabel: UILabel = {
         let label = UILabel()
         label.text = "First name"
         
-//        label.font =
+        //        label.font =
         
-
+        
         return label
     }()
     private let firstNameTextField: UITextField = {
@@ -53,7 +53,7 @@ class RegistrationFormVC: UIViewController {
         
         
         textField.placeholder = "Enter first name"
-//        textField.layer.cornerRadius = 10
+        //        textField.layer.cornerRadius = 10
         textField.backgroundColor = .white
         textField.borderStyle = .roundedRect
         
@@ -76,7 +76,7 @@ class RegistrationFormVC: UIViewController {
     
     private let birthDateLabel: UILabel = {
         let label = UILabel()
-        label.text = "Age"   // ?? -  разве age? а не дата рождения?
+        label.text = "Date of birth"   // ?? -  разве age? а не дата рождения?
         return label
     }()
     
@@ -135,6 +135,8 @@ class RegistrationFormVC: UIViewController {
         
         setupUI()
         
+        addTargets()
+        
         self.view.backgroundColor = .white
         
     }
@@ -153,7 +155,7 @@ class RegistrationFormVC: UIViewController {
             make.centerX.equalToSuperview()
             make.horizontalEdges.equalToSuperview().inset(150)
             make.height.equalTo(100)
-
+            
         }
         
         view.addSubview(photoImage)
@@ -162,20 +164,19 @@ class RegistrationFormVC: UIViewController {
             make.centerX.equalToSuperview()
             make.horizontalEdges.equalToSuperview().inset(150)
             make.height.equalTo(100)
-
+            
         }
         
         view.addSubview(selectPhotoButton)
         selectPhotoButton.snp.makeConstraints { make in
             make.top.equalTo(photoImage.snp.bottom).offset(10)
             make.centerX.equalToSuperview().inset(50)
-//            make.horizontalEdges.equalToSuperview().inset(30)
-//            make.height.equalTo(100)
+            
         }
-//                view.addSubview(userImagePicker)
-//                userImagePicker.snp.makeConstraints { <#ConstraintMaker#> in
-//                    <#code#>
-//                }
+        //                view.addSubview(userImagePicker)
+        //                userImagePicker.snp.makeConstraints { <#ConstraintMaker#> in
+        //                    <#code#>
+        //                }
         
         view.addSubview(firstNameLabel)
         firstNameLabel.snp.makeConstraints { make in
@@ -248,19 +249,43 @@ class RegistrationFormVC: UIViewController {
         
         view.addSubview(signUpButton)
         signUpButton.snp.makeConstraints { make in
-//            make.height.equalTo(40)
-//            make.leading.equalToSuperview().inset(20)
-//            make.top.equalTo(passwordLabel.snp.bottom).offset(5)
-//            make.horizontalEdges.equalToSuperview().inset(20)
+            //            make.height.equalTo(40)
+            //            make.leading.equalToSuperview().inset(20)
+            //            make.top.equalTo(passwordLabel.snp.bottom).offset(5)
+            //            make.horizontalEdges.equalToSuperview().inset(20)
             
             make.top.equalTo(passwordTextField.snp.bottom).offset(20)
             make.horizontalEdges.equalToSuperview().inset(30)
             
         }
         
+    }
+    
+    func addTargets() {
+        selectPhotoButton.addTarget(self, action: #selector(showImagePickerController), for: .touchUpInside)
         
     }
     
     
+    
+    @objc func selectPhotoButtonTapped() {
+        
+        print("selectPhotoButton Tapped")
+        showImagePickerController()
+    }
+    
+    
+}
+
+extension RegistrationFormVC: UIImagePickerControllerDelegate {
+    @objc func showImagePickerController() {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        present(imagePickerController, animated: true)
+    }
+}
+
+
+extension RegistrationFormVC: UINavigationControllerDelegate {
     
 }
