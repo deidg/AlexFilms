@@ -268,11 +268,11 @@ class RegistrationFormVC: UIViewController {
     
     
     
-    @objc func selectPhotoButtonTapped() {
-        
-        print("selectPhotoButton Tapped")
-        showImagePickerController()
-    }
+//    @objc func selectPhotoButtonTapped() {
+//
+//        print("selectPhotoButton Tapped")
+//        showImagePickerController()
+//    }
     
     
 }
@@ -281,8 +281,19 @@ extension RegistrationFormVC: UIImagePickerControllerDelegate {
     @objc func showImagePickerController() {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
+        imagePickerController.allowsEditing = true
         present(imagePickerController, animated: true)
     }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            photoImage.image = editedImage
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
 }
 
 
