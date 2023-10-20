@@ -28,11 +28,9 @@ class TabBarController: UITabBarController {
     private func generateTabs() {
         viewControllers = [
         generateVC(viewController: TabBarControllerMain(), title: "Main", image: UIImage(systemName: "house.fill")),
-        generateVC(viewController: TabBarControllerFavourites(), title: "Favourites",image: UIImage(systemName: "house.fill")),
-        generateVC(viewController: TabBarControllerProfile(), title: "Profile", image: UIImage(systemName: "house.fill"))
+        generateVC(viewController: TabBarControllerFavourites(), title: "Favourites",image: UIImage(systemName: "star.fill")),
+        generateVC(viewController: TabBarControllerProfile(), title: "Profile", image: UIImage(systemName: "person.crop.circle"))
         ]
-        
-//        self.setViewControllers([tabBarControllerMainVC, tabBarControllerFavouritesVC, tabBarControllerProfileVC], animated: true)
     }
 
     
