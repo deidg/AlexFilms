@@ -14,6 +14,10 @@ import SnapKit
 final class MainViewController: UIViewController {
     
     let customTabBarController = TabBarController()
+    
+   
+    
+    
     let registrationFormViewController = RegistrationFormVC()
     
     private let mainLabelAuthPage: UILabel = {

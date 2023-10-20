@@ -12,6 +12,9 @@
 		FA591C432ACC3BE0000644C7 /* Ubuntu-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA591C422ACC3BE0000644C7 /* Ubuntu-Regular.ttf */; };
 		FA9A5B382ACD419A00AA60B6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9A5B372ACD419A00AA60B6 /* TabBarController.swift */; };
 		FA9A5B3A2ACD772500AA60B6 /* RegistrationFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9A5B392ACD772500AA60B6 /* RegistrationFormVC.swift */; };
+		FAA0197D2AE27C11004F347B /* TabBarControllerMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA0197C2AE27C11004F347B /* TabBarControllerMain.swift */; };
+		FAA0197F2AE27C4D004F347B /* TabBarControllerFavourites.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA0197E2AE27C4C004F347B /* TabBarControllerFavourites.swift */; };
+		FAA019812AE27C83004F347B /* TabBarControllerProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA019802AE27C83004F347B /* TabBarControllerProfile.swift */; };
 		FAA84DA42ACA970A00CB1C47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA84DA32ACA970A00CB1C47 /* AppDelegate.swift */; };
 		FAA84DA62ACA970A00CB1C47 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA84DA52ACA970A00CB1C47 /* SceneDelegate.swift */; };
 		FAA84DAE2ACA970A00CB1C47 /* AlexFilms.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAA84DAC2ACA970A00CB1C47 /* AlexFilms.xcdatamodeld */; };
@@ -47,6 +50,9 @@
 		FA591C422ACC3BE0000644C7 /* Ubuntu-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Regular.ttf"; sourceTree = "<group>"; };
 		FA9A5B372ACD419A00AA60B6 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		FA9A5B392ACD772500AA60B6 /* RegistrationFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationFormVC.swift; sourceTree = "<group>"; };
+		FAA0197C2AE27C11004F347B /* TabBarControllerMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerMain.swift; sourceTree = "<group>"; };
+		FAA0197E2AE27C4C004F347B /* TabBarControllerFavourites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerFavourites.swift; sourceTree = "<group>"; };
+		FAA019802AE27C83004F347B /* TabBarControllerProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerProfile.swift; sourceTree = "<group>"; };
 		FAA84DA02ACA970A00CB1C47 /* AlexFilms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlexFilms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA84DA32ACA970A00CB1C47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAA84DA52ACA970A00CB1C47 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -124,6 +130,9 @@
 				FA591C332ACC2ABF000644C7 /* MainViewController.swift */,
 				FA9A5B392ACD772500AA60B6 /* RegistrationFormVC.swift */,
 				FA9A5B372ACD419A00AA60B6 /* TabBarController.swift */,
+				FAA0197C2AE27C11004F347B /* TabBarControllerMain.swift */,
+				FAA0197E2AE27C4C004F347B /* TabBarControllerFavourites.swift */,
+				FAA019802AE27C83004F347B /* TabBarControllerProfile.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -392,8 +401,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA591C342ACC2ABF000644C7 /* MainViewController.swift in Sources */,
+				FAA0197F2AE27C4D004F347B /* TabBarControllerFavourites.swift in Sources */,
+				FAA019812AE27C83004F347B /* TabBarControllerProfile.swift in Sources */,
 				FAA84DA42ACA970A00CB1C47 /* AppDelegate.swift in Sources */,
 				FAA84DA62ACA970A00CB1C47 /* SceneDelegate.swift in Sources */,
+				FAA0197D2AE27C11004F347B /* TabBarControllerMain.swift in Sources */,
 				FA9A5B382ACD419A00AA60B6 /* TabBarController.swift in Sources */,
 				FAA84DAE2ACA970A00CB1C47 /* AlexFilms.xcdatamodeld in Sources */,
 				FA9A5B3A2ACD772500AA60B6 /* RegistrationFormVC.swift in Sources */,
