@@ -4,8 +4,8 @@
 //
 //  Created by Alex on 20.10.2023.
 //
-// setup searchTextField constraint to searchIcon
-
+// TODO: setup searchTextField constraint to searchIcon
+// настройка запроса тут https://youtu.be/VGjH6gUcDJc?si=-SaYEwhjDHyzLo0i
 
 import UIKit
 
@@ -48,6 +48,10 @@ class TabBarControllerMain: UIViewController {
         setupUI()
         
         view.backgroundColor = .white
+        
+//        filmsTableView.delegate = self
+        filmsTableView.dataSource = self
+        filmsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
     private func setupUI() {
@@ -88,4 +92,24 @@ class TabBarControllerMain: UIViewController {
         }
     }
 
+}
+
+//extension TabBarControllerMain: UITableViewDelegate {
+//
+//    func filmsTableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        print("hello from cell")
+//    }
+//}
+
+extension TabBarControllerMain: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 15
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else { return UITableViewCell() }
+        cell.textLabel?.text = "poherr"
+        return cell
+    }
 }
