@@ -22,7 +22,6 @@ class TabBarControllerFavourites: UIViewController {
         return tableView
     }()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
