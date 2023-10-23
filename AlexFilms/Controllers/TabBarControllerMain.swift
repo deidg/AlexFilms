@@ -9,6 +9,8 @@
 
 import UIKit
 
+let filmPageVC = FilmPageVC()
+
 class TabBarControllerMain: UIViewController {
 
     private let headLabel: UILabel = {
@@ -94,12 +96,15 @@ class TabBarControllerMain: UIViewController {
 
 }
 
-//extension TabBarControllerMain: UITableViewDelegate {
-//
-//    func filmsTableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print("hello from cell")
-//    }
-//}
+extension TabBarControllerMain: UITableViewDelegate {
+
+    func filmsTableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        print("hello from cell")
+        
+        // место где я планирую открывать FilmPageVC
+    }
+}
 
 extension TabBarControllerMain: UITableViewDataSource {
     

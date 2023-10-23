@@ -15,6 +15,7 @@
 		FAA0197D2AE27C11004F347B /* TabBarControllerMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA0197C2AE27C11004F347B /* TabBarControllerMain.swift */; };
 		FAA0197F2AE27C4D004F347B /* TabBarControllerFavourites.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA0197E2AE27C4C004F347B /* TabBarControllerFavourites.swift */; };
 		FAA019812AE27C83004F347B /* TabBarControllerProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA019802AE27C83004F347B /* TabBarControllerProfile.swift */; };
+		FAA019832AE5849D004F347B /* FilmPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA019822AE5849D004F347B /* FilmPageVC.swift */; };
 		FAA84DA42ACA970A00CB1C47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA84DA32ACA970A00CB1C47 /* AppDelegate.swift */; };
 		FAA84DA62ACA970A00CB1C47 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA84DA52ACA970A00CB1C47 /* SceneDelegate.swift */; };
 		FAA84DAE2ACA970A00CB1C47 /* AlexFilms.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAA84DAC2ACA970A00CB1C47 /* AlexFilms.xcdatamodeld */; };
@@ -53,6 +54,7 @@
 		FAA0197C2AE27C11004F347B /* TabBarControllerMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerMain.swift; sourceTree = "<group>"; };
 		FAA0197E2AE27C4C004F347B /* TabBarControllerFavourites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerFavourites.swift; sourceTree = "<group>"; };
 		FAA019802AE27C83004F347B /* TabBarControllerProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerProfile.swift; sourceTree = "<group>"; };
+		FAA019822AE5849D004F347B /* FilmPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmPageVC.swift; sourceTree = "<group>"; };
 		FAA84DA02ACA970A00CB1C47 /* AlexFilms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlexFilms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA84DA32ACA970A00CB1C47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAA84DA52ACA970A00CB1C47 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				FAA0197C2AE27C11004F347B /* TabBarControllerMain.swift */,
 				FAA0197E2AE27C4C004F347B /* TabBarControllerFavourites.swift */,
 				FAA019802AE27C83004F347B /* TabBarControllerProfile.swift */,
+				FAA019822AE5849D004F347B /* FilmPageVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				FA591C342ACC2ABF000644C7 /* MainViewController.swift in Sources */,
 				FAA0197F2AE27C4D004F347B /* TabBarControllerFavourites.swift in Sources */,
 				FAA019812AE27C83004F347B /* TabBarControllerProfile.swift in Sources */,
+				FAA019832AE5849D004F347B /* FilmPageVC.swift in Sources */,
 				FAA84DA42ACA970A00CB1C47 /* AppDelegate.swift in Sources */,
 				FAA84DA62ACA970A00CB1C47 /* SceneDelegate.swift in Sources */,
 				FAA0197D2AE27C11004F347B /* TabBarControllerMain.swift in Sources */,

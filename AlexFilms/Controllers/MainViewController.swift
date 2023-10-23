@@ -20,6 +20,8 @@ final class MainViewController: UIViewController {
     
     let registrationFormViewController = RegistrationFormVC()
     
+    let filmPageViewController = FilmPageVC()
+    
     private let mainLabelAuthPage: UILabel = {
         let label = UILabel()
         label.text = "Sign In"
@@ -125,7 +127,9 @@ final class MainViewController: UIViewController {
     
     @objc func openRegistrationFormVC() {
         registrationFormViewController.modalPresentationStyle = .fullScreen
-        present(registrationFormViewController, animated: true, completion: nil)
+//        present(registrationFormViewController, animated: true, completion: nil)
+        present(filmPageViewController, animated: true, completion: nil)
+
         
         print("her")
     }
