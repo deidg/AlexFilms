@@ -24,6 +24,7 @@
 		FAA84DBE2ACA970E00CB1C47 /* AlexFilmsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA84DBD2ACA970E00CB1C47 /* AlexFilmsTests.swift */; };
 		FAA84DC82ACA970E00CB1C47 /* AlexFilmsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA84DC72ACA970E00CB1C47 /* AlexFilmsUITests.swift */; };
 		FAA84DCA2ACA970E00CB1C47 /* AlexFilmsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA84DC92ACA970E00CB1C47 /* AlexFilmsUITestsLaunchTests.swift */; };
+		FAAFF9692AE6ABD600EA2180 /* FilmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAFF9682AE6ABD600EA2180 /* FilmCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		FAA84DC32ACA970E00CB1C47 /* AlexFilmsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlexFilmsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA84DC72ACA970E00CB1C47 /* AlexFilmsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlexFilmsUITests.swift; sourceTree = "<group>"; };
 		FAA84DC92ACA970E00CB1C47 /* AlexFilmsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlexFilmsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FAAFF9682AE6ABD600EA2180 /* FilmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 			children = (
 				FA591C332ACC2ABF000644C7 /* MainViewController.swift */,
 				FA9A5B392ACD772500AA60B6 /* RegistrationFormVC.swift */,
+				FAAFF9682AE6ABD600EA2180 /* FilmCell.swift */,
 				FA9A5B372ACD419A00AA60B6 /* TabBarController.swift */,
 				FAA0197C2AE27C11004F347B /* TabBarControllerMain.swift */,
 				FAA0197E2AE27C4C004F347B /* TabBarControllerFavourites.swift */,
@@ -413,6 +416,7 @@
 				FA9A5B382ACD419A00AA60B6 /* TabBarController.swift in Sources */,
 				FAA84DAE2ACA970A00CB1C47 /* AlexFilms.xcdatamodeld in Sources */,
 				FA9A5B3A2ACD772500AA60B6 /* RegistrationFormVC.swift in Sources */,
+				FAAFF9692AE6ABD600EA2180 /* FilmCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

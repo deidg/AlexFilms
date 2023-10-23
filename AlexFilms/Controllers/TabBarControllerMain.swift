@@ -45,6 +45,8 @@ class TabBarControllerMain: UIViewController {
     }()
     
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -53,7 +55,10 @@ class TabBarControllerMain: UIViewController {
         
 //        filmsTableView.delegate = self
         filmsTableView.dataSource = self
-        filmsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+//        filmsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        filmsTableView.register(FilmCell.self, forCellReuseIdentifier: "filmCell")
+        self.filmsTableView.rowHeight = 100
+
     }
     
     private func setupUI() {
@@ -109,12 +114,16 @@ extension TabBarControllerMain: UITableViewDelegate {
 extension TabBarControllerMain: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 15
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else { return UITableViewCell() }
-        cell.textLabel?.text = "film name"
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "filmCell") else { return UITableViewCell() }
+//        cell.textLabel?.text = "film name"
         return cell
     }
+    
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 100
+//    }
 }

@@ -9,6 +9,7 @@ import UIKit
 
 class TabBarControllerFavourites: UIViewController {
     
+    
     private let headLabel: UILabel = {
         let label = UILabel()
         label.text = "Favourites"
@@ -30,7 +31,8 @@ class TabBarControllerFavourites: UIViewController {
         
         //        filmsTableView.delegate = self
         filmsTableView.dataSource = self
-        filmsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        filmsTableView.register(FilmCell.self, forCellReuseIdentifier: "filmCell")
+        self.filmsTableView.rowHeight = 100
     }
     
     private func setupUI() {
@@ -61,12 +63,12 @@ class TabBarControllerFavourites: UIViewController {
 extension TabBarControllerFavourites: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 15
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else { return UITableViewCell() }
-        cell.textLabel?.text = "favorite film"
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "filmCell") else { return UITableViewCell() }
+//        cell.textLabel?.text = "favorite film"
         return cell
     }
 }
