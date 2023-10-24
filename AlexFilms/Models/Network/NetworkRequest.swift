@@ -21,17 +21,19 @@ class NetworkRequest {
             let task = URLSession.shared.dataTask(with: url) { data, response, error in
                 if let data = data, let appleResponse = try? JSONDecoder().decode(AppleResponseModel.self, from: data) {
                     DispatchQueue.main.async {
-                        let completionData = CompletionData(
-                            trackName: appleResponse.results.trackName,
-                            releaseDate: appleResponse.result.releaseDate,
-                            primaryGenreName: appleResponse.result.primaryGenreName,
-                            longDescription: appleResponse.result.longDescription,
-                            artworkUrl30: appleResponse.result.artworkUrl30
-//                            artworkUrl60:
-//                            artworkUrl100:
-                            
+                        for result in appleResponse.results {
+                            let completionData = CompletionData(
+                                trackName: result.trackName,
+                                releaseDate: result.releaseDate,
+                                primaryGenreName: result.primaryGenreName,
+                                longDescription: result.longDescription,
+                                artworkUrl30: result.artworkUrl30
+                                //                            artworkUrl60:
+                                //                            artworkUrl100:
+                                
                             )
-                        completion?(completionData)
+                            completion?(completionData)
+                        }
                     }
                 }
             }

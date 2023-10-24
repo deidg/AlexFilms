@@ -9,8 +9,8 @@ import Foundation
 
 struct CompletionData {
     let trackName: String
-    let releaseDate: String
-    let primaryGenreName: String
+    let releaseDate: Date
+    let primaryGenreName: PrimaryGenreName
     let longDescription: String
     let artworkUrl30: String
 //    let artworkUrl60: String
