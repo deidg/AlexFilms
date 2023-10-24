@@ -10,6 +10,9 @@
 		DB35EA53E4FFB38B27AA14DE /* Pods_AlexFilms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6D715513FF16D63AA0E613 /* Pods_AlexFilms.framework */; };
 		FA591C342ACC2ABF000644C7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA591C332ACC2ABF000644C7 /* MainViewController.swift */; };
 		FA591C432ACC3BE0000644C7 /* Ubuntu-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA591C422ACC3BE0000644C7 /* Ubuntu-Regular.ttf */; };
+		FA991E0F2AE7C0CA00B9E829 /* CompletionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA991E0E2AE7C0CA00B9E829 /* CompletionData.swift */; };
+		FA991E122AE7D43500B9E829 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA991E112AE7D43500B9E829 /* NetworkRequest.swift */; };
+		FA991E142AE7FDF800B9E829 /* AppleResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA991E132AE7FDF800B9E829 /* AppleResponseModel.swift */; };
 		FA9A5B382ACD419A00AA60B6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9A5B372ACD419A00AA60B6 /* TabBarController.swift */; };
 		FA9A5B3A2ACD772500AA60B6 /* RegistrationFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9A5B392ACD772500AA60B6 /* RegistrationFormVC.swift */; };
 		FAA0197D2AE27C11004F347B /* TabBarControllerMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA0197C2AE27C11004F347B /* TabBarControllerMain.swift */; };
@@ -50,6 +53,9 @@
 		AE6D715513FF16D63AA0E613 /* Pods_AlexFilms.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AlexFilms.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA591C332ACC2ABF000644C7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		FA591C422ACC3BE0000644C7 /* Ubuntu-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Regular.ttf"; sourceTree = "<group>"; };
+		FA991E0E2AE7C0CA00B9E829 /* CompletionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionData.swift; sourceTree = "<group>"; };
+		FA991E112AE7D43500B9E829 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
+		FA991E132AE7FDF800B9E829 /* AppleResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleResponseModel.swift; sourceTree = "<group>"; };
 		FA9A5B372ACD419A00AA60B6 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		FA9A5B392ACD772500AA60B6 /* RegistrationFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationFormVC.swift; sourceTree = "<group>"; };
 		FAA0197C2AE27C11004F347B /* TabBarControllerMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerMain.swift; sourceTree = "<group>"; };
@@ -117,6 +123,9 @@
 		FA591C352ACC330D000644C7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FA991E0E2AE7C0CA00B9E829 /* CompletionData.swift */,
+				FA991E132AE7FDF800B9E829 /* AppleResponseModel.swift */,
+				FA991E102AE7D40B00B9E829 /* Network */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -178,6 +187,14 @@
 				FA591C422ACC3BE0000644C7 /* Ubuntu-Regular.ttf */,
 			);
 			path = fonts;
+			sourceTree = "<group>";
+		};
+		FA991E102AE7D40B00B9E829 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				FA991E112AE7D43500B9E829 /* NetworkRequest.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		FAA84D972ACA970A00CB1C47 = {
@@ -406,13 +423,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA991E122AE7D43500B9E829 /* NetworkRequest.swift in Sources */,
 				FA591C342ACC2ABF000644C7 /* MainViewController.swift in Sources */,
 				FAA0197F2AE27C4D004F347B /* TabBarControllerFavourites.swift in Sources */,
+				FA991E142AE7FDF800B9E829 /* AppleResponseModel.swift in Sources */,
 				FAA019812AE27C83004F347B /* TabBarControllerProfile.swift in Sources */,
 				FAA019832AE5849D004F347B /* FilmPageVC.swift in Sources */,
 				FAA84DA42ACA970A00CB1C47 /* AppDelegate.swift in Sources */,
 				FAA84DA62ACA970A00CB1C47 /* SceneDelegate.swift in Sources */,
 				FAA0197D2AE27C11004F347B /* TabBarControllerMain.swift in Sources */,
+				FA991E0F2AE7C0CA00B9E829 /* CompletionData.swift in Sources */,
 				FA9A5B382ACD419A00AA60B6 /* TabBarController.swift in Sources */,
 				FAA84DAE2ACA970A00CB1C47 /* AlexFilms.xcdatamodeld in Sources */,
 				FA9A5B3A2ACD772500AA60B6 /* RegistrationFormVC.swift in Sources */,

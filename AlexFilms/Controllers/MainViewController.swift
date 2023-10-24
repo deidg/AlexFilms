@@ -15,9 +15,6 @@ final class MainViewController: UIViewController {
     
     let customTabBarController = TabBarController()
     
-   
-    
-    
     let registrationFormViewController = RegistrationFormVC()
     
     let filmPageViewController = FilmPageVC()
