@@ -19,6 +19,8 @@ final class MainViewController: UIViewController {
     
     let filmPageViewController = FilmPageVC()
     
+    let filmData[CompletionData] = []
+    
     private let mainLabelAuthPage: UILabel = {
         let label = UILabel()
         label.text = "Sign In"
@@ -120,6 +122,16 @@ final class MainViewController: UIViewController {
     @objc func openTabBarController() {
         customTabBarController.modalPresentationStyle = .fullScreen
         present(customTabBarController, animated: true, completion: nil)
+        
+        
+//        NetworkRequest.shared.fetchMovieData(inputText: "Rocky") { [weak self] completionData in
+//            
+//            self?.filmsData.append(completionData)
+//            self?.filmsTableView.reloadData()
+//            
+//            print("testTEXTT124")
+//            print(completionData)
+        }//)
     }
     
     @objc func openRegistrationFormVC() {
@@ -131,4 +143,6 @@ final class MainViewController: UIViewController {
         print("her")
     }
 }
+
+
 

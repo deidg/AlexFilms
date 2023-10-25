@@ -120,6 +120,17 @@ class FilmCell: UITableViewCell {
             make.bottom.equalToSuperview().inset(5)
         }
         
+        func configure(with data: CompletionData) {
+            filmNameLabel.text = data.trackName
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy"
+            yearOfTheFilmLabel.text = dateFormatter.string(from: data.releaseDate)
+            genreOfTheFilmLabel.text = data.primaryGenreName
+        }
+        
+        
+        
         
     }
     
