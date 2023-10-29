@@ -9,8 +9,8 @@ import Foundation
 
 struct FilmCellData {
     let trackName: String
-    let releaseDate: Date //??? в стринг надо переделать
-    let primaryGenreName: PrimaryGenreName
+//    let releaseDate: Date  // Date //??? в стринг надо переделать
+    let primaryGenreName: String
     let longDescription: String
     let artworkUrl30: String
 }

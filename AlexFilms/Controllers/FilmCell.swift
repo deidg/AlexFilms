@@ -135,9 +135,9 @@ class FilmCell: UITableViewCell {
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy"
-        yearOfTheFilmLabel.text = dateFormatter.string(from: data.releaseDate)
+//        yearOfTheFilmLabel.text = dateFormatter.string(from: data.releaseDate)
         
-        genreOfTheFilmLabel.text = data.primaryGenreName.rawValue
+//        genreOfTheFilmLabel.text = data.primaryGenreName.rawValue
         
         
         

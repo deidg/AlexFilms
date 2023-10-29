@@ -12,7 +12,6 @@
 
 
 
-
 import UIKit
 
 //let filmPageVC = FilmPageVC()
@@ -23,7 +22,7 @@ class TabBarControllerMain: UIViewController, UITextFieldDelegate {
 //    let shared = NetworkRequest()
     let filmCell = FilmCell()
 
-    var filmCellData: FilmCellData = FilmCellData(trackName: "", releaseDate: Date(), primaryGenreName: .comedy, longDescription: "", artworkUrl30: "") //{
+//    var filmCellData: FilmCellData = FilmCellData(trackName: "", releaseDate: Date(), primaryGenreName: .comedy, longDescription: "", artworkUrl30: "") //{
 //        didSet {
 //            filmCell.text = filmCellData?.trackName
 //            filmCell.filmNameLabel.text = filmCellData.trackName
@@ -127,35 +126,18 @@ class TabBarControllerMain: UIViewController, UITextFieldDelegate {
     private func fetchData(searchTerm: String) {
         guard let searchTerm = searchTextField.text else { return }  //!!! поменять название переменно
         
-        print(searchTerm)
-        print("her115")
-
-//        var cellData: CompletionData?
         
+        NetworkRequest.fetchMovieData(searchTerm)
         
+//        NetworkRequest.fetchMovieData(<#T##self: NetworkRequest##NetworkRequest#>)
         
-//        NetworkRequest.shared.fetchMovieData(inputText: searchTerm) { [weak self]  appleResponse in
-//            print("Data fetched 135")
+//        print(searchTerm)
+//        print("her115")
 //
-//            let results = appleResponse?.results
-//
-//            if let firstResult = results?.first {
-////                cellData = CompletionData(
-////                    trackName: firstResult.trackName,
-////                    releaseDate: firstResult.releaseDate,
-////                    primaryGenreName: firstResult.primaryGenreName,
-////                    longDescription: firstResult.longDescription,
-////                    artworkUrl30: firstResult.artworkUrl30
-////                )
+//            DispatchQueue.main.async {
+//                self.filmsTableView.reloadData()
 //            }
-//
-//
-//            self?.filmCell.configure(with: cellData)
-            
-            DispatchQueue.main.async {
-                self.filmsTableView.reloadData()
-            }
-        }
+//        }
     }
     
     func updateFilmCell(data: CompletionData) {
@@ -172,14 +154,13 @@ class TabBarControllerMain: UIViewController, UITextFieldDelegate {
           return true
       }
     
-//}
+}
 
 extension TabBarControllerMain: UITableViewDelegate {
 
     func filmsTableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         print("hello from cell")
-        
         // место где я планирую открывать FilmPageVC
     }
 }

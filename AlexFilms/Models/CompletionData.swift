@@ -7,10 +7,12 @@
 
 import Foundation
 
+
+// то на что надо разложить полученный результат
 struct CompletionData {
     let trackName: String
-    let releaseDate: Date
-    let primaryGenreName: PrimaryGenreName
+//    let releaseDate: String
+    let primaryGenreName: String
     let longDescription: String
     let artworkUrl30: String
 //    let artworkUrl60: String
