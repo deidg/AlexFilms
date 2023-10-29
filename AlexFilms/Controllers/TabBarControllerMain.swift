@@ -7,12 +7,35 @@
 // TODO: setup searchTextField constraint to searchIcon
 // настройка запроса тут https://youtu.be/VGjH6gUcDJc?si=-SaYEwhjDHyzLo0i
 
+// TODO: searchTerm = searchTextField.text else { return }  //!!! поменять название переменно
+
+
+
+
+
 import UIKit
 
-let filmPageVC = FilmPageVC()
+//let filmPageVC = FilmPageVC()
 
-class TabBarControllerMain: UIViewController {
+class TabBarControllerMain: UIViewController, UITextFieldDelegate {
 
+    let filmPageVC = FilmPageVC()
+//    let shared = NetworkRequest()
+    let filmCell = FilmCell()
+
+    var filmCellData: FilmCellData = FilmCellData(trackName: "", releaseDate: Date(), primaryGenreName: .comedy, longDescription: "", artworkUrl30: "") //{
+//        didSet {
+//            filmCell.text = filmCellData?.trackName
+//            filmCell.filmNameLabel.text = filmCellData.trackName
+//            filmCell.yearOfTheFilmLabel.text = filmCellData.releaseDate
+//            filmCell.genreOfTheFilmLabel.text = filmCellData.primaryGenreName
+////
+////            filmCell.yearOfTheFilmLabel.text = filmCellData  artworkUrl30: String
+//        }
+        
+        
+    //}
+    
     private let headLabel: UILabel = {
         let label = UILabel()
         label.text = "Movies"
@@ -58,6 +81,8 @@ class TabBarControllerMain: UIViewController {
 //        filmsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         filmsTableView.register(FilmCell.self, forCellReuseIdentifier: "filmCell")
         self.filmsTableView.rowHeight = 100
+        
+        searchTextField.delegate = self
 
     }
     
@@ -98,8 +123,56 @@ class TabBarControllerMain: UIViewController {
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
     }
+    
+    private func fetchData(searchTerm: String) {
+        guard let searchTerm = searchTextField.text else { return }  //!!! поменять название переменно
+        
+        print(searchTerm)
+        print("her115")
 
-}
+//        var cellData: CompletionData?
+        
+        
+        
+//        NetworkRequest.shared.fetchMovieData(inputText: searchTerm) { [weak self]  appleResponse in
+//            print("Data fetched 135")
+//
+//            let results = appleResponse?.results
+//
+//            if let firstResult = results?.first {
+////                cellData = CompletionData(
+////                    trackName: firstResult.trackName,
+////                    releaseDate: firstResult.releaseDate,
+////                    primaryGenreName: firstResult.primaryGenreName,
+////                    longDescription: firstResult.longDescription,
+////                    artworkUrl30: firstResult.artworkUrl30
+////                )
+//            }
+//
+//
+//            self?.filmCell.configure(with: cellData)
+            
+            DispatchQueue.main.async {
+                self.filmsTableView.reloadData()
+            }
+        }
+    }
+    
+    func updateFilmCell(data: CompletionData) {
+        
+        
+        
+    }
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        var inputText = textField.text ?? ""
+//        fetchData(searchTerm: inputText)
+          return true
+      }
+    
+//}
 
 extension TabBarControllerMain: UITableViewDelegate {
 
@@ -125,5 +198,27 @@ extension TabBarControllerMain: UITableViewDataSource {
     
 //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 //        return 100
+//    }
+}
+
+extension TabBarController: UITextFieldDelegate {
+    
+//    // в делегате
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        textField.resignFirstResponder()
+//        fetchData()
+//        return true
+//    }
+//
+//    private func fetchData() {
+//        guard let searchTerm = searchTextField.text else { return }  //!!! поменять название переменно
+//        NetworkRequest.shared.fetchMovieData(inputText: searchTerm) { [weak self]  completionData in
+//
+//            print(completionData)
+//
+//            DispatchQueue.main.async {
+//                self?.filmsTableView.reloadData()
+//            }
+//        }
 //    }
 }

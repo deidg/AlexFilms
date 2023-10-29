@@ -19,7 +19,7 @@ final class MainViewController: UIViewController {
     
     let filmPageViewController = FilmPageVC()
     
-    let filmData[CompletionData] = []
+//    let filmData[CompletionData] = []
     
     private let mainLabelAuthPage: UILabel = {
         let label = UILabel()
@@ -132,14 +132,15 @@ final class MainViewController: UIViewController {
 //            print("testTEXTT124")
 //            print(completionData)
         }//)
-    }
+//    }
     
     @objc func openRegistrationFormVC() {
+//    func openRegistrationFormVC() {
         registrationFormViewController.modalPresentationStyle = .fullScreen
 //        present(registrationFormViewController, animated: true, completion: nil)
         present(filmPageViewController, animated: true, completion: nil)
 
-        
+
         print("her")
     }
 }
