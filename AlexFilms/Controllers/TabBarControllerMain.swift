@@ -127,7 +127,7 @@ class TabBarControllerMain: UIViewController, UITextFieldDelegate {
         guard let searchTerm = searchTextField.text else { return }  //!!! поменять название переменно
         
         
-        NetworkRequest.fetchMovieData(searchTerm)
+//        NetworkRequest.fetchMovieData(searchTerm)
         
 //        NetworkRequest.fetchMovieData(<#T##self: NetworkRequest##NetworkRequest#>)
         
@@ -141,8 +141,8 @@ class TabBarControllerMain: UIViewController, UITextFieldDelegate {
     }
     
     func updateFilmCell(data: CompletionData) {
-        
-        
+        let cell = FilmCellData(trackName: data.trackName, primaryGenreName: data.primaryGenreName, longDescription: data.longDescription, artworkUrl30: data.artworkUrl30)
+    
         
     }
     
@@ -153,6 +153,13 @@ class TabBarControllerMain: UIViewController, UITextFieldDelegate {
 //        fetchData(searchTerm: inputText)
           return true
       }
+    
+    
+    private func updateCellLabel(data: CompletionData) {
+        
+        
+        
+    }
     
 }
 
@@ -174,32 +181,19 @@ extension TabBarControllerMain: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "filmCell") else { return UITableViewCell() }
 //        cell.textLabel?.text = "film name"
+        filmCell.genreOfTheFilmLabel =
+        
+        
         return cell
     }
     
 //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 //        return 100
 //    }
+    
+    
 }
 
 extension TabBarController: UITextFieldDelegate {
     
-//    // в делегате
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        textField.resignFirstResponder()
-//        fetchData()
-//        return true
-//    }
-//
-//    private func fetchData() {
-//        guard let searchTerm = searchTextField.text else { return }  //!!! поменять название переменно
-//        NetworkRequest.shared.fetchMovieData(inputText: searchTerm) { [weak self]  completionData in
-//
-//            print(completionData)
-//
-//            DispatchQueue.main.async {
-//                self?.filmsTableView.reloadData()
-//            }
-//        }
-//    }
 }
