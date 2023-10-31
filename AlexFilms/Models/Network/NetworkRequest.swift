@@ -1,4 +1,60 @@
+
+
 //
+//  NetworkRequest.swift
+//  AlexFilms
+//
+//  Created by Alex on 24.10.2023.
+//
+
+import Foundation
+
+class NetworkRequest {
+    
+    //    var cellData: CompletionData?
+    
+    private let queue = DispatchQueue(label: "TabBarControllerMain_working_queue", qos: .userInitiated)
+    
+    static var shared = NetworkRequest()
+    
+    //    var startDate : Date = Date()
+    //    let dateFormatter = DateFormatter(coder: "yyyy")
+    //    dateFormatter.dateFormat = "yyyy"
+    
+    private init() {}
+    
+    func fetchMovieData(inputText: String,
+                        completion: (([Result]) -> Void)?) {
+        
+        guard let url = URL(string: "https://itunes.apple.com/search?term=\(inputText)&entity=movie&limit=10")
+        else { return }
+        
+        queue.async {
+            let task = URLSession.shared.dataTask(with: url) { data, response, error in
+                if let data = data, let films = try? JSONDecoder().decode(AppleResponseModel.self, from: data) {
+                    DispatchQueue.main.async {
+                        completion?(films.results)
+                    }
+                }
+            }
+            task.resume()
+        }
+    }
+}
+        
+        
+        
+
+
+
+
+
+
+
+/*
+ 
+ 
+ //
 //  NetworkRequest.swift
 //  AlexFilms
 //
@@ -65,6 +121,6 @@ class NetworkRequest {
         
 
 
-
+*/
 
 
