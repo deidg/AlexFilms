@@ -8,8 +8,10 @@
 // TODO: setup searchTextField constraint to searchIcon
 // настройка запроса тут https://youtu.be/VGjH6gUcDJc?si=-SaYEwhjDHyzLo0i
 
-// TODO: searchTerm = searchTextField.text else { return }  //!!! поменять название переменно
 
+//TODO: обновлять запрос побуквенно через search bar - https://www.youtube.com/live/7H287JaSERk?si=_T0y5YIMJ9Ut3yAk&t=1900
+
+// TODO: searchTerm = searchTextField.text else { return }  //!!! поменять название переменно
 
 
 
@@ -20,6 +22,8 @@ import UIKit
 class TabBarControllerMain: UIViewController, UITextFieldDelegate {
     var items = [Result]()
     let filmPageVC = FilmPageVC()
+    
+    let searchController = UISearchController(searchResultsController: nil)
     
     private let headLabel: UILabel = {
         let label = UILabel()
@@ -52,7 +56,7 @@ class TabBarControllerMain: UIViewController, UITextFieldDelegate {
         return tableView
     }()
     
-    private let searchController = UISearchController()
+//    let searchController = UISearchController()
     
     
     override func viewDidLoad() {
@@ -72,6 +76,8 @@ class TabBarControllerMain: UIViewController, UITextFieldDelegate {
         self.filmsTableView.rowHeight = 100
         
         searchTextField.delegate = self
+        
+        setupSearchBar()
 
     }
     
@@ -112,6 +118,10 @@ class TabBarControllerMain: UIViewController, UITextFieldDelegate {
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
     }
+    
+//    private func setupSearchBar() {
+//        navigationItem.searchController = searchController
+//    }
     
     private func fetchData(searchTerm: String) {
         guard let searchTerm = searchTextField.text else { return }  //!!! поменять название переменно
@@ -406,3 +416,6 @@ extension TabBarController: UITextFieldDelegate {
 
 
 */
+
+
+
