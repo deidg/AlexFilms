@@ -11,7 +11,7 @@ import Foundation
 
 class NetworkRequest {
     
-    //    var cellData: CompletionData?
+//        var cellData: CompletionData?
     
     private let queue = DispatchQueue(label: "TabBarControllerMain_working_queue", qos: .userInitiated)
     
@@ -24,23 +24,86 @@ class NetworkRequest {
     private init() {}
     
     func fetchMovieData(inputText: String,
-                        completion: (([Result]) -> Void)?) {
+                        completion: ((CompletionData) -> Void)?) {
+        //completion: (([Result]) -> Void)?) {
         
         guard let url = URL(string: "https://itunes.apple.com/search?term=\(inputText)&entity=movie&limit=10")
         else { return }
         
         queue.async {
             let task = URLSession.shared.dataTask(with: url) { data, response, error in
-                if let data = data, let films = try? JSONDecoder().decode(AppleResponseModel.self, from: data) {
+                if let data = data, let filmData = try? JSONDecoder().decode(AppleResponseModel.self, from: data) {
                     DispatchQueue.main.async {
-                        completion?(films.results)
+                        let completionData = CompletionData(
+                            
+//                            for result in filmData.results {
+//                                print(result.trackName)
+//                                print(result.releaseDate)
+//                                print(result.longDescription)
+//                                print(result.primaryGenreName)
+//                                print(result.artworkUrl30)
+                            
+                            trackName: filmData.result.trackName,
+                            releaseDate: filmData.result.releaseDate
+                            primaryGenreName: <#T##String#>,
+                            longDescription: <#T##String#>,
+                            artworkUrl30: <#T##String#>: filmData.result.trackName,
+                            )
+                        completion?(completionData)
                     }
-                }
-            }
+//                }
+//            }
+            
+//            {data, _, error in
+//                if let error = error { print(error); return }
+//                do {
+//                    let response = try JSONDecoder().decode(AppleResponseModel.self, from: data!)
+//                    for result in response.results {
+//                        print(result.trackName)
+//                        print(result.releaseDate)
+//                        print(result.longDescription)
+//                        print(result.primaryGenreName)
+//                        print(result.artworkUrl30)
+//                    }
+//                }
+//                catch {
+//                    print(error)
+//                }
+//            }
             task.resume()
         }
+        
     }
 }
+            
+//            { data, response, error in
+//                if let data = data, let films = try? JSONDecoder().decode(AppleResponseModel.self, from: data) {
+//                    DispatchQueue.main.async {
+                        
+                        
+                        
+                        
+                        
+//                        let completionData = CompletionData(
+//                            for result in films.film
+                            
+                            
+                            
+                            
+//                            films: [Film], trackName: films.result.trackName,
+//                            artworkUrl30: films.result.artworkUrl30
+//                            releaseDate: films.result.releaseDate
+//                            primaryGenreName: films.result.primaryGenreName
+//                            longDescription: films.result.longDescription
+//                        )
+//                        completion?(films.CompletionData)
+//                    }
+//                }
+//            }
+//            task.resume()
+//        }
+//    }
+//}
         
         
         

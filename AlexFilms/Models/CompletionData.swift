@@ -11,12 +11,12 @@ import Foundation
 
 // то на что надо разложить полученный результат
 struct CompletionData {
-    let films: [Film]
-//    let artworkUrl60: String
-//    let artworkUrl100: String
-}
+//    let films: [Film]
+////    let artworkUrl60: String
+////    let artworkUrl100: String
+//}
 
-struct Film {
+//struct Film {
     let trackName: String
     let releaseDate: Date
     let primaryGenreName: String

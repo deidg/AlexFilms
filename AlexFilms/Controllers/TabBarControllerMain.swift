@@ -67,7 +67,7 @@ class TabBarControllerMain: UIViewController, UITextFieldDelegate {
         view.backgroundColor = .white
         NetworkRequest.shared.fetchMovieData(inputText: "Prison") { [weak self] results in
             guard let self else { return }
-            self.items = results
+//            self.items = results
         }
 //        filmsTableView.delegate = self
         filmsTableView.dataSource = self
@@ -77,7 +77,7 @@ class TabBarControllerMain: UIViewController, UITextFieldDelegate {
         
         searchTextField.delegate = self
         
-        setupSearchBar()
+//        setupSearchBar()
 
     }
     
@@ -160,7 +160,8 @@ class TabBarControllerMain: UIViewController, UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        var inputText = textField.text ?? ""
+        
+//        var inputText = textField.text ?? ""
 //        fetchData(searchTerm: inputText)
           return true
       }
@@ -177,7 +178,7 @@ class TabBarControllerMain: UIViewController, UITextFieldDelegate {
 extension TabBarControllerMain: UITableViewDelegate {
 
     func filmsTableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+                
         print("hello from cell")
         // место где я планирую открывать FilmPageVC
     }
