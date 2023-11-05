@@ -65,10 +65,15 @@ class TabBarControllerMain: UIViewController, UITextFieldDelegate {
         setupUI()
         navigationItem.searchController = self.searchController
         view.backgroundColor = .white
-        NetworkRequest.shared.fetchMovieData(inputText: "Prison") { [weak self] results in
-            guard let self else { return }
-//            self.items = results
-        }
+        
+        
+//        NetworkRequest.shared.fetchMovieData(inputText: "Legend") { [weak self] results in
+//            guard let self else { return }
+////            self.items = results
+//        }
+        
+        
+        
 //        filmsTableView.delegate = self
         filmsTableView.dataSource = self
 //        filmsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
@@ -123,8 +128,17 @@ class TabBarControllerMain: UIViewController, UITextFieldDelegate {
 //        navigationItem.searchController = searchController
 //    }
     
-    private func fetchData(searchTerm: String) {
-        guard let searchTerm = searchTextField.text else { return }  //!!! поменять название переменно
+    
+    
+    
+//    private func fetchData(searchTerm: String) {
+//        guard let searchTerm = searchTextField.text else { return }  //!!! поменять название переменно
+//
+//
+//        NetworkRequest.shared.fetchMovieData(inputText: "Legend") { [weak self] results in
+//            guard let self else { return }
+////            self.items = results
+//        }
         
         
 //        NetworkRequest.fetchMovieData(searchTerm)
@@ -144,15 +158,15 @@ class TabBarControllerMain: UIViewController, UITextFieldDelegate {
     
     
     //?????
-//    func updateFilmCell(data: CompletionData) {
-//        let cell = FilmCellData(trackName: data.trackName,
-//                                primaryGenreName: data.primaryGenreName,
-//                                longDescription: data.longDescription,
-//                                artworkUrl30: data.artworkUrl30)
-//
-//
-//
-//    }
+    func updateFilmCell(data: CompletionData) {
+        let cell = FilmCellData(trackName: data.trackName,
+                                primaryGenreName: data.primaryGenreName,
+                                longDescription: data.longDescription,
+                                artworkUrl30: data.artworkUrl30)
+
+
+
+    }
     ///??????
     
     
@@ -161,17 +175,26 @@ class TabBarControllerMain: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         
+//        NetworkRequest.shared.fetchMovieData(inputText: textField) { resu in
+//
+//        }
+        
+        
+        
+        
+        
 //        var inputText = textField.text ?? ""
 //        fetchData(searchTerm: inputText)
+//        fetchData(searchTerm: inp)
           return true
       }
     
     
-    private func updateCellLabel(data: CompletionData) {
-        
-        
-        
-    }
+//    private func updateCellLabel(data: CompletionData) {
+//
+//
+//
+//    }
     
 }
 
@@ -180,6 +203,8 @@ extension TabBarControllerMain: UITableViewDelegate {
     func filmsTableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
                 
         print("hello from cell")
+        updateFilmCell(data: CompletionData)
+        
         // место где я планирую открывать FilmPageVC
     }
 }
