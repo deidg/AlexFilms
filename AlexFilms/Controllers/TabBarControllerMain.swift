@@ -19,37 +19,14 @@ import UIKit
 
 //let filmPageVC = FilmPageVC()
 
-class TabBarControllerMain: UIViewController, UITextFieldDelegate {
+class TabBarControllerMain: UIViewController, UITextFieldDelegate, UISearchBarDelegate {
     var items = [CompletionData]()
     
     let filmPageVC = FilmPageVC()
     
     let searchController = UISearchController(searchResultsController: nil)
     
-    private let headLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Movies"
-        label.font = UIFont(name: "Ubuntu", size: 24)
-        return label
-    }()
     
-    private let searchView: UIView = {
-       let view = UIView()
-        view.backgroundColor = .lightGray
-        view.layer.cornerRadius = 10
-        return view
-    }()
-    
-    private let searchIcon: UIImageView = {
-        let view = UIImageView()
-        view.image = UIImage(systemName: "magnifyingglass")
-        return view
-    }()
-    
-    private let searchTextField: UITextField = {  //сделать короткую запись
-        let textfield = UITextField()
-        return textfield
-    }()
     
     private let filmsTableView: UITableView = {
         let tableView = UITableView()
@@ -73,45 +50,24 @@ class TabBarControllerMain: UIViewController, UITextFieldDelegate {
         filmsTableView.register(FilmCell.self, forCellReuseIdentifier: "filmCell")
         self.filmsTableView.rowHeight = 100
         
-        searchTextField.delegate = self
         
-        
-        fetchData(searchTerm: "man")
+        setupSearchBar()
+//        fetchData(searchTerm: "man")
     }
     
+    private func setupSearchBar() {
+        navigationItem.searchController = searchController
+        
+        
+    }
+
     private func setupUI() {
-    
-        view.addSubview(headLabel)
-        headLabel.snp.makeConstraints { make in
-            make.top.equalTo(view).inset(60)
-            make.centerX.equalToSuperview()
-        }
-        
-        view.addSubview(searchView)
-        searchView.snp.makeConstraints { make in
-            make.top.equalTo(headLabel.snp.bottom).offset(10)
-            make.height.equalTo(30)
-            make.horizontalEdges.equalToSuperview().inset(10)
-        }
-        
-        view.addSubview(searchIcon)
-        searchIcon.snp.makeConstraints { make in
-            make.top.equalTo(searchView.snp.top).inset(5)
-            make.leading.equalTo(searchView.snp.leading).inset(10)
-        }
-        
-        view.addSubview(searchTextField)
-        searchTextField.snp.makeConstraints { make in
-            make.top.equalTo(searchView.snp.top).inset(5)
-            make.left.right.equalTo(searchView).inset(30)
-//            make.leading.equalTo(searchIcon.snp.right).inset(5)
-//            make.trailing.equalTo(searchView.snp.trailing).inset(10)
-            make.height.equalTo(20)
-        }
-        
+
         view.addSubview(filmsTableView)
         filmsTableView.snp.makeConstraints { make in
-            make.top.equalTo(searchView.snp.bottom)
+            //            make.top.equalTo(searchView.snp.bottom)
+
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.horizontalEdges.equalToSuperview()
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
@@ -130,62 +86,27 @@ class TabBarControllerMain: UIViewController, UITextFieldDelegate {
         }
     }
 
-//    func updateFilmCell(data: CompletionData) {
-//        let cell = FilmCellData(trackName: data.trackName,
-//                                primaryGenreName: data.primaryGenreName,
-//                                longDescription: data.longDescription,
-//                                artworkUrl30: data.artworkUrl30)
-//    }
-
-
 
 
 
 extension TabBarControllerMain: UITableViewDelegate {
 
-//    func filmsTableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//
-//        print("hello from cell")
-//    }
+
 }
 
 extension TabBarControllerMain: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return 5 //items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             guard var cell = tableView.dequeueReusableCell(withIdentifier: "filmCell") as? FilmCell else {
                 return UITableViewCell()
             }
-        
-        
-        
-        
-//        cell.genreOfTheFilmLabel.text = "comedy"
-        
-        
-//            let data = items[indexPath.row]
-//            cell.configure(with: data)
 
             return cell
         }
-    
-    
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "filmCell") as? FilmCell else { return UITableViewCell() }
-//        cell.configure(with: items[indexPath.row])
-//
-//                NetworkRequest.shared.fetchMovieData(inputText: "Legend") { [weak self] results in
-//                    guard let self else { return }
-//        //            self.items = results
-//                }
-//
-//
-//
-//        return cell
-//    }
 
 }
 
