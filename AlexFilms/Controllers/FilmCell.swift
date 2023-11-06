@@ -23,7 +23,7 @@ class FilmCell: UITableViewCell {
         return label
     }()
     
-    let genreOfTheFilmLabel: UILabel = {
+    var genreOfTheFilmLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = .blue
         return label
