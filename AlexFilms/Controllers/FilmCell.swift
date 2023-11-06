@@ -131,7 +131,7 @@ class FilmCell: UITableViewCell {
 ////            genreOfTheFilmLabel.text = data.primaryGenreName
 //    }
     
-    func configure(with data: Result) {
+    func configure(with data: CompletionData) {
         filmNameLabel.text = data.trackName
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy"
