@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
 
 class FilmCell: UITableViewCell {
     
@@ -138,7 +139,9 @@ class FilmCell: UITableViewCell {
         yearOfTheFilmLabel.text = dateFormatter.string(from: data.releaseDate)
         genreOfTheFilmLabel.text = data.primaryGenreName
         
-        
+        if let imageURL = URL(string: data.artworkUrl30) {
+                filmImage.kf.setImage(with: imageURL)
+            }
     }
 }
     

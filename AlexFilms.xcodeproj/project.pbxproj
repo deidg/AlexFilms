@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DB35EA53E4FFB38B27AA14DE /* Pods_AlexFilms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6D715513FF16D63AA0E613 /* Pods_AlexFilms.framework */; };
+		FA10D0B82AFAB8FB00AE5ED6 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = FA10D0B72AFAB8FB00AE5ED6 /* Kingfisher */; };
 		FA4B7A6D2AEAB64F00F3ADF1 /* FilmCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4B7A6C2AEAB64F00F3ADF1 /* FilmCellData.swift */; };
 		FA591C342ACC2ABF000644C7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA591C332ACC2ABF000644C7 /* MainViewController.swift */; };
 		FA591C432ACC3BE0000644C7 /* Ubuntu-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA591C422ACC3BE0000644C7 /* Ubuntu-Regular.ttf */; };
@@ -84,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA10D0B82AFAB8FB00AE5ED6 /* Kingfisher in Frameworks */,
 				DB35EA53E4FFB38B27AA14DE /* Pods_AlexFilms.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,6 +271,9 @@
 			dependencies = (
 			);
 			name = AlexFilms;
+			packageProductDependencies = (
+				FA10D0B72AFAB8FB00AE5ED6 /* Kingfisher */,
+			);
 			productName = AlexFilms;
 			productReference = FAA84DA02ACA970A00CB1C47 /* AlexFilms.app */;
 			productType = "com.apple.product-type.application";
@@ -341,6 +346,9 @@
 				Base,
 			);
 			mainGroup = FAA84D972ACA970A00CB1C47;
+			packageReferences = (
+				FA10D0B62AFAB8FB00AE5ED6 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = FAA84DA12ACA970A00CB1C47 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -782,6 +790,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FA10D0B62AFAB8FB00AE5ED6 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FA10D0B72AFAB8FB00AE5ED6 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA10D0B62AFAB8FB00AE5ED6 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		FAA84DAC2ACA970A00CB1C47 /* AlexFilms.xcdatamodeld */ = {

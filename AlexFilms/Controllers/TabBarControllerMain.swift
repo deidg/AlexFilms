@@ -134,8 +134,8 @@ extension TabBarControllerMain: UITableViewDataSource {
         guard var cell = tableView.dequeueReusableCell(withIdentifier: "filmCell") as? FilmCell else {
             return UITableViewCell()
         }
-//        let data = items[indexPath.row]
-//        cell.configure(with: data)
+        let data = items[indexPath.row]
+        cell.configure(with: data)
         return cell
     }
     
