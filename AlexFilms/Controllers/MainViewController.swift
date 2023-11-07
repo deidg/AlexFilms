@@ -76,9 +76,6 @@ final class MainViewController: UIViewController {
         setupUI()
     
         addTargets()
-        
-//        print(UIFont.familyNames)
-        
     }
     
     private func setupUI() {
@@ -122,24 +119,14 @@ final class MainViewController: UIViewController {
     @objc func openTabBarController() {
         customTabBarController.modalPresentationStyle = .fullScreen
         present(customTabBarController, animated: true, completion: nil)
-        
-        
-//        NetworkRequest.shared.fetchMovieData(inputText: "Rocky") { [weak self] completionData in
-//            
-//            self?.filmsData.append(completionData)
-//            self?.filmsTableView.reloadData()
-//            
-//            print("testTEXTT124")
-//            print(completionData)
-        }//)
-//    }
+
+        }
     
     @objc func openRegistrationFormVC() {
 //    func openRegistrationFormVC() {
         registrationFormViewController.modalPresentationStyle = .fullScreen
 //        present(registrationFormViewController, animated: true, completion: nil)
         present(filmPageViewController, animated: true, completion: nil)
-
 
         print("her")
     }
