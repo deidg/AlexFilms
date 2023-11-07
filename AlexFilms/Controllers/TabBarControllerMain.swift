@@ -53,12 +53,13 @@ class TabBarControllerMain: UIViewController, UISearchResultsUpdating {
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchResultsUpdater = self
         searchController.searchBar.placeholder = "Search"
+//        searchController.searchBar.showsScopeBar = true
         
         navigationItem.searchController = searchController
         self.title = "Home" //Navigation Title
         self.definesPresentationContext = true
         
-//        navigationItem.hidesSearchBarWhenScrolling = false
+        navigationItem.hidesSearchBarWhenScrolling = false
     }
     
     
@@ -144,22 +145,10 @@ extension TabBarController: UITextFieldDelegate {
     
 }
 
-//extension UISearchController: UISearchResultsUpdating {
-//    public func updateSearchResults(for searchController: UISearchController) {
-//        <##>
-//    }
-//}
+
 
 extension TabBarControllerMain: UISearchBarDelegate {
     
 }
 
 
-//extension TabBarControllerMain: UISearchResultsUpdating {
-//    func updateSearchResults(for searchController: UISearchController) {
-//            if let searchText = searchController.searchBar.text {
-//                // Implement your search logic here
-//                // You can fetch data and update your table view with the search results.
-//            }
-//        }
-//}
