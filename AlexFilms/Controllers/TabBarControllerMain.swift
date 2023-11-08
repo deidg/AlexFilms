@@ -127,7 +127,7 @@ extension TabBarControllerMain: UITableViewDelegate {
 extension TabBarControllerMain: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20 //items.count
+        return items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
