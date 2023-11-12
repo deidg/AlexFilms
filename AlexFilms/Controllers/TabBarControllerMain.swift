@@ -19,11 +19,10 @@ import UIKit
 
 //let filmPageVC = FilmPageVC()
 
-class TabBarControllerMain: UIViewController, UISearchResultsUpdating {
-    
+class TabBarControllerMain: UIViewController {
     
     var items = [CompletionData]()
-//    var filmCell = FilmCell()
+    //    var filmCell = FilmCell()
     
     let filmPageVC = FilmPageVC()
     
@@ -33,7 +32,7 @@ class TabBarControllerMain: UIViewController, UISearchResultsUpdating {
         guard let text = searchController.searchBar.text else { return false }
         return text.isEmpty
     }
- 
+    
     private let filmsTableView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = .green
@@ -53,7 +52,7 @@ class TabBarControllerMain: UIViewController, UISearchResultsUpdating {
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchResultsUpdater = self
         searchController.searchBar.placeholder = "Search"
-//        searchController.searchBar.showsScopeBar = true
+        //        searchController.searchBar.showsScopeBar = true
         
         navigationItem.searchController = searchController
         self.title = "Home" //Navigation Title
@@ -61,7 +60,6 @@ class TabBarControllerMain: UIViewController, UISearchResultsUpdating {
         
         navigationItem.hidesSearchBarWhenScrolling = false
     }
-    
     
     private func setupUI() {
         
@@ -72,52 +70,17 @@ class TabBarControllerMain: UIViewController, UISearchResultsUpdating {
             make.horizontalEdges.equalToSuperview()
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
-        
-        
     }
     
-//    func updateSearchResults(for searchController: UISearchController) {
-//           // Filter the results here based on the search text
-//           if let searchText = searchController.searchBar.text {
-//               fetchData(searchTerm: searchText)
-//           }
-//       }
-    
     func fetchData(searchTerm: String) {
-            NetworkRequest.shared.fetchMovieData(inputText: searchTerm) { [weak self] results in
-                guard let self = self, let results = results else { return }
-                self.items = results
-                DispatchQueue.main.async {
-                    self.filmsTableView.reloadData()
-                }
+        NetworkRequest.shared.fetchMovieData(inputText: searchTerm) { [weak self] results in
+            guard let self = self, let results = results else { return }
+            self.items = CompletionData
+            DispatchQueue.main.async {
+                self.filmsTableView.reloadData()
             }
         }
-    
-//    func fetchData(searchTerm: String) {
-//        NetworkRequest.shared.fetchMovieData(inputText: searchTerm) { [weak self] results in
-//            guard let self = self, let results = results else { return }
-//            self.items = results
-//            print("str124")
-//            //                print(self.items)
-////            self.updateCell(CompletionData)
-//
-//            DispatchQueue.main.async {
-//                self.filmsTableView.reloadData()
-//            }
-//        }
-//    }
-    
-//    func updateCell(_ data: CompletionData) {
-//        let cellData = FilmCellData(trackName: data.trackName, primaryGenreName: data.primaryGenreName, longDescription: data.longDescription, artworkUrl30: data.artworkUrl30)
-//    }
-   
-    
-    @objc(updateSearchResultsForSearchController:) public func updateSearchResults(for searchController: UISearchController) {
-             if let searchText = searchController.searchBar.text {
-                 fetchData(searchTerm: searchText)
-             }
-         }
-    
+    }
 }
 
 extension TabBarControllerMain: UITableViewDelegate {
@@ -131,24 +94,35 @@ extension TabBarControllerMain: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard var cell = tableView.dequeueReusableCell(withIdentifier: "filmCell") as? FilmCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "filmCell", for: indexPath) as? FilmCell else {
             return UITableViewCell()
         }
         let data = items[indexPath.row]
         cell.configure(with: data)
         return cell
     }
-    
 }
 
-extension TabBarController: UITextFieldDelegate {
+extension TabBarControllerMain: UITextFieldDelegate {
     
 }
-
-
 
 extension TabBarControllerMain: UISearchBarDelegate {
     
+}
+
+extension TabBarControllerMain: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        
+        guard let text = searchController.searchBar.text else { return }
+        //                    print(text)
+        NetworkRequest.shared.fetchMovieData(inputText: text) { appleResponse in
+//            let appleResponse = completionData
+            
+            print(appleResponse)
+            
+        }
+    }
 }
 
 

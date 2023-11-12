@@ -13,32 +13,33 @@ import Foundation
 //struct Welcome: Codable {
 struct AppleResponseModel: Codable {
     let resultCount: Int
-    let results: [Result]
+    let results: [ResponseData]
 }
 
 // MARK: - Result
-struct Result: Codable {
-//    let kind: Kind   //жанр фильма?? !!!!
+struct ResponseData: Codable {
+    //    let kind: Kind   //жанр фильма?? !!!!
     let trackName: String   // название фильма
     let artworkUrl30: String // ссылка на картинку
     let releaseDate: Date   //- дата фильма
     let primaryGenreName: String // жанр
     let longDescription: String
-
-    
-enum CodingKeys: String, CodingKey {
-//        case kind
-        case trackName
-        case artworkUrl30
-        case releaseDate, primaryGenreName, longDescription
-    }
     
 }
-
-enum Kind: String, Codable {
-    case featureMovie = "feature-movie"
-}
-
+    
+//enum CodingKeys: String, CodingKey {
+////        case kind
+//        case trackName
+//        case artworkUrl30
+//        case releaseDate, primaryGenreName, longDescription
+//    }
+//
+//}
+//
+//enum Kind: String, Codable {
+//    case featureMovie = "feature-movie"
+//}
+//
 //enum PrimaryGenreName: String, Codable {
 //    case comedy = "Comedy"
 //}
