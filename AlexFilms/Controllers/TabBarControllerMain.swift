@@ -22,6 +22,8 @@ import UIKit
 class TabBarControllerMain: UIViewController {
     
     var items = [CompletionData]()
+    
+//    var items = CompletionData(trackName: "", releaseDate: "", primaryGenreName: "", longDescription: "", artworkUrl30: "")
     //    var filmCell = FilmCell()
     
     let filmPageVC = FilmPageVC()
@@ -73,9 +75,13 @@ class TabBarControllerMain: UIViewController {
     }
     
     func fetchData(searchTerm: String) {
-        NetworkRequest.shared.fetchMovieData(inputText: searchTerm) { [weak self] results in
-            guard let self = self, let results = results else { return }
-            self.items = CompletionData
+        NetworkRequest.shared.fetchMovieData(inputText: searchTerm) { [weak self] completionData in
+            guard let self = self, let completionData = completionData else { return }
+//            self.items.append(completionData)  // completionData
+            
+            self.items.append(completionData)  // completionData
+
+            
             DispatchQueue.main.async {
                 self.filmsTableView.reloadData()
             }

@@ -19,7 +19,7 @@ class NetworkRequest {
     
     func fetchMovieData(inputText: String, completion: @escaping (CompletionData?) -> Void) {
         guard let url = URL(string: "https://itunes.apple.com/search?term=\(inputText)&entity=movie&limit=10") else {
-            completion(nil) // Replace YourErrorType with the appropriate error type
+//            completion(nil) // Replace YourErrorType with the appropriate error type
             return
         }
         
@@ -38,6 +38,8 @@ class NetworkRequest {
                 
                 do {
                     let appleResponse = try JSONDecoder().decode(AppleResponseModel.self, from: data)
+                    
+//                    self.items = appleResponse
                     
                     // Map AppleResponseModel to CompletionData
                     let completionData = CompletionData(
