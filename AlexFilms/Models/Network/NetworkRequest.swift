@@ -23,7 +23,11 @@ class NetworkRequest {
             return
         }
         
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
+        URLSession.shared.dataTask(with: url)
+        { (data, response, error) in
+            sleep(2)
+            
+            
             DispatchQueue.main.async {
                 if let error = error {
                     print("some error 29")
@@ -39,12 +43,23 @@ class NetworkRequest {
                 do {
                     let appleResponse = try JSONDecoder().decode(AppleResponseModel.self, from: data)
                     
+//                    let dateDecoder = JSONDecoder()
+//                    dateDecoder.dateDecodingStrategy = .iso8601
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy"
+                    
+                    //.custom({ decoder -> Date in
+//                        <#code#>
+//                    })
+
 //                    self.items = appleResponse
                     
                     // Map AppleResponseModel to CompletionData
                     let completionData = CompletionData(
                         trackName: appleResponse.results.first?.trackName ?? "",
-                        releaseDate: appleResponse.results.first?.releaseDate ?? Date(),
+//                        releaseDate:  dateFormatter.date(from: appleResponse.results.first?.releaseDate ?? "") ?? Date(),
+                        releaseDate: appleResponse.results.first?.releaseDate ?? "",
+
                         primaryGenreName: appleResponse.results.first?.primaryGenreName ?? "",
                         longDescription: appleResponse.results.first?.longDescription ?? "",
                         artworkUrl30: appleResponse.results.first?.artworkUrl30 ?? ""
@@ -170,6 +185,7 @@ class NetworkRequest {
 
 //     https://itunes.apple.com/search?term="legend"&entity=movie&limit=10
 
+ releaseDate":"2012-12-19T08:00:00Z
 
 
 

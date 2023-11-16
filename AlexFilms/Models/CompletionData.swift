@@ -18,7 +18,7 @@ struct CompletionData {
 
 //struct Film {
     let trackName: String
-    let releaseDate: Date
+    let releaseDate: String//Date
     let primaryGenreName: String
     let longDescription: String
     let artworkUrl30: String

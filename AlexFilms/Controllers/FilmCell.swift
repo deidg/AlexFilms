@@ -127,11 +127,15 @@ class FilmCell: UITableViewCell {
     func configure(with data: CompletionData) {
         filmNameLabel.text = data.trackName
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy"
-        yearOfTheFilmLabel.text = dateFormatter.string(from: data.releaseDate)
-        
-        //        genreOfTheFilmLabel.text = data.primaryGenreName.rawValue // Assuming PrimaryGenreName is an enum
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "yyyy"
+//        yearOfTheFilmLabel.text = dateFormatter.string(from: data.releaseDate)
+//        
+//        //        genreOfTheFilmLabel.text = data.primaryGenreName.rawValue // Assuming PrimaryGenreName is an enum
+//        
+//        if let date = dateFormatter.dateFormat(from: completionData.releaseDate) {
+//            print("hey")
+//        }
         
         // Assuming you have a function to load images asynchronously
         loadImage(from: data.artworkUrl30) { [weak self] image in

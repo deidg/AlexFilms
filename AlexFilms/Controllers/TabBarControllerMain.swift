@@ -79,7 +79,7 @@ class TabBarControllerMain: UIViewController {
             guard let self = self, let completionData = completionData else { return }
 //            self.items.append(completionData)  // completionData
             
-            self.items.append(completionData)  // completionData
+            self.items.append(completionData) // completionData
 
             
             DispatchQueue.main.async {
