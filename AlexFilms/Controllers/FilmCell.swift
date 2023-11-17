@@ -12,13 +12,13 @@ import Kingfisher
 
 class FilmCell: UITableViewCell {
     
-    let filmNameLabel: UILabel = {
+    var filmNameLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = .red
         return label
     }()
     
-    let yearOfTheFilmLabel: UILabel = {
+    var yearOfTheFilmLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = .orange
         return label
@@ -30,21 +30,21 @@ class FilmCell: UITableViewCell {
         return label
     }()
     
-    let filmImage: UIImageView = {
+    var filmImage: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .yellow
         
         return imageView
     }()
     
-    let unlikedImage: UIImageView = {
+    var unlikedImage: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(systemName: "heart")
         image.tintColor = .red
         return image
     }()
     
-    let likedImage: UIImageView = {
+    var likedImage: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(systemName: "heart.fill")
         image.tintColor = .red
@@ -126,16 +126,10 @@ class FilmCell: UITableViewCell {
     
     func configure(with data: CompletionData) {
         filmNameLabel.text = data.trackName
+        yearOfTheFilmLabel.text = data.releaseDate
+        genreOfTheFilmLabel.text = data.primaryGenreName
+//        filmImage
         
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "yyyy"
-//        yearOfTheFilmLabel.text = dateFormatter.string(from: data.releaseDate)
-//        
-//        //        genreOfTheFilmLabel.text = data.primaryGenreName.rawValue // Assuming PrimaryGenreName is an enum
-//        
-//        if let date = dateFormatter.dateFormat(from: completionData.releaseDate) {
-//            print("hey")
-//        }
         
         // Assuming you have a function to load images asynchronously
         loadImage(from: data.artworkUrl30) { [weak self] image in

@@ -22,13 +22,12 @@ import UIKit
 class TabBarControllerMain: UIViewController {
     
     var items = [CompletionData]()
-    
-//    var items = CompletionData(trackName: "", releaseDate: "", primaryGenreName: "", longDescription: "", artworkUrl30: "")
-    //    var filmCell = FilmCell()
-    
+
     let filmPageVC = FilmPageVC()
+//    let filmCell: FilmCell
     
     var searchController = UISearchController(searchResultsController: nil)
+    var appleResponseData: AppleResponseModel? = nil
     
     private var searchBarIsEmpty: Bool {
         guard let text = searchController.searchBar.text else { return false }
@@ -74,19 +73,20 @@ class TabBarControllerMain: UIViewController {
         }
     }
     
+    
     func fetchData(searchTerm: String) {
         NetworkRequest.shared.fetchMovieData(inputText: searchTerm) { [weak self] completionData in
             guard let self = self, let completionData = completionData else { return }
-//            self.items.append(completionData)  // completionData
-            
+
             self.items.append(completionData) // completionData
 
-            
             DispatchQueue.main.async {
                 self.filmsTableView.reloadData()
             }
         }
     }
+    
+    
 }
 
 extension TabBarControllerMain: UITableViewDelegate {
@@ -103,10 +103,17 @@ extension TabBarControllerMain: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "filmCell", for: indexPath) as? FilmCell else {
             return UITableViewCell()
         }
-        let data = items[indexPath.row]
-        cell.configure(with: data)
+//        let data = items[indexPath.row]
+//        cell.configure(with: data)
+        
+        
+        let film = appleResponseData?.results[indexPath.row]
+        cell.filmNameLabel.text = film?.trackName
+        
+        
         return cell
     }
+    
 }
 
 extension TabBarControllerMain: UITextFieldDelegate {
@@ -122,11 +129,13 @@ extension TabBarControllerMain: UISearchResultsUpdating {
         
         guard let text = searchController.searchBar.text else { return }
         //                    print(text)
-        NetworkRequest.shared.fetchMovieData(inputText: text) { appleResponse in
-//            let appleResponse = completionData
+        NetworkRequest.shared.fetchMovieData(inputText: text) { [weak self] appleResponse in
+
+            self?.fetchData(searchTerm: text)
             
+            print("here 123 TableBarVC")
             print(appleResponse)
-            
+
         }
     }
 }
