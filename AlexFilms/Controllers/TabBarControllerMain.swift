@@ -104,7 +104,7 @@ extension TabBarControllerMain: UITableViewDataSource {
             return UITableViewCell()
         }
         let data = items[indexPath.row]
-        cell.configure(with: data)
+        cell.cellConfigure(with: data)
         cell.getYear(from: data.releaseDate)
         
         let film = appleResponseData?.results[indexPath.row]
