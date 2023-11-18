@@ -20,7 +20,7 @@ struct AppleResponseModel: Codable {
 struct ResponseData: Codable {
     //    let kind: Kind   //жанр фильма?? !!!!
     let trackName: String   // название фильма
-    let artworkUrl30: String // ссылка на картинку
+    let artworkUrl100: String // ссылка на картинку
     let releaseDate: String//Date   //- дата фильма
     let primaryGenreName: String // жанр
     let longDescription: String

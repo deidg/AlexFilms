@@ -22,20 +22,17 @@ class FilmCell: UITableViewCell {
     var yearOfTheFilmLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
-//        label.backgroundColor = .orange
         return label
     }()
     
     var genreOfTheFilmLabel: UILabel = {
         let label = UILabel()
-//        label.backgroundColor = .blue
         return label
     }()
     
     var filmImage: UIImageView = {
         let imageView = UIImageView()
-//        imageView.backgroundColor = .yellow
-        
+        imageView.sizeToFit()
         return imageView
     }()
     
@@ -55,7 +52,6 @@ class FilmCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        //        self.frame.height = 100
         setupView()
         likedImage.isHidden = true
     }
@@ -64,15 +60,10 @@ class FilmCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     //MARK - Setup
     func setupView() {
-        
         setupCellUI()
-        //        self.backgroundColor = .cyan
     }
-    
-    
     
     func setupCellUI() {
         
@@ -110,7 +101,7 @@ class FilmCell: UITableViewCell {
             make.width.equalTo(self.frame.width / 2)
         }
         
-  
+        
         //        addSubview(unlikedImage)
         //        unlikedImage.snp.makeConstraints { make in
         //            make.right.equalTo(filmImage.snp.left).inset(-5)
@@ -126,42 +117,22 @@ class FilmCell: UITableViewCell {
     
     //TODO: - проверить код. кажется надо присваивание текстов вынексти из loadImage!!!!
     func cellConfigure(with data: CompletionData) {   //конструирует макет ячейки
-
-        
-        self.filmNameLabel.text = data.trackName
-        
-//        makeBoldFont(textForBold: filmNameLabel.text ?? "")
-//           self.yearOfTheFilmLabel.text = getYear(from: data.releaseDate)  //data.releaseDate
+        self.yearOfTheFilmLabel.text = String(data.releaseDate.prefix(4))
         self.genreOfTheFilmLabel.text = data.primaryGenreName
-       
         
-        
-        loadImage(from: data.artworkUrl30) { [weak self] image in
+        loadImage(from: data.artworkUrl100) { [weak self] image in
             self?.filmImage.image = image
-            
             self?.filmNameLabel.text = data.trackName
-//            self?.makeBoldFont(textForBold: self?.filmNameLabel.text ?? "")
-
         }
     }
     
-    func getYear(from dateString: String) -> String {       // форматирует дату, чтобы показывался только ГОД
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd" // Adjust the format based on your API response
-        if let date = dateFormatter.date(from: dateString) {
-            dateFormatter.dateFormat = "yyyy"
-            return dateFormatter.string(from: date)
-        }
-        self.yearOfTheFilmLabel.text = dateString
-        return ""
-    }
+
     
     func loadImage(from urlString: String, completion: @escaping (UIImage?) -> Void) {    // загружает изображение
         guard let url = URL(string: urlString) else {
             completion(nil)
             return
         }
-        
         DispatchQueue.global().async {
             if let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
                 DispatchQueue.main.async {
@@ -174,20 +145,7 @@ class FilmCell: UITableViewCell {
             }
         }
     }
-    
-//    func makeBoldFont(textForBold: String) -> NSAttributedString {
-//        var boldTextAttributes = [NSAttributedString.Key: AnyObject]()
-//        boldTextAttributes[.font] = UIFont.preferredFont(forTextStyle: .body).accessibilityTraits(textForBold) //.withSize(15)
-//
-//
-////        let text = textForBold
-//        let boldedText = NSMutableAttributedString(string: textForBold, attributes: boldTextAttributes)
-//
-//        return boldedText
-//    }
 }
-
-
 
 
 

@@ -21,7 +21,7 @@ struct CompletionData {
     let releaseDate: String//Date
     let primaryGenreName: String
     let longDescription: String
-    let artworkUrl30: String
+    let artworkUrl100: String
 }
 
 
