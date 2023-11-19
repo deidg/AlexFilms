@@ -11,7 +11,7 @@ struct FilmCellData {
     let trackName: String
 //    let releaseDate: Date  // Date //??? в стринг надо переделать
     let primaryGenreName: String
-    let longDescription: String
+    let shortDescription: String?
     let artworkUrl100: String
     
     let trackId: Int

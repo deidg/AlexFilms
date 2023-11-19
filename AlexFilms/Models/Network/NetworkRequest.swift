@@ -44,7 +44,7 @@ class NetworkRequest {
                         trackName: appleResponse.results.first?.trackName ?? "",
                         releaseDate: appleResponse.results.first?.releaseDate ?? "",
                         primaryGenreName: appleResponse.results.first?.primaryGenreName ?? "",
-                        longDescription: appleResponse.results.first?.longDescription ?? "",
+                        shortDescription: appleResponse.results.first?.shortDescription ?? "",
                         artworkUrl100: appleResponse.results.first?.artworkUrl100 ?? "",
                         trackId: appleResponse.results.first?.trackId ?? 0
                     )

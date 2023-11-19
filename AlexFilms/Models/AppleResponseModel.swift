@@ -23,14 +23,14 @@ struct ResponseData: Codable {
     let artworkUrl100: String // ссылка на картинку
     let releaseDate: String//Date   //- дата фильма
     let primaryGenreName: String // жанр
-    let longDescription: String
+    let shortDescription: String?
     
     let trackId: Int
 }
     
-//enum CodingKeys: String, CodingKey {
-//    case trackID = "trackId"
-//}
+enum CodingKeys: String, CodingKey {
+    case trackID = "trackId"
+}
 
 
 

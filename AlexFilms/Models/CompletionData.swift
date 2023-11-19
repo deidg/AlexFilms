@@ -20,7 +20,7 @@ struct CompletionData {
     let trackName: String
     let releaseDate: String//Date
     let primaryGenreName: String
-    let longDescription: String
+    let shortDescription: String?
     let artworkUrl100: String
     
     let trackId: Int

@@ -15,40 +15,32 @@ class FilmPageVC: UIViewController {
     
     private let filmNameLabel: UILabel = {
         let label = UILabel()
-//        label.text = "filmName"
-        label.backgroundColor = .green
-        label.font = UIFont(name: "Ubuntu", size: 24)
+        label.font = UIFont.boldSystemFont(ofSize: 20)
         return label
     }()
     
     private let yearLabel: UILabel = {
         let label = UILabel()
-//        label.text = "2018"
-        label.backgroundColor = .yellow
         label.font = UIFont(name: "Ubuntu", size: 18)
         return label
     }()
     
     private let genreLabel: UILabel = {
         let label = UILabel()
-//        label.text = "Action"
-        label.backgroundColor = .cyan
         label.font = UIFont(name: "Ubuntu", size: 18)
         return label
     }()
     
     private var posterImage: UIImageView = {
         var image = UIImageView()
-//        image.backgroundColor = .red
-//        image.image = UIImage(systemName: "person.fill")
         return image
     }()
     
-    private let descriptionLabel: UILabel = {
+    private let shortDescriptionLabel: UILabel = {
         let label = UILabel()
-//        label.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        label.textAlignment = .left
+        label.sizeToFit()
         label.numberOfLines = 0
-        label.backgroundColor = .gray
         label.font = UIFont(name: "Ubuntu", size: 18)
         return label
     }()
@@ -66,15 +58,16 @@ class FilmPageVC: UIViewController {
 //            fetchFilmData(trackID)
             fetchFilmData(inputTrackID: trackID) { response in
                 self.filmNameLabel.text = response?.trackName
-                self.yearLabel.text = response?.releaseDate
+                self.yearLabel.text = String(response?.releaseDate.prefix(4) ?? "")
                 self.genreLabel.text = response?.primaryGenreName
-                
+                self.shortDescriptionLabel.text = response?.shortDescription
+               
+                self.loadImage(from: response?.artworkUrl100 ?? "") { [weak self] image in
+                    self?.posterImage.image = image
+                }
                 
             }
         }
-        
-        
-//        fetchApiResponse()
     }
     
     func setupUI() {
@@ -94,7 +87,7 @@ class FilmPageVC: UIViewController {
         
         view.addSubview(genreLabel)
         genreLabel.snp.makeConstraints { make in
-            make.top.equalTo(yearLabel.snp.bottom).offset(10)
+            make.top.equalTo(yearLabel.snp.bottom).offset(5)
             make.leading.equalToSuperview().inset(20)
             make.height.equalTo(20)
         }
@@ -107,14 +100,12 @@ class FilmPageVC: UIViewController {
             make.height.equalTo(view.frame.width / 2)
         }
         
-        view.addSubview(descriptionLabel)
-        descriptionLabel.snp.makeConstraints { make in
+        view.addSubview(shortDescriptionLabel)
+        shortDescriptionLabel.snp.makeConstraints { make in
             make.top.equalTo(posterImage.snp.bottom).offset(10)
             make.leading.equalToSuperview().inset(20)
             make.horizontalEdges.equalTo(view).inset(20)
-            make.height.equalTo(view.frame.width)
         }
-        
     }
     
 //    private func fetchFilmData(trackID: Int) {
@@ -144,7 +135,7 @@ class FilmPageVC: UIViewController {
                             trackName: appleResponse.results.first?.trackName ?? "",
                             releaseDate: appleResponse.results.first?.releaseDate ?? "",
                             primaryGenreName: appleResponse.results.first?.primaryGenreName ?? "",
-                            longDescription: appleResponse.results.first?.longDescription ?? "",
+                            shortDescription: appleResponse.results.first?.shortDescription ?? "",
                             artworkUrl100: appleResponse.results.first?.artworkUrl100 ?? "",
                             trackId: appleResponse.results.first?.trackId ?? 0
                         )
@@ -157,7 +148,23 @@ class FilmPageVC: UIViewController {
             }.resume()
         }
         
-        
+    func loadImage(from urlString: String, completion: @escaping (UIImage?) -> Void) {    // загружает изображение
+        guard let url = URL(string: urlString) else {
+            completion(nil)
+            return
+        }
+        DispatchQueue.global().async {
+            if let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
+                DispatchQueue.main.async {
+                    completion(image)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    completion(nil)
+                }
+            }
+        }
+    }
         
         
         
