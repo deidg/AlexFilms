@@ -25,10 +25,12 @@ struct ResponseData: Codable {
     let primaryGenreName: String // жанр
     let longDescription: String
     
+    let trackId: Int
 }
     
-
-
+//enum CodingKeys: String, CodingKey {
+//    case trackID = "trackId"
+//}
 
 
 

@@ -10,9 +10,12 @@ import UIKit
 
 class FilmPageVC: UIViewController {
     
+    var trackID: Int?
+    
+    
     private let filmNameLabel: UILabel = {
         let label = UILabel()
-        label.text = "filmName"
+//        label.text = "filmName"
         label.backgroundColor = .green
         label.font = UIFont(name: "Ubuntu", size: 24)
         return label
@@ -20,7 +23,7 @@ class FilmPageVC: UIViewController {
     
     private let yearLabel: UILabel = {
         let label = UILabel()
-        label.text = "2018"
+//        label.text = "2018"
         label.backgroundColor = .yellow
         label.font = UIFont(name: "Ubuntu", size: 18)
         return label
@@ -28,7 +31,7 @@ class FilmPageVC: UIViewController {
     
     private let genreLabel: UILabel = {
         let label = UILabel()
-        label.text = "Action"
+//        label.text = "Action"
         label.backgroundColor = .cyan
         label.font = UIFont(name: "Ubuntu", size: 18)
         return label
@@ -36,14 +39,14 @@ class FilmPageVC: UIViewController {
     
     private var posterImage: UIImageView = {
         var image = UIImageView()
-        image.backgroundColor = .red
+//        image.backgroundColor = .red
 //        image.image = UIImage(systemName: "person.fill")
         return image
     }()
     
     private let descriptionLabel: UILabel = {
         let label = UILabel()
-        label.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+//        label.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         label.numberOfLines = 0
         label.backgroundColor = .gray
         label.font = UIFont(name: "Ubuntu", size: 18)
@@ -58,6 +61,20 @@ class FilmPageVC: UIViewController {
         setupUI()
 
         view.backgroundColor = .white
+        
+        if let trackID = trackID {
+//            fetchFilmData(trackID)
+            fetchFilmData(inputTrackID: trackID) { response in
+                self.filmNameLabel.text = response?.trackName
+                self.yearLabel.text = response?.releaseDate
+                self.genreLabel.text = response?.primaryGenreName
+                
+                
+            }
+        }
+        
+        
+//        fetchApiResponse()
     }
     
     func setupUI() {
@@ -99,4 +116,53 @@ class FilmPageVC: UIViewController {
         }
         
     }
+    
+//    private func fetchFilmData(trackID: Int) {
+        
+        func fetchFilmData(inputTrackID: Int, completion: @escaping (CompletionData?) -> Void) {
+            guard let url = URL(string: "http://itunes.apple.com/lookup?id=\(inputTrackID)" ) else {
+                return
+            }
+            
+            URLSession.shared.dataTask(with: url) { (data, response, error) in
+                DispatchQueue.main.async {
+                    if let error = error {
+                        print("some error 29")
+                        completion(nil)
+                        return
+                    }
+                    guard let data = data else {
+                        completion(nil) // Replace YourErrorType with the appropriate error type
+                        return
+                    }
+                    do {
+                        let appleResponse = try JSONDecoder().decode(AppleResponseModel.self, from: data)
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.dateFormat = "yyyy"
+
+                        let completionData = CompletionData(
+                            trackName: appleResponse.results.first?.trackName ?? "",
+                            releaseDate: appleResponse.results.first?.releaseDate ?? "",
+                            primaryGenreName: appleResponse.results.first?.primaryGenreName ?? "",
+                            longDescription: appleResponse.results.first?.longDescription ?? "",
+                            artworkUrl100: appleResponse.results.first?.artworkUrl100 ?? "",
+                            trackId: appleResponse.results.first?.trackId ?? 0
+                        )
+                        completion(completionData)
+                    } catch let jsonError {
+                        print("failed to decode JSON", jsonError)
+                        completion(nil)
+                    }
+                }
+            }.resume()
+        }
+        
+        
+        
+        
+        
+        
+        
+//    }
+    
 }

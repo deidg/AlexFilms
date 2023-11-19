@@ -17,14 +17,16 @@
 
 import UIKit
 
-//let filmPageVC = FilmPageVC()
 
 class TabBarControllerMain: UIViewController {
     
     var items = [CompletionData]()
 
     let filmPageVC = FilmPageVC()
-//    let filmCell: FilmCell
+//    filmPageVC.trackID = trackID
+    
+    
+    //    let filmCell: FilmCell
     
     var searchController = UISearchController(searchResultsController: nil)
     var appleResponseData: AppleResponseModel? = nil
@@ -90,6 +92,12 @@ class TabBarControllerMain: UIViewController {
 
 extension TabBarControllerMain: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let selectedFilm = items[indexPath.row]
+        let trackID = selectedFilm.trackId
+        
+            filmPageVC.trackID = trackID
+
         self.show(filmPageVC, sender: self)
     }
 }

@@ -13,4 +13,10 @@ struct FilmCellData {
     let primaryGenreName: String
     let longDescription: String
     let artworkUrl100: String
+    
+    let trackId: Int
 }
+
+//enum CodingKeys: String, CodingKey {
+//    case trackID = "trackId"
+//}
