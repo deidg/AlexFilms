@@ -89,7 +89,9 @@ class TabBarControllerMain: UIViewController {
 }
 
 extension TabBarControllerMain: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.show(filmPageVC, sender: self)
+    }
 }
 
 extension TabBarControllerMain: UITableViewDataSource {

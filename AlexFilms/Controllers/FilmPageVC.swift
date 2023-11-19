@@ -63,7 +63,7 @@ class FilmPageVC: UIViewController {
     func setupUI() {
         view.addSubview(filmNameLabel)
         filmNameLabel.snp.makeConstraints { make in
-            make.top.equalTo(view).inset(60)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top) //navigationController?.navigationItem.inset(60)
             make.leading.equalToSuperview().inset(20)
             make.height.equalTo(30)
         }
@@ -99,8 +99,4 @@ class FilmPageVC: UIViewController {
         }
         
     }
-    
-    
-
-
 }
