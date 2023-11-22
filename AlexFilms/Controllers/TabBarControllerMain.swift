@@ -13,6 +13,9 @@
 
 // TODO: searchTerm = searchTextField.text else { return }  //!!! поменять название переменно
 
+//TODO:  добавить появление страницы описания фильма через detailVC -  showDetailViewController(_:sender:)
+
+
 
 
 import UIKit
@@ -70,7 +73,7 @@ class TabBarControllerMain: UIViewController {
     func fetchData(searchTerm: String) {
         NetworkRequest.shared.fetchMovieData(inputText: searchTerm) { [weak self] completionData in
             guard let self = self, let completionData = completionData else { return }
-            self.items = completionData  
+            self.items = completionData
             DispatchQueue.main.async {
                 self.filmsTableView.reloadData()
             }
