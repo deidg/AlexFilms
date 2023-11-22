@@ -8,19 +8,12 @@
 
 import Foundation
 
-
-// то на что надо разложить полученный результат
-//struct CompletionData {
-//    let films: [Film]
-////    let artworkUrl60: String
-////    let artworkUrl100: String
-//}
-
 struct Movie {
     let trackName: String
     let releaseDate: String//Date
     let primaryGenreName: String
     let shortDescription: String?
+    let longDescription: String?
     let artworkUrl100: String
     
     let trackId: Int

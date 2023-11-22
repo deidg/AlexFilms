@@ -24,6 +24,7 @@ struct ResponseData: Codable {
     let releaseDate: String//Date   //- дата фильма
     let primaryGenreName: String // жанр
     let shortDescription: String?
+    let longDescription: String?
     
     let trackId: Int
 }
