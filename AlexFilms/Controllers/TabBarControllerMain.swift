@@ -20,13 +20,10 @@ import UIKit
 
 class TabBarControllerMain: UIViewController {
     
-    var items = [CompletionData]()
-
-    let filmPageVC = FilmPageVC()
-//    filmPageVC.trackID = trackID
+        var items = [Movie]()
     
     
-    //    let filmCell: FilmCell
+    //    let filmPageVC = FilmPageVC()
     
     var searchController = UISearchController(searchResultsController: nil)
     var appleResponseData: AppleResponseModel? = nil
@@ -38,10 +35,8 @@ class TabBarControllerMain: UIViewController {
     
     private let filmsTableView: UITableView = {
         let tableView = UITableView()
-//        tableView.backgroundColor = .green
         return tableView
     }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -55,7 +50,6 @@ class TabBarControllerMain: UIViewController {
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchResultsUpdater = self
         searchController.searchBar.placeholder = "Search"
-        //        searchController.searchBar.showsScopeBar = true
         
         navigationItem.searchController = searchController
         self.title = "Home" //Navigation Title
@@ -65,7 +59,6 @@ class TabBarControllerMain: UIViewController {
     }
     
     private func setupUI() {
-        
         view.addSubview(filmsTableView)
         filmsTableView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
@@ -74,67 +67,60 @@ class TabBarControllerMain: UIViewController {
         }
     }
     
-    
     func fetchData(searchTerm: String) {
         NetworkRequest.shared.fetchMovieData(inputText: searchTerm) { [weak self] completionData in
             guard let self = self, let completionData = completionData else { return }
-
-            self.items.append(completionData) // completionData
-
+            self.items = completionData  
             DispatchQueue.main.async {
                 self.filmsTableView.reloadData()
             }
+            self.filmsTableView.reloadData()
         }
     }
-    
-    
 }
 
 extension TabBarControllerMain: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let filmPageVC = FilmPageVC()
         
         let selectedFilm = items[indexPath.row]
-        let trackID = selectedFilm.trackId
-        
-            filmPageVC.trackID = trackID
-
+        let trackId = selectedFilm.trackId
+      
+        filmPageVC.trackId = trackId
         self.show(filmPageVC, sender: self)
     }
 }
 
+
 extension TabBarControllerMain: UITableViewDataSource {
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
+//        return 1
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "filmCell", for: indexPath) as? FilmCell else {
             return UITableViewCell()
         }
+        
         let data = items[indexPath.row]
         cell.cellConfigure(with: data)
         
         let film = appleResponseData?.results[indexPath.row]
         cell.filmNameLabel.text = film?.trackName
-        
-        
         return cell
     }
 }
-
 extension TabBarControllerMain: UITextFieldDelegate {
-    
 }
-
 extension TabBarControllerMain: UISearchBarDelegate {
     
 }
-
 extension TabBarControllerMain: UISearchResultsUpdating {
+
     func updateSearchResults(for searchController: UISearchController) {
+        
         guard let text = searchController.searchBar.text else { return }
-        //                    print(text)
         NetworkRequest.shared.fetchMovieData(inputText: text) { [weak self] appleResponse in
             self?.fetchData(searchTerm: text)
         }

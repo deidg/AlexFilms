@@ -10,13 +10,13 @@ import Foundation
 
 
 // то на что надо разложить полученный результат
-struct CompletionData {
+//struct CompletionData {
 //    let films: [Film]
 ////    let artworkUrl60: String
 ////    let artworkUrl100: String
 //}
 
-//struct Film {
+struct Movie {
     let trackName: String
     let releaseDate: String//Date
     let primaryGenreName: String
@@ -26,40 +26,7 @@ struct CompletionData {
     let trackId: Int
 }
 
-//enum CodingKeys: String, CodingKey {
-//    case trackID = "trackId"
-//}
 
-// MARK: - Welcome
-//struct Welcome: Codable {
-//    let resultCount: Int
-//    let results: [Result]
-//}
-//
-//// MARK: - Result
-//struct Result: Codable {
-//
-//    let kind: Kind   //тип возвращаемого обхекта - фильм  !!!!
-//    let trackName: String   // название фильма
-//    let artworkUrl30, artworkUrl60, artworkUrl100: String //  кажется ссылка на картинку
-//    let releaseDate: Date   //- дата фильма
-//    let primaryGenreName: PrimaryGenreName   // жанр!!
-//
-//enum CodingKeys: String, CodingKey {
-//        case kind
-//        case trackName
-//        case artworkUrl30, artworkUrl60, artworkUrl100
-//        case releaseDate, primaryGenreName
-//    }
-//}
-//
-//enum Kind: String, Codable {
-//    case featureMovie = "feature-movie"
-//}
-//
-//enum PrimaryGenreName: String, Codable {
-//    case comedy = "Comedy"
-//}
 
 
 

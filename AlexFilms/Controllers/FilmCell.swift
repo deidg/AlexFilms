@@ -116,7 +116,7 @@ class FilmCell: UITableViewCell {
     }
     
     //TODO: - проверить код. кажется надо присваивание текстов вынексти из loadImage!!!!
-    func cellConfigure(with data: CompletionData) {   //конструирует макет ячейки
+    func cellConfigure(with data: Movie) {   //конструирует макет ячейки
         self.yearOfTheFilmLabel.text = String(data.releaseDate.prefix(4))
         self.genreOfTheFilmLabel.text = data.primaryGenreName
         

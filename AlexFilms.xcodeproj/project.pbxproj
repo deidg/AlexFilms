@@ -12,7 +12,7 @@
 		FA4B7A6D2AEAB64F00F3ADF1 /* FilmCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4B7A6C2AEAB64F00F3ADF1 /* FilmCellData.swift */; };
 		FA591C342ACC2ABF000644C7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA591C332ACC2ABF000644C7 /* MainViewController.swift */; };
 		FA591C432ACC3BE0000644C7 /* Ubuntu-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA591C422ACC3BE0000644C7 /* Ubuntu-Regular.ttf */; };
-		FA991E0F2AE7C0CA00B9E829 /* CompletionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA991E0E2AE7C0CA00B9E829 /* CompletionData.swift */; };
+		FA991E0F2AE7C0CA00B9E829 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA991E0E2AE7C0CA00B9E829 /* Movie.swift */; };
 		FA991E122AE7D43500B9E829 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA991E112AE7D43500B9E829 /* NetworkRequest.swift */; };
 		FA991E142AE7FDF800B9E829 /* AppleResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA991E132AE7FDF800B9E829 /* AppleResponseModel.swift */; };
 		FA9A5B382ACD419A00AA60B6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9A5B372ACD419A00AA60B6 /* TabBarController.swift */; };
@@ -56,7 +56,7 @@
 		FA4B7A6C2AEAB64F00F3ADF1 /* FilmCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmCellData.swift; sourceTree = "<group>"; };
 		FA591C332ACC2ABF000644C7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		FA591C422ACC3BE0000644C7 /* Ubuntu-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Regular.ttf"; sourceTree = "<group>"; };
-		FA991E0E2AE7C0CA00B9E829 /* CompletionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionData.swift; sourceTree = "<group>"; };
+		FA991E0E2AE7C0CA00B9E829 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		FA991E112AE7D43500B9E829 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		FA991E132AE7FDF800B9E829 /* AppleResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleResponseModel.swift; sourceTree = "<group>"; };
 		FA9A5B372ACD419A00AA60B6 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -127,7 +127,7 @@
 		FA591C352ACC330D000644C7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FA991E0E2AE7C0CA00B9E829 /* CompletionData.swift */,
+				FA991E0E2AE7C0CA00B9E829 /* Movie.swift */,
 				FA4B7A6C2AEAB64F00F3ADF1 /* FilmCellData.swift */,
 				FA991E132AE7FDF800B9E829 /* AppleResponseModel.swift */,
 				FA991E102AE7D40B00B9E829 /* Network */,
@@ -444,7 +444,7 @@
 				FAA84DA42ACA970A00CB1C47 /* AppDelegate.swift in Sources */,
 				FAA84DA62ACA970A00CB1C47 /* SceneDelegate.swift in Sources */,
 				FAA0197D2AE27C11004F347B /* TabBarControllerMain.swift in Sources */,
-				FA991E0F2AE7C0CA00B9E829 /* CompletionData.swift in Sources */,
+				FA991E0F2AE7C0CA00B9E829 /* Movie.swift in Sources */,
 				FA9A5B382ACD419A00AA60B6 /* TabBarController.swift in Sources */,
 				FAA84DAE2ACA970A00CB1C47 /* AlexFilms.xcdatamodeld in Sources */,
 				FA9A5B3A2ACD772500AA60B6 /* RegistrationFormVC.swift in Sources */,

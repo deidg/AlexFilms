@@ -11,7 +11,7 @@ import Foundation
 
 class NetworkRequest {
     
-//    let tabBarControillerMain = TabBarControllerMain()
+    //    let tabBarControillerMain = TabBarControllerMain()
     
     private let queue = DispatchQueue(label: "TabBarControllerMain_working_queue", qos: .userInitiated)
     
@@ -19,7 +19,7 @@ class NetworkRequest {
     
     private init() {}
     
-    func fetchMovieData(inputText: String, completion: @escaping (CompletionData?) -> Void) {
+    func fetchMovieData(inputText: String, completion: @escaping ([Movie]?) -> Void) {
         guard let url = URL(string: "https://itunes.apple.com/search?term=\(inputText)&entity=movie&limit=10") else {
             return
         }
@@ -39,16 +39,14 @@ class NetworkRequest {
                     let appleResponse = try JSONDecoder().decode(AppleResponseModel.self, from: data)
                     let dateFormatter = DateFormatter()
                     dateFormatter.dateFormat = "yyyy"
-
-                    let completionData = CompletionData(
-                        trackName: appleResponse.results.first?.trackName ?? "",
-                        releaseDate: appleResponse.results.first?.releaseDate ?? "",
-                        primaryGenreName: appleResponse.results.first?.primaryGenreName ?? "",
-                        shortDescription: appleResponse.results.first?.shortDescription ?? "",
-                        artworkUrl100: appleResponse.results.first?.artworkUrl100 ?? "",
-                        trackId: appleResponse.results.first?.trackId ?? 0
-                    )
-                    completion(completionData)
+                    
+                    var movies = [Movie]()
+//
+                    for movie in appleResponse.results {
+                        movies.append(Movie(trackName: movie.trackName, releaseDate: movie.releaseDate, primaryGenreName: movie.primaryGenreName, shortDescription: movie.shortDescription, artworkUrl100: movie.artworkUrl100, trackId: movie.trackId))
+                    }
+                    
+                    completion(movies)
                 } catch let jsonError {
                     print("failed to decode JSON", jsonError)
                     completion(nil)
@@ -56,7 +54,7 @@ class NetworkRequest {
             }
         }.resume()
     }
-    
+}
     
     
 //    func fetchSelectedMovieData(inputTrackID: Int, completion: @escaping (CompletionData?) -> Void) {
@@ -99,7 +97,7 @@ class NetworkRequest {
 //        }.resume()
 //    }
     
-}
+//}
 
 //     https://itunes.apple.com/search?term="legend"&entity=movie&limit=10
 
