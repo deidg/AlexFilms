@@ -30,6 +30,11 @@
 		FAA84DCA2ACA970E00CB1C47 /* AlexFilmsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA84DC92ACA970E00CB1C47 /* AlexFilmsUITestsLaunchTests.swift */; };
 		FAAFF9692AE6ABD600EA2180 /* FilmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAFF9682AE6ABD600EA2180 /* FilmCell.swift */; };
 		FABF69FB2B10F78700F91DC8 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABF69FA2B10F78700F91DC8 /* StorageManager.swift */; };
+		FABF69FD2B13A49A00F91DC8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FABF69FC2B13A49A00F91DC8 /* GoogleService-Info.plist */; };
+		FABF6A002B13A69800F91DC8 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = FABF69FF2B13A69800F91DC8 /* FirebaseAnalytics */; };
+		FABF6A022B13A69800F91DC8 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FABF6A012B13A69800F91DC8 /* FirebaseAuth */; };
+		FABF6A042B13A69800F91DC8 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = FABF6A032B13A69800F91DC8 /* FirebaseDatabase */; };
+		FABF6A062B13A69800F91DC8 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FABF6A052B13A69800F91DC8 /* FirebaseDatabaseSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +83,7 @@
 		FAA84DC92ACA970E00CB1C47 /* AlexFilmsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlexFilmsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FAAFF9682AE6ABD600EA2180 /* FilmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmCell.swift; sourceTree = "<group>"; };
 		FABF69FA2B10F78700F91DC8 /* StorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		FABF69FC2B13A49A00F91DC8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,8 +91,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FABF6A062B13A69800F91DC8 /* FirebaseDatabaseSwift in Frameworks */,
+				FABF6A042B13A69800F91DC8 /* FirebaseDatabase in Frameworks */,
 				FA10D0B82AFAB8FB00AE5ED6 /* Kingfisher in Frameworks */,
 				DB35EA53E4FFB38B27AA14DE /* Pods_AlexFilms.framework in Frameworks */,
+				FABF6A002B13A69800F91DC8 /* FirebaseAnalytics in Frameworks */,
+				FABF6A022B13A69800F91DC8 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +169,7 @@
 		FA591C382ACC3332000644C7 /* Other files */ = {
 			isa = PBXGroup;
 			children = (
+				FABF69FC2B13A49A00F91DC8 /* GoogleService-Info.plist */,
 				FA591C3B2ACC3370000644C7 /* Assets */,
 				FABF69F92B10F75C00F91DC8 /* Storage */,
 				FA591C392ACC3340000644C7 /* Delegates */,
@@ -289,6 +300,10 @@
 			name = AlexFilms;
 			packageProductDependencies = (
 				FA10D0B72AFAB8FB00AE5ED6 /* Kingfisher */,
+				FABF69FF2B13A69800F91DC8 /* FirebaseAnalytics */,
+				FABF6A012B13A69800F91DC8 /* FirebaseAuth */,
+				FABF6A032B13A69800F91DC8 /* FirebaseDatabase */,
+				FABF6A052B13A69800F91DC8 /* FirebaseDatabaseSwift */,
 			);
 			productName = AlexFilms;
 			productReference = FAA84DA02ACA970A00CB1C47 /* AlexFilms.app */;
@@ -364,6 +379,7 @@
 			mainGroup = FAA84D972ACA970A00CB1C47;
 			packageReferences = (
 				FA10D0B62AFAB8FB00AE5ED6 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				FABF69FE2B13A69800F91DC8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = FAA84DA12ACA970A00CB1C47 /* Products */;
 			projectDirPath = "";
@@ -382,6 +398,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA591C432ACC3BE0000644C7 /* Ubuntu-Regular.ttf in Resources */,
+				FABF69FD2B13A49A00F91DC8 /* GoogleService-Info.plist in Resources */,
 				FAA84DB32ACA970D00CB1C47 /* LaunchScreen.storyboard in Resources */,
 				FAA84DB02ACA970D00CB1C47 /* Assets.xcassets in Resources */,
 			);
@@ -632,8 +649,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AlexFilms/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "";
@@ -651,6 +669,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = alex.AlexFilms;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -666,8 +685,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AlexFilms/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "";
@@ -685,6 +705,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = alex.AlexFilms;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -816,6 +837,14 @@
 				minimumVersion = 7.0.0;
 			};
 		};
+		FABF69FE2B13A69800F91DC8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -823,6 +852,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FA10D0B62AFAB8FB00AE5ED6 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		FABF69FF2B13A69800F91DC8 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FABF69FE2B13A69800F91DC8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		FABF6A012B13A69800F91DC8 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FABF69FE2B13A69800F91DC8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		FABF6A032B13A69800F91DC8 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FABF69FE2B13A69800F91DC8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		FABF6A052B13A69800F91DC8 /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FABF69FE2B13A69800F91DC8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 
