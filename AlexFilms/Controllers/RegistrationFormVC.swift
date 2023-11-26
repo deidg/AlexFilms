@@ -6,6 +6,13 @@
 //
 
 
+
+//закончил на том что научился забирать введеный имейли и выводить в поле кода.
+//начать думать как его хранить и где. 
+
+
+
+
 //TODO: сделать валидацию на имейл
 //TODO: ?? убирать placeholder для birthDateTextField ??
 //TODO: ?? там же запретить вводить текст?
@@ -15,6 +22,10 @@ import UIKit
 import SnapKit
 
 class RegistrationFormVC: UIViewController {
+    
+    private let storage: StorageManagerProtocol = StorageManager()
+    
+    
     //MARK: elements
     private let headLabel: UILabel = {
         let label = UILabel()
@@ -119,6 +130,8 @@ class RegistrationFormVC: UIViewController {
         setupUI()
         addTargets()
         datePickerSetup()
+        
+        passwordTextField.text = storage.fetchEmail(forKey: .email ) ?? "herr а не имейл"
     }
     
     private func setupUI() {
@@ -234,7 +247,7 @@ class RegistrationFormVC: UIViewController {
     
     func addTargets() {
         selectPhotoButton.addTarget(self, action: #selector(showImagePickerController), for: .touchUpInside)
-        signUpButton.addTarget(self, action: #selector(closeRegistrationFormVC), for: .touchUpInside)
+        signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)  // срабатывает кнопка Sign UP
     }
     
     func getDateFromDatePicker() {
@@ -248,8 +261,19 @@ class RegistrationFormVC: UIViewController {
         view.endEditing(true)
     }
     
-    @objc func closeRegistrationFormVC() {
-        dismiss(animated: true)
+//    @objc func closeRegistrationFormVC() { // закрытие Sign up ViewController
+//        dismiss(animated: true)
+//    }
+    
+    @objc func signUpButtonTapped() {
+        print(firstNameTextField.text)
+        print(lastNameTextField.text)
+        print(birthDateTextField.text)
+        print(emailTextField.text)
+        print(passwordTextField.text)
+        
+        storage.setEmail(emailTextField.text ?? "", forKey: .email)
+        
     }
     
 }

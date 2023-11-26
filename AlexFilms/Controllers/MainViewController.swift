@@ -76,6 +76,9 @@ final class MainViewController: UIViewController {
         setupUI()
     
         addTargets()
+        
+        
+//        let profile = ProfileData
     }
     
     private func setupUI() {
@@ -125,8 +128,10 @@ final class MainViewController: UIViewController {
     @objc func openRegistrationFormVC() {
 //    func openRegistrationFormVC() {
         registrationFormViewController.modalPresentationStyle = .fullScreen
-//        present(registrationFormViewController, animated: true, completion: nil)
-        present(filmPageViewController, animated: true, completion: nil)
+        present(registrationFormViewController, animated: true, completion: nil)
+        
+        
+//        present(filmPageViewController, animated: true, completion: nil)
 
         print("her")
     }
