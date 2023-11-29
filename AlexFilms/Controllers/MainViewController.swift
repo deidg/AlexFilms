@@ -133,9 +133,10 @@ final class MainViewController: UIViewController {
         
 //        present(filmPageViewController, animated: true, completion: nil)
 
-        print("her")
+        print("her136 MainVC")
     }
 }
+
 
 
 

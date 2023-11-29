@@ -20,10 +20,12 @@
 
 import UIKit
 import SnapKit
+import Firebase
+import FirebaseAuth
 
 class RegistrationFormVC: UIViewController {
     
-    private let storage: StorageManagerProtocol = StorageManager()
+//    private let storage: StorageManagerProtocol = StorageManager()
     
     
     //MARK: elements
@@ -131,7 +133,16 @@ class RegistrationFormVC: UIViewController {
         addTargets()
         datePickerSetup()
         
-        passwordTextField.text = storage.fetchEmail(forKey: .email ) ?? "herr а не имейл"
+        
+        firstNameTextField.delegate = self
+        lastNameTextField.delegate = self
+        birthDateTextField.delegate = self
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        
+        
+        
+//        passwordTextField.text = storage.fetchEmail(forKey: .email ) ?? "herr а не имейл"
     }
     
     private func setupUI() {
@@ -247,7 +258,7 @@ class RegistrationFormVC: UIViewController {
     
     func addTargets() {
         selectPhotoButton.addTarget(self, action: #selector(showImagePickerController), for: .touchUpInside)
-        signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)  // срабатывает кнопка Sign UP
+        signUpButton.addTarget(self, action: #selector(createUser), for: .touchUpInside)  // срабатывает кнопка Sign UP
     }
     
     func getDateFromDatePicker() {
@@ -261,19 +272,106 @@ class RegistrationFormVC: UIViewController {
         view.endEditing(true)
     }
     
-//    @objc func closeRegistrationFormVC() { // закрытие Sign up ViewController
-//        dismiss(animated: true)
+    @objc func createUser() {
+        
+        
+                guard let firstName = firstNameTextField.text else { return }
+                guard let lastName = lastNameTextField.text else { return }
+                guard let dateOfBirth = birthDateTextField.text else { return }
+                guard let email = emailTextField.text else { return }
+                guard let password = passwordTextField.text else { return }
+        
+        
+        Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
+            if error == nil {
+                if let result = result {
+                    let uid = result.user.uid
+                    let ref = Database.database().reference(withPath: "users/\(uid)")
+                    let values = ["firstName": firstName, "lastName": lastName, "dateOfBirth": dateOfBirth, "email": email]
+                    ref.setValue(values) { (error, _) in
+                        if error == nil {
+                            print("User saved to database")
+                        } else {
+                            print("Error saving user to database: \(error?.localizedDescription ?? "")")
+                        }
+                    }
+                }
+            } else {
+                print("Error creating user: \(error?.localizedDescription ?? "")")
+            }
+        }
+
+    }
+
+//    @objc func signUpButtonTapped() {
+//
+//        guard let firstName = firstNameTextField.text else { return }
+//        guard let lastName = lastNameTextField.text else { return }
+//        guard let dateOfBirth = birthDateTextField.text else { return }
+//        guard let email = emailTextField.text else { return }
+//        guard let password = passwordTextField.text else { return }
+//
+//        print(firstName)
+//        print(lastName)
+//        print(dateOfBirth)
+//        print(email)
+//        print(password)
+//
+//        print("RegFormVC 326")
+//
+////        guard let (email, password) = validatedInputs() else { return }
+//
+//
+////        if(!firstName.isEmpty && !lastName.isEmpty && !dateOfBirth.isEmpty && !email.isEmpty && !password.isEmpty) {
+//
+//            Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+//                if error == nil {
+//                    if let result = authResult{
+//                        print(result.user.uid)
+//                        print("RegFormVC340")
+//                    }
+//                }
+//            }
+//        }
+//    else {
+//            showAlert()
+//            print("RegFormVC 339")
+//        }
+//
 //    }
     
-    @objc func signUpButtonTapped() {
-        print(firstNameTextField.text)
-        print(lastNameTextField.text)
-        print(birthDateTextField.text)
-        print(emailTextField.text)
-        print(passwordTextField.text)
-        
-        storage.setEmail(emailTextField.text ?? "", forKey: .email)
-        
+    
+//    func signUpUser(_ textField: UITextField) -> Bool {
+                
+//        let firstName = firstNameTextField.text!
+//        let lastName = lastNameTextField.text!
+//        let dateOfBirth = birthDateTextField.text!
+//        let email = emailTextField.text!
+//        let password = passwordTextField.text!
+//
+//        print("RegFormVC 326")
+//
+//        if(!firstName.isEmpty && !lastName.isEmpty && !dateOfBirth.isEmpty && !email.isEmpty && !password.isEmpty) {
+//            Auth.auth().createUser(withEmail: email, password: password){ (result, error) in
+//                if error == nil {
+//                    if let result = result{
+//                        print(result.user.uid)
+//                        print("RegFormVC340")
+//                    }
+//                }
+//            }
+//        } else {
+//            showAlert()
+//            print("RegFormVC 339")
+//        }
+//        return true
+//    }
+    
+    
+    func showAlert(){
+        let alert = UIAlertController(title: "Ошибка", message: "Заполните все поля", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
     
 }
@@ -295,5 +393,35 @@ extension RegistrationFormVC: UIImagePickerControllerDelegate {
 
 extension RegistrationFormVC: UINavigationControllerDelegate {
     
+}
+
+extension RegistrationFormVC: UITextFieldDelegate {
+    
+    
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//
+//        let firstName = firstNameTextField.text!
+//        let lastName = lastNameTextField.text!
+//        let dateOfBirth = birthDateTextField.text!
+//        let email = emailTextField.text!
+//        let password = passwordTextField.text!
+//
+//        print("RegFormVC 326")
+//
+//        if(!firstName.isEmpty && !lastName.isEmpty && !dateOfBirth.isEmpty && !email.isEmpty && !password.isEmpty) {
+//            Auth.auth().createUser(withEmail: email, password: password){ (result, error) in
+//                if error == nil {
+//                    if let result = result{
+//                        print(result.user.uid)
+//                        print("RegFormVC340")
+//                    }
+//                }
+//            }
+//        } else {
+//            showAlert()
+//            print("RegFormVC 339")
+//        }
+//        return true
+//    }
 }
 

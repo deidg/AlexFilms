@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:AuthService.swift">
+   </FileRef>
+   <FileRef
       location = "group:AlexFilms.xcodeproj">
    </FileRef>
    <FileRef
