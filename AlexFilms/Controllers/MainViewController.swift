@@ -10,6 +10,7 @@
 
 import Foundation
 import SnapKit
+import Firebase
 
 final class MainViewController: UIViewController {
     
@@ -18,9 +19,7 @@ final class MainViewController: UIViewController {
     let registrationFormViewController = RegistrationFormVC()
     
     let filmPageViewController = FilmPageVC()
-    
-//    let filmData[CompletionData] = []
-    
+        
     private let mainLabelAuthPage: UILabel = {
         let label = UILabel()
         label.text = "Sign In"
@@ -30,7 +29,7 @@ final class MainViewController: UIViewController {
     
     private let emailTextField: UITextField = {
         let textfield = UITextField()
-//        textfield.frame = CGRect(x: 0, y: 0, width: 200, height: 35)
+        //        textfield.frame = CGRect(x: 0, y: 0, width: 200, height: 35)
         textfield.borderStyle = .roundedRect
         textfield.leftView = UIView(frame:CGRect(x:0, y:0, width:10, height:10))
         textfield.placeholder = "Enter email"
@@ -74,11 +73,8 @@ final class MainViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupUI()
-    
+        
         addTargets()
-        
-        
-//        let profile = ProfileData
     }
     
     private func setupUI() {
@@ -92,48 +88,52 @@ final class MainViewController: UIViewController {
             make.top.equalTo(mainLabelAuthPage.snp.bottom).offset(25)
             make.horizontalEdges.equalToSuperview().inset(30)
         }
-        
         view.addSubview(passwordTextField)
         passwordTextField.snp.makeConstraints { make in
             make.top.equalTo(emailTextField.snp.bottom).offset(10)
             make.horizontalEdges.equalToSuperview().inset(30)
         }
-        
         view.addSubview(signInButton)
         signInButton.snp.makeConstraints { make in
             make.top.equalTo(passwordTextField.snp.bottom).offset(30)
             make.horizontalEdges.equalToSuperview().inset(100)
         }
-        
         view.addSubview(signUpButton)
         signUpButton.snp.makeConstraints { make in
             make.top.equalTo(signInButton.snp.bottom).offset(10)
             make.horizontalEdges.equalToSuperview().inset(100)
         }
-        
     }
     
     func addTargets() {
-        
-        signInButton.addTarget(self, action: #selector(openTabBarController), for: .touchUpInside)
+        signInButton.addTarget(self, action: #selector(signInButtonTapped), for: .touchUpInside)
         signUpButton.addTarget(self, action: #selector(openRegistrationFormVC), for: .touchUpInside)
     }
     
-    @objc func openTabBarController() {
-        customTabBarController.modalPresentationStyle = .fullScreen
-        present(customTabBarController, animated: true, completion: nil)
-
+    @objc func signInButtonTapped() {
+        guard let email = emailTextField.text, !email.isEmpty,
+              let password = passwordTextField.text, !password.isEmpty else {
+            print("Please enter email and password")
+            return
         }
+        let credential = EmailAuthProvider.credential(withEmail: email, password: password)
+        Auth.auth().signIn(with: credential) { request, error in
+            if let error = error {
+                print("Error signing in: \(error)")
+                return
+            }
+            
+            self.customTabBarController.modalPresentationStyle = .fullScreen
+            self.present(self.customTabBarController, animated: true, completion: nil)
+        }
+    }
+    
     
     @objc func openRegistrationFormVC() {
-//    func openRegistrationFormVC() {
         registrationFormViewController.modalPresentationStyle = .fullScreen
         present(registrationFormViewController, animated: true, completion: nil)
         
-        
-//        present(filmPageViewController, animated: true, completion: nil)
-
-        print("her136 MainVC")
+        print("136 MainVC")
     }
 }
 

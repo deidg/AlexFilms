@@ -273,6 +273,8 @@ class RegistrationFormVC: UIViewController {
     }
    
     @objc func signUpButtonTapped() {  // create user
+        
+        
 
         guard let firstName = firstNameTextField.text else { return }
         guard let lastName = lastNameTextField.text else { return }
@@ -296,6 +298,9 @@ class RegistrationFormVC: UIViewController {
                     }
                 }
             }
+        
+        self.dismiss(animated: true)
+        
         }
 
     
