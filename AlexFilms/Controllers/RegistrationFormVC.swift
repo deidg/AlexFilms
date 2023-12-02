@@ -130,24 +130,29 @@ class RegistrationFormVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setupRegistrationVC()
         addTargets()
         datePickerSetup()
         
+        setupFileStorage()
+        
+        
+    }
+    
+    private func setupRegistrationVC() {
+        self.view.backgroundColor = .white
+        photoImage.image = UIImage(systemName: "person.fill", withConfiguration: configuration)
         
         firstNameTextField.delegate = self
         lastNameTextField.delegate = self
         birthDateTextField.delegate = self
         emailTextField.delegate = self
         passwordTextField.delegate = self
-        
-        
-        
-//        passwordTextField.text = storage.fetchEmail(forKey: .email ) ?? "herr а не имейл"
     }
     
     private func setupUI() {
-        self.view.backgroundColor = .white
-        photoImage.image = UIImage(systemName: "person.fill", withConfiguration: configuration)
+//        self.view.backgroundColor = .white
+//        photoImage.image = UIImage(systemName: "person.fill", withConfiguration: configuration)
 
         view.addSubview(headLabel)
         headLabel.snp.makeConstraints { make in
@@ -267,41 +272,98 @@ class RegistrationFormVC: UIViewController {
         birthDateTextField.text = formatter.string(from: birthDatePicker.date)
     }
     
+    func setupFileStorage() {
+        
+        let manager = FileManager.default
+
+        guard let url = manager.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+        let newFolderUrl = url.appendingPathComponent("userImages")
+
+        do {
+            try manager.createDirectory(atPath: newFolderUrl.path, withIntermediateDirectories: true, attributes: nil)
+        } catch let error {
+            print("Error creating userImages directory: \(error)")
+            return
+        }
+
+        
+        
+        //старый рабочий
+//        let manager = FileManager.default
+//
+//        guard let url = manager.urls(for: .documentDirectory,  // TODO:  поменять на pictureDirectory?
+//                                     in: .userDomainMask).first
+//                                     else { return }
+//        print(url)
+//        let newFolderUrl = url.appendingPathComponent("userImages")
+
+        
+        
+        
+        // старый старый рабочий
+//            let fileUrl = newFolderUrl.appendingPathComponent("logs.txt")
+//
+//            let textString = "Whooo".data(using: .utf8)
+//
+//            manager.createFile(atPath: fileUrl.path,
+//                               contents: textString
+    }
+    
+    
+    func saveImage(imageName: String, image: UIImage) {
+
+        guard let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+        let newFolderUrl = documentsDirectory.appendingPathComponent("userImages")
+        let imageURL = newFolderUrl.appendingPathComponent(imageName)
+
+        guard let data = image.jpegData(compressionQuality: 1) else { return }
+        if FileManager.default.fileExists(atPath: imageURL.path) {
+            do {
+                try FileManager.default.removeItem(atPath: imageURL.path)
+                print("Removed old image")
+            } catch let removeError {
+                print("couldn't remove file at path", removeError)
+            }
+        }
+        do {
+            try data.write(to: imageURL)
+        } catch let error {
+            print("error saving file with error", error)
+        }
+    }
+  
     @objc func doneActionForDatePicker() {
         getDateFromDatePicker()
         view.endEditing(true)
     }
+    
    
     @objc func signUpButtonTapped() {  // create user
         
-        
-
         guard let firstName = firstNameTextField.text else { return }
         guard let lastName = lastNameTextField.text else { return }
         guard let dateOfBirth = birthDateTextField.text else { return }
         guard let email = emailTextField.text else { return }
         guard let password = passwordTextField.text else { return }
-
+        
         print(firstName)
         print(lastName)
         print(dateOfBirth)
         print(email)
         print(password)
-
+        
         print("RegFormVC 326")
-
-            Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-                if error == nil {
-                    if let result = authResult{
-                        print(result.user.uid)
-                        print("RegFormVC340")
-                    }
+        
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            if error == nil {
+                if let result = authResult{
+                    print(result.user.uid)
+                    print("RegFormVC340")
                 }
             }
-        
-        self.dismiss(animated: true)
-        
         }
+        self.dismiss(animated: true)
+    }
 
     
     func showAlert(){
@@ -312,20 +374,65 @@ class RegistrationFormVC: UIViewController {
     
 }
     //MARK: delegates
+
 extension RegistrationFormVC: UIImagePickerControllerDelegate {
+
     @objc func showImagePickerController() {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         imagePickerController.allowsEditing = true
         present(imagePickerController, animated: true)
     }
+
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+        let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage
+        if let editedImage = editedImage {
             photoImage.image = editedImage
+            // Optionally save the image
+            if let image = photoImage.image {
+                saveImage(imageName: "userImage", image: image)
+            }
         }
         dismiss(animated: true, completion: nil)
     }
 }
+
+
+//extension RegistrationFormVC: UIImagePickerControllerDelegate {
+//    @objc func showImagePickerController() {
+//
+//        if
+//
+//      let editedImage = info[UIImagePickerController.InfoKey.editedImage] as?
+//
+//      UIImage {
+//              photoImage.image = editedImage
+//
+//              // Optionally save the image
+//              if let image = photoImage.image {
+//                  saveImage(imageName: "userImage", image: image)
+//              }
+//
+//              dismiss(animated: true, completion: nil)
+//          }
+//
+//
+//
+////        let imagePickerController = UIImagePickerController()
+////        imagePickerController.delegate = self
+////        imagePickerController.allowsEditing = true
+////        present(imagePickerController, animated: true)
+//    }
+//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+//        if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+//            photoImage.image = editedImage
+//
+//            saveImage(imageName: "userImage", image: photoImage.image!)
+//
+//        }
+//        dismiss(animated: true, completion: nil)
+//    }
+//}
 
 extension RegistrationFormVC: UINavigationControllerDelegate {
     

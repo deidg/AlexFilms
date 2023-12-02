@@ -36,7 +36,6 @@
 		FABF6A042B13A69800F91DC8 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = FABF6A032B13A69800F91DC8 /* FirebaseDatabase */; };
 		FABF6A062B13A69800F91DC8 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FABF6A052B13A69800F91DC8 /* FirebaseDatabaseSwift */; };
 		FABF6A0A2B14C7BF00F91DC8 /* RegisterUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABF6A092B14C7BF00F91DC8 /* RegisterUserRequest.swift */; };
-		FABF6A0C2B14C88800F91DC8 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABF6A0B2B14C88700F91DC8 /* AuthService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,7 +86,6 @@
 		FABF69FA2B10F78700F91DC8 /* StorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		FABF69FC2B13A49A00F91DC8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FABF6A092B14C7BF00F91DC8 /* RegisterUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserRequest.swift; sourceTree = "<group>"; };
-		FABF6A0B2B14C88700F91DC8 /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,7 +244,6 @@
 				FA591C362ACC3317000644C7 /* Views */,
 				FA591C372ACC3325000644C7 /* Controllers */,
 				FA591C382ACC3332000644C7 /* Other files */,
-				FABF6A0B2B14C88700F91DC8 /* AuthService.swift */,
 				FAA84DB42ACA970D00CB1C47 /* Info.plist */,
 			);
 			path = AlexFilms;
@@ -487,7 +484,6 @@
 				FA9A5B382ACD419A00AA60B6 /* TabBarController.swift in Sources */,
 				FAA84DAE2ACA970A00CB1C47 /* ProfileCoreData.xcdatamodeld in Sources */,
 				FABF69FB2B10F78700F91DC8 /* StorageManager.swift in Sources */,
-				FABF6A0C2B14C88800F91DC8 /* AuthService.swift in Sources */,
 				FA9A5B3A2ACD772500AA60B6 /* RegistrationFormVC.swift in Sources */,
 				FAAFF9692AE6ABD600EA2180 /* FilmCell.swift in Sources */,
 			);

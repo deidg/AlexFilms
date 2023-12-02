@@ -6,5 +6,6 @@
         <attribute name="firstName" optional="YES" attributeType="String"/>
         <attribute name="lastName" optional="YES" attributeType="String"/>
         <attribute name="password" optional="YES" attributeType="String"/>
+        <attribute name="photoImage" optional="YES" attributeType="Binary"/>
     </entity>
 </model>

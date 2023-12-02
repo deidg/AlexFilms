@@ -45,6 +45,7 @@ final class MainViewController: UIViewController {
         textfield.leftView = UIView(frame:CGRect(x:0, y:0, width:10, height:10))
         textfield.backgroundColor = .white
         textfield.layer.cornerRadius = 5
+//        textfield.isSecureTextEntry = true 
         return textfield
     }()
     
