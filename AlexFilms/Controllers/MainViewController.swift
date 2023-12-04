@@ -6,6 +6,7 @@
 //
 
 //TODO: change font of mainLabelAuthPage into custom font
+//TODO: make warning - "Please enter email and password"
 
 
 import Foundation
@@ -112,21 +113,21 @@ final class MainViewController: UIViewController {
     }
     
     @objc func signInButtonTapped() {
-        guard let email = emailTextField.text, !email.isEmpty,
-              let password = passwordTextField.text, !password.isEmpty else {
-            print("Please enter email and password")
-            return
-        }
-        let credential = EmailAuthProvider.credential(withEmail: email, password: password)
-        Auth.auth().signIn(with: credential) { request, error in
-            if let error = error {
-                print("Error signing in: \(error)")
-                return
-            }
-            
-            self.customTabBarController.modalPresentationStyle = .fullScreen
+//        guard let email = emailTextField.text, !email.isEmpty,
+//              let password = passwordTextField.text, !password.isEmpty else {
+//            print("Please enter email and password")
+//            return
+//        }
+//        let credential = EmailAuthProvider.credential(withEmail: email, password: password)
+//        Auth.auth().signIn(with: credential) { request, error in
+//            if let error = error {
+//                print("Error signing in: \(error)")
+//                return
+//            }
+//
+//            self.customTabBarController.modalPresentationStyle = .fullScreen
             self.present(self.customTabBarController, animated: true, completion: nil)
-        }
+//        }
     }
     
     
