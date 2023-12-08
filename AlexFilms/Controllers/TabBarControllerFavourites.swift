@@ -9,6 +9,8 @@ import UIKit
 
 class TabBarControllerFavourites: UIViewController {
     
+    var items = [FavouritesMovies]()
+    
     
     private let headLabel: UILabel = {
         let label = UILabel()
@@ -53,7 +55,29 @@ class TabBarControllerFavourites: UIViewController {
     
 }
 
-//extension TabBarControllerMain: UITableViewDelegate {
+
+
+//extension TabBarControllerFavourites: UITableViewDataSource {
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return items.count
+////        return 1
+//    }
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "filmCell", for: indexPath) as? FilmCell else {
+//            return UITableViewCell()
+//        }
+//
+//        let data = items[indexPath.row]
+//        cell.cellConfigure(with: data)
+//
+//        let film = appleResponseData?.results[indexPath.row]
+//        cell.filmNameLabel.text = film?.trackName
+//        return cell
+//    }
+//}
+
+
+//extension TabBarControllerFavourites: UITableViewDelegate {
 //
 //    func filmsTableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        print("hello from cell")
@@ -61,11 +85,11 @@ class TabBarControllerFavourites: UIViewController {
 //}
 
 extension TabBarControllerFavourites: UITableViewDataSource {
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 15
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "filmCell") else { return UITableViewCell() }
 //        cell.textLabel?.text = "favorite film"

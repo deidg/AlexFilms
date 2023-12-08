@@ -25,6 +25,7 @@ class TabBarControllerMain: UIViewController {
     
         var items = [Movie]()
     
+    let favouriteMovie = MoviesEntity()
     
     //    let filmPageVC = FilmPageVC()
     
@@ -80,6 +81,12 @@ class TabBarControllerMain: UIViewController {
             self.filmsTableView.reloadData()
         }
     }
+    
+//    @objc favouriteButtonTapped() {
+//        FilmCell.
+//    }
+//    
+    
 }
 
 extension TabBarControllerMain: UITableViewDelegate {

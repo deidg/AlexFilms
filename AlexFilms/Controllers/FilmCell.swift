@@ -12,6 +12,10 @@ import Kingfisher
 
 class FilmCell: UITableViewCell {
     
+    
+    var favouriteButtonItem: UIBarButtonItem?
+    var isFavorite: Bool = false
+    
     var filmNameLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
@@ -36,24 +40,23 @@ class FilmCell: UITableViewCell {
         return imageView
     }()
     
-    var unlikedImage: UIImageView = {
-        let image = UIImageView()
-        image.image = UIImage(systemName: "heart")
-        image.tintColor = .red
-        return image
-    }()
     
-    var likedImage: UIImageView = {
-        let image = UIImageView()
-        image.image = UIImage(systemName: "heart.fill")
-        image.tintColor = .red
-        return image
-    }()
+    //=====
+    let imageHeart = UIImage(systemName: "heart")
+    let imageHeartFill = UIImage(systemName: "heart.fill")
     
+    var favouriteButton: UIButton = {
+        let button = UIButton(type: .system)
+//        button.setImage(imageHeart, for: .normal)
+        button.isEnabled = true
+        button.tintColor = .red
+        return button
+    }()
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupView()
-        likedImage.isHidden = true
+       addTargets()
     }
     
     required init?(coder: NSCoder) {
@@ -67,7 +70,9 @@ class FilmCell: UITableViewCell {
     
     func setupCellUI() {
         
-        addSubview(filmImage)
+        favouriteButton.setImage(imageHeart, for: .normal)
+        
+        contentView.addSubview(filmImage)
         filmImage.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview()
             make.trailing.equalToSuperview()
@@ -76,7 +81,7 @@ class FilmCell: UITableViewCell {
             //            make.height.equalTo(30)
         }
         
-        addSubview(filmNameLabel)
+        contentView.addSubview(filmNameLabel)
         filmNameLabel.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.leading.equalToSuperview()
@@ -84,7 +89,7 @@ class FilmCell: UITableViewCell {
             make.width.equalTo(self.frame.width / 2)
         }
         
-        addSubview(yearOfTheFilmLabel)
+        contentView.addSubview(yearOfTheFilmLabel)
         yearOfTheFilmLabel.snp.makeConstraints { make in
             make.top.equalTo(filmNameLabel.snp.bottom).offset(5)
             make.leading.equalToSuperview()
@@ -92,7 +97,7 @@ class FilmCell: UITableViewCell {
             make.width.equalTo(200)
         }
         
-        addSubview(genreOfTheFilmLabel)
+        contentView.addSubview(genreOfTheFilmLabel)
         genreOfTheFilmLabel.snp.makeConstraints { make in
             make.top.equalTo(yearOfTheFilmLabel.snp.bottom).offset(3)
             make.leading.equalToSuperview()
@@ -100,16 +105,9 @@ class FilmCell: UITableViewCell {
             //            make.bottom.equalToSuperview()
             make.width.equalTo(self.frame.width / 2)
         }
-        
-        
-        //        addSubview(unlikedImage)
-        //        unlikedImage.snp.makeConstraints { make in
-        //            make.right.equalTo(filmImage.snp.left).inset(-5)
-        //            make.bottom.equalToSuperview().inset(5)
-        //        }
-        
-        addSubview(likedImage)
-        likedImage.snp.makeConstraints { make in
+          
+        contentView.addSubview(favouriteButton)
+        favouriteButton.snp.makeConstraints { make in
             make.right.equalTo(filmImage.snp.left).inset(-5)
             make.bottom.equalToSuperview().inset(5)
         }
@@ -145,9 +143,27 @@ class FilmCell: UITableViewCell {
             }
         }
     }
+    
+    func addTargets() {
+        favouriteButton.addTarget(self, action: #selector(makeFavourite), for: .touchUpInside)
+    }
+    
+    @objc func makeFavourite(sender: UIButton) {   // toggleFavorite()
+        
+        if isFavorite == false {
+            
+            print("movie add to favourites")
+            favouriteButton.setImage(imageHeartFill, for: .normal)
+            isFavorite = true
+            
+        } else {
+            print("movie excepted from favourites")
+            favouriteButton.setImage(imageHeart, for: .normal)
+            isFavorite = false
+
+        }
+    }
 }
-
-
 
 
 
