@@ -148,11 +148,13 @@ class FilmCell: UITableViewCell {
         favouriteButton.addTarget(self, action: #selector(makeFavourite), for: .touchUpInside)
     }
     
-    @objc func makeFavourite(sender: UIButton) {   // toggleFavorite()
+    @objc func makeFavourite(sender: UIButton) {
+    //(chosenMovie: FavouriteMovie ) {   // красит или выкрашивает сердечко в избранное toggleFavorite()
         
         if isFavorite == false {
             
             print("movie add to favourites")
+//            CoreDataManager.shared.makeMovieFavourite(chosenMovie: chosenMovie)
             favouriteButton.setImage(imageHeartFill, for: .normal)
             isFavorite = true
             

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FavouritesMovies {
+struct FavouriteMovie {
     let trackName: String
     let releaseDate: String//Date
     let primaryGenreName: String

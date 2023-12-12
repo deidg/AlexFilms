@@ -118,6 +118,10 @@ extension TabBarControllerMain: UITableViewDataSource {
         
         let film = appleResponseData?.results[indexPath.row]
         cell.filmNameLabel.text = film?.trackName
+        
+//        cell.makeFavourite(chosenMovie: items[indexPath.row])
+        
+        
         return cell
     }
 }

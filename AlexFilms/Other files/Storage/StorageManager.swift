@@ -7,6 +7,8 @@
 
 import Foundation
 
+// Отвечает за регистрацию пользователя
+
 protocol StorageManagerProtocol {
     func setEmail(_ email: String, forKey key: StorageManager.Keys)
     func fetchEmail(forKey key: StorageManager.Keys) -> String?

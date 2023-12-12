@@ -9,7 +9,7 @@ import UIKit
 
 class TabBarControllerFavourites: UIViewController {
     
-    var items = [FavouritesMovies]()
+    var items = [FavouriteMovie]()
     
     
     private let headLabel: UILabel = {
