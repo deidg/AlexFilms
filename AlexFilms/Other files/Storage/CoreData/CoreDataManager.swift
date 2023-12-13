@@ -22,18 +22,18 @@ struct CoreDataManager {
     
     func makeMovieFavourite(chosenMovie: FavouriteMovie ) -> Bool { //MoviesEntity? {  // делает фильм избранным
         let context = persistentContainer.viewContext
-        
+
         let movie = NSEntityDescription.insertNewObject(forEntityName: "MoviesEntity", into: context) as! MoviesEntity
-        
+
         movie.trackName = chosenMovie.trackName
         movie.releaseDate = chosenMovie.releaseDate
         movie.primaryGenreName = chosenMovie.primaryGenreName
         movie.shortDescript = chosenMovie.shortDescription
         movie.longDescript = chosenMovie.longDescription
         movie.artworkUrl100 = chosenMovie.artworkUrl100
-        
+
         movie.trackId = String(chosenMovie.trackId)
-        
+
         do {
             try context.save()
             print("film saved into Favourites!")
@@ -41,7 +41,7 @@ struct CoreDataManager {
         } catch let error {
             print("Failed to create: \(error)")
         }
-        
+
         return true //MoviesEntity //nil
     }
     

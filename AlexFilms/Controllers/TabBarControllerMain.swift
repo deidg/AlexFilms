@@ -19,6 +19,8 @@
 
 
 import UIKit
+import CoreData
+
 
 
 class TabBarControllerMain: UIViewController {
@@ -26,6 +28,8 @@ class TabBarControllerMain: UIViewController {
         var items = [Movie]()
     
     let favouriteMovie = MoviesEntity()
+    var isFavorite: Bool = false
+
     
     //    let filmPageVC = FilmPageVC()
     
@@ -41,6 +45,20 @@ class TabBarControllerMain: UIViewController {
         let tableView = UITableView()
         return tableView
     }()
+    
+    let imageHeart = UIImage(systemName: "heart")
+    let imageHeartFill = UIImage(systemName: "heart.fill")
+    
+    
+    var favouriteButton: UIButton = {
+        let button = UIButton(type: .system)
+//        button.setImage(imageHeart, for: .normal)
+        button.isEnabled = true
+        button.tintColor = .red
+        return button
+    }()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -60,6 +78,14 @@ class TabBarControllerMain: UIViewController {
         self.definesPresentationContext = true
         
         navigationItem.hidesSearchBarWhenScrolling = false
+        
+        favouriteButton.setImage(imageHeart, for: .normal)
+
+        
+        
+        
+        
+        addTargets()
     }
     
     private func setupUI() {
@@ -69,6 +95,17 @@ class TabBarControllerMain: UIViewController {
             make.horizontalEdges.equalToSuperview()
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
+        
+        
+//        view.addSubview(favouriteButton)
+//        favouriteButton.snp.makeConstraints { make in
+////            make.right.equalTo(filmImage.snp.left).inset(-5)
+//            
+//            make.leading.equalTo(filmsTableView.snp.left).inset(100)
+//
+//            make.bottom.equalToSuperview().inset(5)
+//        }
+        
     }
     
     func fetchData(searchTerm: String) {
@@ -82,10 +119,29 @@ class TabBarControllerMain: UIViewController {
         }
     }
     
-//    @objc favouriteButtonTapped() {
-//        FilmCell.
-//    }
-//    
+    func addTargets() {
+        favouriteButton.addTarget(self, action: #selector(makeFavourite), for: .touchUpInside)
+    }
+    
+    @objc func makeFavourite(sender: UIButton) {
+    //(chosenMovie: FavouriteMovie ) {   // красит или выкрашивает сердечко в избранное toggleFavorite()
+        
+        if isFavorite == false {
+            
+            print("movie add to favourites")
+//            CoreDataManager.shared.makeMovieFavourite(chosenMovie: chosenMovie)
+//            makeMovieFavourite(chosenMovie: <#T##FavouriteMovie#>)
+            favouriteButton.setImage(imageHeartFill, for: .normal)
+            isFavorite = true
+            
+        } else {
+            print("movie excepted from favourites")
+            favouriteButton.setImage(imageHeart, for: .normal)
+            isFavorite = false
+
+        }
+    }
+    
     
 }
 

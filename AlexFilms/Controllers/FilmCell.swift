@@ -9,6 +9,7 @@
 import UIKit
 import SnapKit
 import Kingfisher
+import CoreData
 
 class FilmCell: UITableViewCell {
     
@@ -70,7 +71,7 @@ class FilmCell: UITableViewCell {
     
     func setupCellUI() {
         
-        favouriteButton.setImage(imageHeart, for: .normal)
+//        favouriteButton.setImage(imageHeart, for: .normal)
         
         contentView.addSubview(filmImage)
         filmImage.snp.makeConstraints { make in
@@ -147,17 +148,18 @@ class FilmCell: UITableViewCell {
     func addTargets() {
         favouriteButton.addTarget(self, action: #selector(makeFavourite), for: .touchUpInside)
     }
-    
+
     @objc func makeFavourite(sender: UIButton) {
     //(chosenMovie: FavouriteMovie ) {   // красит или выкрашивает сердечко в избранное toggleFavorite()
-        
+
         if isFavorite == false {
-            
+
             print("movie add to favourites")
 //            CoreDataManager.shared.makeMovieFavourite(chosenMovie: chosenMovie)
+//            makeMovieFavourite(chosenMovie: <#T##FavouriteMovie#>)
             favouriteButton.setImage(imageHeartFill, for: .normal)
             isFavorite = true
-            
+
         } else {
             print("movie excepted from favourites")
             favouriteButton.setImage(imageHeart, for: .normal)
@@ -165,6 +167,8 @@ class FilmCell: UITableViewCell {
 
         }
     }
+    
+ 
 }
 
 
