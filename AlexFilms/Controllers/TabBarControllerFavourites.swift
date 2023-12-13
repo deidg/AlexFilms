@@ -56,38 +56,10 @@ class TabBarControllerFavourites: UIViewController {
 }
 
 
-
-//extension TabBarControllerFavourites: UITableViewDataSource {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return items.count
-////        return 1
-//    }
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "filmCell", for: indexPath) as? FilmCell else {
-//            return UITableViewCell()
-//        }
-//
-//        let data = items[indexPath.row]
-//        cell.cellConfigure(with: data)
-//
-//        let film = appleResponseData?.results[indexPath.row]
-//        cell.filmNameLabel.text = film?.trackName
-//        return cell
-//    }
-//}
-
-
-//extension TabBarControllerFavourites: UITableViewDelegate {
-//
-//    func filmsTableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print("hello from cell")
-//    }
-//}
-
 extension TabBarControllerFavourites: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 15
+        return FavouritesMoviesManager.shared.arrayOfFavouritesMovies.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -96,4 +68,12 @@ extension TabBarControllerFavourites: UITableViewDataSource {
         return cell
     }
 }
+
+//extension TabBarControllerFavourites: UITableViewDelegate {
+//
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        <#code#>
+//    }
+//
+//}
 

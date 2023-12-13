@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FavouriteMovie {
+struct FavouriteMovie: Codable {
     let trackName: String
     let releaseDate: String//Date
     let primaryGenreName: String

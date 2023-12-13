@@ -13,6 +13,7 @@
 		FA591C432ACC3BE0000644C7 /* Ubuntu-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA591C422ACC3BE0000644C7 /* Ubuntu-Regular.ttf */; };
 		FA91C2B92B233D0800335865 /* FavouriteMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA91C2B82B233D0800335865 /* FavouriteMovie.swift */; };
 		FA91C2BB2B238B7400335865 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA91C2BA2B238B7400335865 /* CoreDataManager.swift */; };
+		FA91C2BD2B2A075B00335865 /* FavouritesMoviesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA91C2BC2B2A075B00335865 /* FavouritesMoviesManager.swift */; };
 		FA991E0F2AE7C0CA00B9E829 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA991E0E2AE7C0CA00B9E829 /* Movie.swift */; };
 		FA991E122AE7D43500B9E829 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA991E112AE7D43500B9E829 /* NetworkRequest.swift */; };
 		FA991E142AE7FDF800B9E829 /* AppleResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA991E132AE7FDF800B9E829 /* AppleResponseModel.swift */; };
@@ -65,6 +66,7 @@
 		FA591C422ACC3BE0000644C7 /* Ubuntu-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Regular.ttf"; sourceTree = "<group>"; };
 		FA91C2B82B233D0800335865 /* FavouriteMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteMovie.swift; sourceTree = "<group>"; };
 		FA91C2BA2B238B7400335865 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		FA91C2BC2B2A075B00335865 /* FavouritesMoviesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesMoviesManager.swift; sourceTree = "<group>"; };
 		FA991E0E2AE7C0CA00B9E829 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		FA991E112AE7D43500B9E829 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		FA991E132AE7FDF800B9E829 /* AppleResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleResponseModel.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				FABF69FA2B10F78700F91DC8 /* StorageManager.swift */,
+				FA91C2BC2B2A075B00335865 /* FavouritesMoviesManager.swift */,
 				FABF69F52B108E3000F91DC8 /* CoreData */,
 			);
 			path = Storage;
@@ -477,6 +480,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA991E122AE7D43500B9E829 /* NetworkRequest.swift in Sources */,
+				FA91C2BD2B2A075B00335865 /* FavouritesMoviesManager.swift in Sources */,
 				FABF6A0A2B14C7BF00F91DC8 /* RegisterUserRequest.swift in Sources */,
 				FA591C342ACC2ABF000644C7 /* MainViewController.swift in Sources */,
 				FA91C2B92B233D0800335865 /* FavouriteMovie.swift in Sources */,
