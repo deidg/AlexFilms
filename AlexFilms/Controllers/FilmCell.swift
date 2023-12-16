@@ -71,7 +71,7 @@ class FilmCell: UITableViewCell {
     
     func setupCellUI() {
         
-//        favouriteButton.setImage(imageHeart, for: .normal)
+        favouriteButton.setImage(imageHeart, for: .normal)
         
         contentView.addSubview(filmImage)
         filmImage.snp.makeConstraints { make in
@@ -155,6 +155,10 @@ class FilmCell: UITableViewCell {
         if isFavorite == false {
 
             print("movie add to favourites")
+            
+//            FavouritesMoviesManager.makeFavourite(FavouritesMoviesManager)
+            
+            
 //            CoreDataManager.shared.makeMovieFavourite(chosenMovie: chosenMovie)
 //            makeMovieFavourite(chosenMovie: <#T##FavouriteMovie#>)
             favouriteButton.setImage(imageHeartFill, for: .normal)

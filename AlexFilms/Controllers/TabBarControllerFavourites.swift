@@ -64,6 +64,11 @@ extension TabBarControllerFavourites: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "filmCell") else { return UITableViewCell() }
+        
+        
+        
+        
+        
 //        cell.textLabel?.text = "favorite film"
         return cell
     }

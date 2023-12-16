@@ -5,6 +5,13 @@
 //
 //  Created by Alex on 20.10.2023.
 //
+
+
+// экран 2 - ПОИСК ФИЛЬМОВ
+
+
+
+
 // TODO: setup searchTextField constraint to searchIcon
 // настройка запроса тут https://youtu.be/VGjH6gUcDJc?si=-SaYEwhjDHyzLo0i
 

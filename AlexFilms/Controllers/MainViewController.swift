@@ -5,6 +5,10 @@
 //  Created by Alex on 02.10.2023.
 //
 
+
+// экран 1 - АВТОРИЗАЦИЯ
+
+
 //TODO: change font of mainLabelAuthPage into custom font
 //TODO: make warning - "Please enter email and password"
 
@@ -15,11 +19,23 @@ import Firebase
 
 final class MainViewController: UIViewController {
     
+    let tabBarControllerMain = TabBarControllerMain()
+//    let tabBarControllerMain = TabBarControllerMain()
+    
+    private let userDefaults = UserDefaults.standard
+    
     let customTabBarController = TabBarController()
     
     let registrationFormViewController = RegistrationFormVC()
     
     let filmPageViewController = FilmPageVC()
+    
+    var ifAuthorized: Bool = false
+    
+    var handle: AuthStateDidChangeListenerHandle?
+
+    
+    
         
     private let mainLabelAuthPage: UILabel = {
         let label = UILabel()
@@ -71,11 +87,26 @@ final class MainViewController: UIViewController {
         return button
     }()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        handle = Auth.auth().addStateDidChangeListener { auth, user in
+              // [START_EXCLUDE]
+            
+            self.present(self.customTabBarController, animated: true, completion: nil)
+
+            
+              // [END_EXCLUDE]
+            }
+        
+//        autoAuthCheck()
+    }
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
+   
         view.backgroundColor = .white
         setupUI()
-        
         addTargets()
     }
     
@@ -112,22 +143,49 @@ final class MainViewController: UIViewController {
         signUpButton.addTarget(self, action: #selector(openRegistrationFormVC), for: .touchUpInside)
     }
     
-    @objc func signInButtonTapped() {
-//        guard let email = emailTextField.text, !email.isEmpty,
-//              let password = passwordTextField.text, !password.isEmpty else {
-//            print("Please enter email and password")
-//            return
-//        }
-//        let credential = EmailAuthProvider.credential(withEmail: email, password: password)
-//        Auth.auth().signIn(with: credential) { request, error in
-//            if let error = error {
-//                print("Error signing in: \(error)")
-//                return
-//            }
-//
-//            self.customTabBarController.modalPresentationStyle = .fullScreen
+    func autoAuthCheck() {
+        
+        var isAuthorized = userDefaults.bool(forKey: "ifAuthorized")
+                
+        print("isAuthorized status 136 - \(isAuthorized)")
+        if ifAuthorized == true {
+            //            self.present(self.tabBarControllerMain, animated: true, completion: nil)
             self.present(self.customTabBarController, animated: true, completion: nil)
-//        }
+            print("isAuthorized status - \(isAuthorized)")
+        } else {
+            print("you are not logged 142")
+            //            ifAuthorized = false
+        }
+    }
+    
+    @objc func signInButtonTapped() {
+        guard let email = emailTextField.text, !email.isEmpty,
+              let password = passwordTextField.text, !password.isEmpty else {
+            print("Please enter email and password")
+            return
+        }
+        let credential = EmailAuthProvider.credential(withEmail: email, password: password)
+        Auth.auth().signIn(with: credential) { request, error in
+            if let error = error {
+                print("Error signing in: \(error)")
+                return
+            }
+            
+            
+            
+            
+//            self.customTabBarController.modalPresentationStyle = .fullScreen
+            self.ifAuthorized = true
+            print("log status changed into: \(self.ifAuthorized)")
+            
+            self.userDefaults.set(self.ifAuthorized, forKey: "ifAuthorized")
+            
+            print( "status 181 - \(self.userDefaults.bool(forKey: "ifAuthorized"))")
+
+            self.present(self.customTabBarController, animated: true, completion: nil)
+            
+//                        self.present(self.tabBarControllerMain, animated: true, completion: nil)
+        }
     }
     
     
