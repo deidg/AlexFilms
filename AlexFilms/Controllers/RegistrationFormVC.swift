@@ -359,10 +359,14 @@ class RegistrationFormVC: UIViewController {
                 if let result = authResult{
                     print(result.user.uid)
                     print("RegFormVC340")
+                    
+                    self.dismiss(animated: true)
                 }
+            } else {
+                print(error)
             }
         }
-        self.dismiss(animated: true)
+//        self.dismiss(animated: true)
     }
 
     

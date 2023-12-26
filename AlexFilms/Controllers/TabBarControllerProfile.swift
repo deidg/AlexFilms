@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class TabBarControllerProfile: UIViewController {
     //MARK: elements
@@ -21,7 +22,7 @@ class TabBarControllerProfile: UIViewController {
     }
     private let photoImage: UIImageView = {
         let imageView = UIImageView()
-//        imageView.image = UIImage(systemName: "person.fill", withConfiguration: configuration)
+        //        imageView.image = UIImage(systemName: "person.fill", withConfiguration: configuration)
         return imageView
     }()
     private let selectPhotoButton: UIButton = {
@@ -44,13 +45,13 @@ class TabBarControllerProfile: UIViewController {
         label.text = "Date of birth"
         return label
     }()
-
+    
     private let emailLabel: UILabel = {
         let label = UILabel()
         label.text = "Email"
         return label
     }()
- 
+    
     private let logOutButton: UIButton = {
         let button = UIButton()
         button.frame = CGRect(x: 0, y: 0, width: 120, height: 120)
@@ -71,7 +72,7 @@ class TabBarControllerProfile: UIViewController {
     private func setupUI() {
         self.view.backgroundColor = .white
         photoImage.image = UIImage(systemName: "person.fill", withConfiguration: configuration)
-
+        
         view.addSubview(headLabel)
         headLabel.snp.makeConstraints { make in
             make.top.equalTo(view).inset(80)
@@ -101,19 +102,19 @@ class TabBarControllerProfile: UIViewController {
             make.leading.equalToSuperview().inset(20)
             make.top.equalTo(headLabel).inset(200)
         }
-  
+        
         view.addSubview(birthDateLabel)
         birthDateLabel.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(20)
             make.top.equalTo(nameLabel.snp.bottom).offset(10)
         }
-
+        
         view.addSubview(emailLabel)
         emailLabel.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(20)
             make.top.equalTo(birthDateLabel.snp.bottom).offset(10)
         }
-    
+        
         view.addSubview(logOutButton)
         logOutButton.snp.makeConstraints { make in
             make.top.equalTo(emailLabel.snp.bottom).offset(20)
@@ -126,17 +127,20 @@ class TabBarControllerProfile: UIViewController {
         selectPhotoButton.addTarget(self, action: #selector(showImagePickerController), for: .touchUpInside)
         logOutButton.addTarget(self, action: #selector(closeRegistrationFormVC), for: .touchUpInside)
     }
-
+    
     @objc func doneActionForDatePicker() {
         view.endEditing(true)
     }
-    
+
     @objc func closeRegistrationFormVC() {
-        dismiss(animated: true)
+        do {
+            try Auth.auth().signOut()
+        } catch {
+            print(error)
+        }
     }
-    
 }
-    //MARK: delegates
+//MARK: delegates
 extension TabBarControllerProfile: UIImagePickerControllerDelegate {
     @objc func showImagePickerController() {
         let imagePickerController = UIImagePickerController()

@@ -11,6 +11,10 @@ class TabBarControllerFavourites: UIViewController {
     
     var items = [FavouriteMovie]()
     
+    let userDefaults = UserDefaults.standard
+    var arrayOfFavouritesMovies = [FavouriteMovie]()
+
+
     
     private let headLabel: UILabel = {
         let label = UILabel()
@@ -35,6 +39,9 @@ class TabBarControllerFavourites: UIViewController {
         filmsTableView.dataSource = self
         filmsTableView.register(FilmCell.self, forCellReuseIdentifier: "filmCell")
         self.filmsTableView.rowHeight = 100
+        
+        items = FavouritesMoviesManager.shared.favouriteMovieArray
+        
     }
     
     private func setupUI() {
@@ -55,7 +62,7 @@ class TabBarControllerFavourites: UIViewController {
     
 }
 
-
+/*
 extension TabBarControllerFavourites: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -65,11 +72,47 @@ extension TabBarControllerFavourites: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "filmCell") else { return UITableViewCell() }
         
+//        let favMovie: FavouriteMovie = userDefaults.object(forKey: arrayOfFavouritesMovies.)
+        
+        let data = items[indexPath.row]
+        
+        
+        */
+        
+extension TabBarControllerFavourites: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return items.count
+//        return 1
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "filmCell", for: indexPath) as? FilmCell else {
+            return UITableViewCell()
+        }
+        
+        
+        let data = items[indexPath.row]
+        cell.favouriteCellConfigure(with: data)
+        
+//        let film = data?.results[indexPath.row]
+//        cell.filmNameLabel.text = film?.trackName
+        
+        
+//        let data = items[indexPath.row]
+//
+//        for item in items {
+//            cell = item
+//        }
+        
+//        cell = items
         
         
         
-        
-//        cell.textLabel?.text = "favorite film"
+//        cell.cellConfigure(with: data)
+////
+////        let film = appleResponseData?.results[indexPath.row]
+//        cell.filmNameLabel.text = film?.trackName ?? ""
+//
+////        cell.textLabel?.text = "favorite film"
         return cell
     }
 }

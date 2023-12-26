@@ -86,22 +86,7 @@ final class MainViewController: UIViewController {
         button.isEnabled = true
         return button
     }()
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        handle = Auth.auth().addStateDidChangeListener { auth, user in
-              // [START_EXCLUDE]
-            
-            self.present(self.customTabBarController, animated: true, completion: nil)
-
-            
-              // [END_EXCLUDE]
-            }
-        
-//        autoAuthCheck()
-    }
- 
+  
     override func viewDidLoad() {
         super.viewDidLoad()
    
@@ -143,20 +128,20 @@ final class MainViewController: UIViewController {
         signUpButton.addTarget(self, action: #selector(openRegistrationFormVC), for: .touchUpInside)
     }
     
-    func autoAuthCheck() {
-        
-        var isAuthorized = userDefaults.bool(forKey: "ifAuthorized")
-                
-        print("isAuthorized status 136 - \(isAuthorized)")
-        if ifAuthorized == true {
-            //            self.present(self.tabBarControllerMain, animated: true, completion: nil)
-            self.present(self.customTabBarController, animated: true, completion: nil)
-            print("isAuthorized status - \(isAuthorized)")
-        } else {
-            print("you are not logged 142")
-            //            ifAuthorized = false
-        }
-    }
+//    func autoAuthCheck() {
+//
+//        var isAuthorized = userDefaults.bool(forKey: "ifAuthorized")
+//
+//        print("isAuthorized status 136 - \(isAuthorized)")
+//        if ifAuthorized == true {
+//            //            self.present(self.tabBarControllerMain, animated: true, completion: nil)
+//            self.present(self.customTabBarController, animated: true, completion: nil)
+//            print("isAuthorized status - \(isAuthorized)")
+//        } else {
+//            print("you are not logged 142")
+//            //            ifAuthorized = false
+//        }
+//    }
     
     @objc func signInButtonTapped() {
         guard let email = emailTextField.text, !email.isEmpty,
@@ -170,21 +155,7 @@ final class MainViewController: UIViewController {
                 print("Error signing in: \(error)")
                 return
             }
-            
-            
-            
-            
-//            self.customTabBarController.modalPresentationStyle = .fullScreen
-            self.ifAuthorized = true
-            print("log status changed into: \(self.ifAuthorized)")
-            
-            self.userDefaults.set(self.ifAuthorized, forKey: "ifAuthorized")
-            
-            print( "status 181 - \(self.userDefaults.bool(forKey: "ifAuthorized"))")
-
-            self.present(self.customTabBarController, animated: true, completion: nil)
-            
-//                        self.present(self.tabBarControllerMain, animated: true, completion: nil)
+            self.present(self.tabBarControllerMain, animated: true, completion: nil)
         }
     }
     

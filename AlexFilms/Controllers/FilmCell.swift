@@ -12,9 +12,8 @@ import Kingfisher
 import CoreData
 
 class FilmCell: UITableViewCell {
+    private var movieData: Movie?
     
-    
-    var favouriteButtonItem: UIBarButtonItem?
     var isFavorite: Bool = false
     
     var filmNameLabel: UILabel = {
@@ -41,14 +40,13 @@ class FilmCell: UITableViewCell {
         return imageView
     }()
     
-    
     //=====
-    let imageHeart = UIImage(systemName: "heart")
-    let imageHeartFill = UIImage(systemName: "heart.fill")
+//    let imageHeart = UIImage(systemName: "heart")
+//    let imageHeartFill = UIImage(systemName: "heart.fill")
     
     var favouriteButton: UIButton = {
         let button = UIButton(type: .system)
-//        button.setImage(imageHeart, for: .normal)
+        button.setImage(Constants.imageHeart, for: .normal)
         button.isEnabled = true
         button.tintColor = .red
         return button
@@ -71,7 +69,7 @@ class FilmCell: UITableViewCell {
     
     func setupCellUI() {
         
-        favouriteButton.setImage(imageHeart, for: .normal)
+//        favouriteButton.setImage(imageHeart, for: .normal)
         
         contentView.addSubview(filmImage)
         filmImage.snp.makeConstraints { make in
@@ -123,9 +121,22 @@ class FilmCell: UITableViewCell {
             self?.filmImage.image = image
             self?.filmNameLabel.text = data.trackName
         }
+        
+        movieData = data
     }
     
-
+    func favouriteCellConfigure(with data: FavouriteMovie) {   //конструирует макет ячейки избранных фильмов
+        self.yearOfTheFilmLabel.text = String(data.releaseDate.prefix(4))
+        self.genreOfTheFilmLabel.text = data.primaryGenreName
+        
+        
+        loadImage(from: data.artworkUrl100) { [weak self] image in
+            self?.filmImage.image = image
+            self?.filmNameLabel.text = data.trackName
+        }
+        
+//         = data
+    }
     
     func loadImage(from urlString: String, completion: @escaping (UIImage?) -> Void) {    // загружает изображение
         guard let url = URL(string: urlString) else {
@@ -150,29 +161,42 @@ class FilmCell: UITableViewCell {
     }
 
     @objc func makeFavourite(sender: UIButton) {
-    //(chosenMovie: FavouriteMovie ) {   // красит или выкрашивает сердечко в избранное toggleFavorite()
 
         if isFavorite == false {
 
             print("movie add to favourites")
+            print(movieData)
+            favouriteButton.setImage(Constants.imageHeartFill, for: .normal)
             
-//            FavouritesMoviesManager.makeFavourite(FavouritesMoviesManager)
+            FavouritesMoviesManager.shared.makeFavourite(trackName: movieData?.trackName ?? "",
+                                                         releaseDate: movieData?.releaseDate ?? "",
+                                                         primaryGenreName: movieData?.primaryGenreName ?? "",
+                                                         shortDescription: movieData?.shortDescription ?? "",
+                                                         longDescription: movieData?.longDescription ?? "",
+                                                         artworkUrl100: movieData?.artworkUrl100 ?? "",
+                                                         trackId: movieData?.trackId ?? 0)
+//            print(arrayOf)
             
-            
-//            CoreDataManager.shared.makeMovieFavourite(chosenMovie: chosenMovie)
-//            makeMovieFavourite(chosenMovie: <#T##FavouriteMovie#>)
-            favouriteButton.setImage(imageHeartFill, for: .normal)
             isFavorite = true
 
         } else {
             print("movie excepted from favourites")
-            favouriteButton.setImage(imageHeart, for: .normal)
+            favouriteButton.setImage(Constants.imageHeart, for: .normal)
             isFavorite = false
 
         }
     }
     
  
+}
+
+extension FilmCell {
+    
+    enum Constants{
+        static let imageHeart = UIImage(systemName: "heart")
+        static let imageHeartFill = UIImage(systemName: "heart.fill")
+    }
+    
 }
 
 
