@@ -93,35 +93,13 @@ extension TabBarControllerFavourites: UITableViewDataSource {
         let data = items[indexPath.row]
         cell.favouriteCellConfigure(with: data)
         
-//        let film = data?.results[indexPath.row]
-//        cell.filmNameLabel.text = film?.trackName
+        cell.favouriteButton.setImage(FilmCell.Constants.imageHeartFill, for: .normal)
         
-        
-//        let data = items[indexPath.row]
-//
-//        for item in items {
-//            cell = item
-//        }
-        
-//        cell = items
-        
-        
-        
-//        cell.cellConfigure(with: data)
-////
-////        let film = appleResponseData?.results[indexPath.row]
-//        cell.filmNameLabel.text = film?.trackName ?? ""
-//
-////        cell.textLabel?.text = "favorite film"
+        print(items)
+
+
         return cell
     }
 }
 
-//extension TabBarControllerFavourites: UITableViewDelegate {
-//
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        <#code#>
-//    }
-//
-//}
 

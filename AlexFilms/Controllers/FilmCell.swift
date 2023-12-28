@@ -129,6 +129,7 @@ class FilmCell: UITableViewCell {
         self.yearOfTheFilmLabel.text = String(data.releaseDate.prefix(4))
         self.genreOfTheFilmLabel.text = data.primaryGenreName
         
+//        сердечко покрасить
         
         loadImage(from: data.artworkUrl100) { [weak self] image in
             self?.filmImage.image = image
@@ -175,19 +176,34 @@ class FilmCell: UITableViewCell {
                                                          longDescription: movieData?.longDescription ?? "",
                                                          artworkUrl100: movieData?.artworkUrl100 ?? "",
                                                          trackId: movieData?.trackId ?? 0)
-//            print(arrayOf)
-            
             isFavorite = true
-
         } else {
             print("movie excepted from favourites")
             favouriteButton.setImage(Constants.imageHeart, for: .normal)
             isFavorite = false
-
         }
     }
     
- 
+//
+    @objc func makeUnFavourite(sender: UIButton) {
+        
+        guard let trackName = movieData?.trackName else {
+            return
+        }
+        
+        
+        FavouritesMoviesManager.shared.makeUnFavourite(trackName: trackName)
+        
+        favouriteButton.setImage(Constants.imageHeart, for: .normal)
+
+        isFavorite = false
+        
+        if let tabBarController = self.TabBarController as? TabBarControllerFavourites {
+            
+            tabBarController.filmsTableView.reloadData()
+            
+        }
+    }
 }
 
 extension FilmCell {

@@ -14,7 +14,7 @@ class FavouritesMoviesManager {
     
     let userDefaults = UserDefaults.standard
     
-//    var arrayOfFavouritesMovies = [FavouriteMovie]()
+    var arrayOfFavouritesMovies = [FavouriteMovie]()
     
     var favouriteMovieArray: [FavouriteMovie] {
         get {
@@ -31,12 +31,25 @@ class FavouritesMoviesManager {
         }
     }
     
-    func makeFavourite(trackName: String, releaseDate: String, primaryGenreName: String, shortDescription: String?, longDescription: String?, artworkUrl100: String, trackId: Int ) {
+    func makeFavourite(trackName: String, releaseDate: String, primaryGenreName: String, shortDescription: String?, longDescription: String?, artworkUrl100: String, trackId: Int) {
         
         let chosenMovie = FavouriteMovie(trackName: trackName, releaseDate: releaseDate, primaryGenreName: primaryGenreName, shortDescription: shortDescription, longDescription: longDescription, artworkUrl100: artworkUrl100, trackId: trackId)
         favouriteMovieArray.insert(chosenMovie, at: 0)
         print("Im printing from str 38Favoutri \(favouriteMovieArray)")
     }
+    
+    func makeUnFavourite(trackName: String) {
+        
+        favouriteMovieArray = favouriteMovieArray.filter{$0.trackName != trackName}
+
+        
+        userDefaults.removeObject(forKey: "favouriteMovie")
+        print(userDefaults)
+        
+        
+        
+    }
+
 }
 
 
