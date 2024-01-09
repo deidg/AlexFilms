@@ -367,6 +367,7 @@ class RegistrationFormVC: UIViewController {
             }
         }
 //        self.dismiss(animated: true)
+        FavouritesMoviesManager.shared.saveUser(user: User.init(name: firstName, surname: lastName, email: email, age: 20, avatar: nil, favouriteFilmsArray: [FavouriteMovie]()))
     }
 
     

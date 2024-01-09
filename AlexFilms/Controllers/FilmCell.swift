@@ -11,11 +11,21 @@ import SnapKit
 import Kingfisher
 import CoreData
 
+
+
 class FilmCell: UITableViewCell {
-    private var movieData: Movie?
     
-    var isFavorite: Bool = false
+    var favouritesButtonHandler: (() -> Void)?
     
+    private var movieData: FavouriteMovie?
+    
+    var isFavorite: Bool = false {
+        didSet {
+            let image = isFavorite ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart")
+            favouriteButton.setImage(image, for: .normal)
+        }
+    }
+ 
     var filmNameLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
@@ -39,10 +49,6 @@ class FilmCell: UITableViewCell {
         imageView.sizeToFit()
         return imageView
     }()
-    
-    //=====
-//    let imageHeart = UIImage(systemName: "heart")
-//    let imageHeartFill = UIImage(systemName: "heart.fill")
     
     var favouriteButton: UIButton = {
         let button = UIButton(type: .system)
@@ -68,9 +74,6 @@ class FilmCell: UITableViewCell {
     }
     
     func setupCellUI() {
-        
-//        favouriteButton.setImage(imageHeart, for: .normal)
-        
         contentView.addSubview(filmImage)
         filmImage.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview()
@@ -79,7 +82,6 @@ class FilmCell: UITableViewCell {
             make.width.equalTo(self.frame.width / 2)  //(50)
             //            make.height.equalTo(30)
         }
-        
         contentView.addSubview(filmNameLabel)
         filmNameLabel.snp.makeConstraints { make in
             make.top.equalToSuperview()
@@ -113,30 +115,23 @@ class FilmCell: UITableViewCell {
     }
     
     //TODO: - проверить код. кажется надо присваивание текстов вынексти из loadImage!!!!
-    func cellConfigure(with data: Movie) {   //конструирует макет ячейки
+    func cellConfigure(with data: FavouriteMovie) {   //конструирует макет ячейки
         self.yearOfTheFilmLabel.text = String(data.releaseDate.prefix(4))
         self.genreOfTheFilmLabel.text = data.primaryGenreName
-        
         loadImage(from: data.artworkUrl100) { [weak self] image in
             self?.filmImage.image = image
             self?.filmNameLabel.text = data.trackName
         }
-        
         movieData = data
     }
     
     func favouriteCellConfigure(with data: FavouriteMovie) {   //конструирует макет ячейки избранных фильмов
         self.yearOfTheFilmLabel.text = String(data.releaseDate.prefix(4))
         self.genreOfTheFilmLabel.text = data.primaryGenreName
-        
-//        сердечко покрасить
-        
         loadImage(from: data.artworkUrl100) { [weak self] image in
             self?.filmImage.image = image
             self?.filmNameLabel.text = data.trackName
         }
-        
-//         = data
     }
     
     func loadImage(from urlString: String, completion: @escaping (UIImage?) -> Void) {    // загружает изображение
@@ -158,52 +153,16 @@ class FilmCell: UITableViewCell {
     }
     
     func addTargets() {
-        favouriteButton.addTarget(self, action: #selector(makeFavourite), for: .touchUpInside)
+        favouriteButton.addTarget(self, action: #selector(favouriteButtonPressed), for: .touchUpInside)
     }
 
-    @objc func makeFavourite(sender: UIButton) {
-
-        if isFavorite == false {
-
-            print("movie add to favourites")
-            print(movieData)
-            favouriteButton.setImage(Constants.imageHeartFill, for: .normal)
-            
-            FavouritesMoviesManager.shared.makeFavourite(trackName: movieData?.trackName ?? "",
-                                                         releaseDate: movieData?.releaseDate ?? "",
-                                                         primaryGenreName: movieData?.primaryGenreName ?? "",
-                                                         shortDescription: movieData?.shortDescription ?? "",
-                                                         longDescription: movieData?.longDescription ?? "",
-                                                         artworkUrl100: movieData?.artworkUrl100 ?? "",
-                                                         trackId: movieData?.trackId ?? 0)
-            isFavorite = true
-        } else {
-            print("movie excepted from favourites")
-            favouriteButton.setImage(Constants.imageHeart, for: .normal)
-            isFavorite = false
-        }
+    @objc private func favouriteButtonPressed() {
+        
+        favouritesButtonHandler?()
+        
     }
     
-//
-    @objc func makeUnFavourite(sender: UIButton) {
-        
-        guard let trackName = movieData?.trackName else {
-            return
-        }
-        
-        
-        FavouritesMoviesManager.shared.makeUnFavourite(trackName: trackName)
-        
-        favouriteButton.setImage(Constants.imageHeart, for: .normal)
-
-        isFavorite = false
-        
-        if let tabBarController = self.TabBarController as? TabBarControllerFavourites {
-            
-            tabBarController.filmsTableView.reloadData()
-            
-        }
-    }
+    
 }
 
 extension FilmCell {

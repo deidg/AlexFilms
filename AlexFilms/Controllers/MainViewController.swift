@@ -128,6 +128,14 @@ final class MainViewController: UIViewController {
         signUpButton.addTarget(self, action: #selector(openRegistrationFormVC), for: .touchUpInside)
     }
     
+    func findUserByEmail(email: String) -> User? {
+        guard let database = FavouritesMoviesManager.shared.users else { return nil }
+        for user in database {
+            if user.email == email { return user }
+        }
+        return nil
+    }
+    
 //    func autoAuthCheck() {
 //
 //        var isAuthorized = userDefaults.bool(forKey: "ifAuthorized")
@@ -157,6 +165,9 @@ final class MainViewController: UIViewController {
             }
             self.present(self.tabBarControllerMain, animated: true, completion: nil)
         }
+        guard let currentUser = findUserByEmail(email: email) else { return }
+        print(currentUser)
+        FavouritesMoviesManager.shared.saveActiveUser(user: currentUser)
     }
     
     
