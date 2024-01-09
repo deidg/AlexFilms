@@ -32,7 +32,7 @@ import CoreData
 
 class TabBarControllerMain: UIViewController {
     
-        var items = [Movie]()
+        var items = [FavouriteMovie]()
     
     let favouriteMovie = MoviesEntity()
     var isFavorite: Bool = false
@@ -88,9 +88,7 @@ class TabBarControllerMain: UIViewController {
         
         favouriteButton.setImage(imageHeart, for: .normal)
 
-        
-        
-        
+        addObservers()
         
         addTargets()
     }
@@ -150,6 +148,15 @@ class TabBarControllerMain: UIViewController {
     }
     
     
+    func addObservers() {
+        Foundation.NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: NSNotification.Name(rawValue: "NewDataNotification"), object: nil)
+    }
+    
+    @objc func refresh() {
+        filmsTableView.reloadData()
+    }
+    
+    
 }
 
 extension TabBarControllerMain: UITableViewDelegate {
@@ -176,17 +183,27 @@ extension TabBarControllerMain: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        let data = items[indexPath.row]
-        cell.cellConfigure(with: data)
+        let movie = items[indexPath.row]
+        cell.cellConfigure(with: movie)
+        cell.isFavorite = FavouritesMoviesManager.shared.isFavouriteMovie(movie: movie)
+        cell.favouritesButtonHandler = {
+            if cell.isFavorite {
+                FavouritesMoviesManager.shared.deleteFavouriteMovie(movie: movie)
+                cell.isFavorite = false
+            } else {
+                FavouritesMoviesManager.shared.addFavouriteMovie(movie: movie)
+                cell.isFavorite = true
+            }
+        }
         
-        let film = appleResponseData?.results[indexPath.row]
-        cell.filmNameLabel.text = film?.trackName
-        
-//        cell.makeFavourite(chosenMovie: items[indexPath.row])
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NewDataNotification"), object: nil)
         
         
         return cell
     }
+    
+
+    
 }
 extension TabBarControllerMain: UITextFieldDelegate {
 }

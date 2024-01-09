@@ -19,7 +19,7 @@ class NetworkRequest {
     
     private init() {}
     
-    func fetchMovieData(inputText: String, completion: @escaping ([Movie]?) -> Void) {
+    func fetchMovieData(inputText: String, completion: @escaping ([FavouriteMovie]?) -> Void) {
         guard let url = URL(string: "https://itunes.apple.com/search?term=\(inputText)&entity=movie&limit=10") else {
             return
         }
@@ -41,10 +41,10 @@ class NetworkRequest {
                         let dateFormatter = DateFormatter()
                         dateFormatter.dateFormat = "yyyy"
                         
-                        var movies = [Movie]()
+                        var movies = [FavouriteMovie]()
                         //
                         for movie in appleResponse.results {
-                            movies.append(Movie(trackName: movie.trackName,
+                            movies.append(FavouriteMovie(trackName: movie.trackName,
                                                 releaseDate: movie.releaseDate,
                                                 primaryGenreName: movie.primaryGenreName,
                                                 shortDescription: movie.shortDescription,
@@ -64,7 +64,7 @@ class NetworkRequest {
         }
     }
         
-        func fetchMovieDescription(inputTrackId: Int, completion: @escaping (Movie?) -> Void) {
+        func fetchMovieDescription(inputTrackId: Int, completion: @escaping (FavouriteMovie?) -> Void) {
             guard let url = URL(string: "http://itunes.apple.com/lookup?id=\(inputTrackId)" ) else {
                 return
             }
@@ -87,7 +87,7 @@ class NetworkRequest {
                         let dateFormatter = DateFormatter()
                         dateFormatter.dateFormat = "yyyy"
                         
-                        let completionData = Movie(
+                        let completionData = FavouriteMovie(
                             trackName: appleResponse.results.first?.trackName ?? "",
                             releaseDate: appleResponse.results.first?.releaseDate ?? "",
                             primaryGenreName: appleResponse.results.first?.primaryGenreName ?? "",

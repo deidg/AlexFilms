@@ -32,6 +32,7 @@
 		FAA84DC82ACA970E00CB1C47 /* AlexFilmsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA84DC72ACA970E00CB1C47 /* AlexFilmsUITests.swift */; };
 		FAA84DCA2ACA970E00CB1C47 /* AlexFilmsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA84DC92ACA970E00CB1C47 /* AlexFilmsUITestsLaunchTests.swift */; };
 		FAAFF9692AE6ABD600EA2180 /* FilmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAFF9682AE6ABD600EA2180 /* FilmCell.swift */; };
+		FAB898622B4DB44100D3FB2A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB898612B4DB44100D3FB2A /* User.swift */; };
 		FABF69FD2B13A49A00F91DC8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FABF69FC2B13A49A00F91DC8 /* GoogleService-Info.plist */; };
 		FABF6A002B13A69800F91DC8 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = FABF69FF2B13A69800F91DC8 /* FirebaseAnalytics */; };
 		FABF6A022B13A69800F91DC8 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FABF6A012B13A69800F91DC8 /* FirebaseAuth */; };
@@ -88,6 +89,7 @@
 		FAA84DC72ACA970E00CB1C47 /* AlexFilmsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlexFilmsUITests.swift; sourceTree = "<group>"; };
 		FAA84DC92ACA970E00CB1C47 /* AlexFilmsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlexFilmsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FAAFF9682AE6ABD600EA2180 /* FilmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmCell.swift; sourceTree = "<group>"; };
+		FAB898612B4DB44100D3FB2A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FABF69FC2B13A49A00F91DC8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FABF6A092B14C7BF00F91DC8 /* RegisterUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,6 +151,7 @@
 				FA991E132AE7FDF800B9E829 /* AppleResponseModel.swift */,
 				FA991E102AE7D40B00B9E829 /* Network */,
 				FABF6A092B14C7BF00F91DC8 /* RegisterUserRequest.swift */,
+				FAB898612B4DB44100D3FB2A /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 				FAA84DAE2ACA970A00CB1C47 /* ProfileCoreData.xcdatamodeld in Sources */,
 				FA9A5B3A2ACD772500AA60B6 /* RegistrationFormVC.swift in Sources */,
 				FAAFF9692AE6ABD600EA2180 /* FilmCell.swift in Sources */,
+				FAB898622B4DB44100D3FB2A /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

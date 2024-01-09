@@ -16,6 +16,35 @@ class FavouritesMoviesManager {
     
     var arrayOfFavouritesMovies = [FavouriteMovie]()
     
+    private let userKey = SettingKeys.users.rawValue
+    private let activeUserKey = SettingKeys.activeUser.rawValue
+    
+    var users: [User]? {
+        get {
+            if let data = userDefaults.value(forKey: userKey) as? Data {
+                return try? PropertyListDecoder().decode([User].self, from: data)
+            } else { return [User]() }
+        }
+        set {
+            if let data = try? PropertyListEncoder().encode(newValue) {
+                userDefaults.set(data, forKey: userKey)
+            }
+        }
+    }
+
+    var activeUser: User? {
+        get {
+            if let data = userDefaults.value(forKey: activeUserKey) as? Data {
+                return try? PropertyListDecoder().decode(User.self, from: data)
+            } else { return nil }
+        }
+        set {
+            if let data = try? PropertyListEncoder().encode(newValue) {
+                userDefaults.set(data, forKey: activeUserKey)
+            }
+        }
+    }
+    
     var favouriteMovieArray: [FavouriteMovie] {
         get {
             if let data = userDefaults.value(forKey: "favouriteMovie") as? Data {
@@ -31,25 +60,58 @@ class FavouritesMoviesManager {
         }
     }
     
-    func makeFavourite(trackName: String, releaseDate: String, primaryGenreName: String, shortDescription: String?, longDescription: String?, artworkUrl100: String, trackId: Int) {
-        
-        let chosenMovie = FavouriteMovie(trackName: trackName, releaseDate: releaseDate, primaryGenreName: primaryGenreName, shortDescription: shortDescription, longDescription: longDescription, artworkUrl100: artworkUrl100, trackId: trackId)
-        favouriteMovieArray.insert(chosenMovie, at: 0)
-        print("Im printing from str 38Favoutri \(favouriteMovieArray)")
+    private init() {}
+    
+    func addFavouriteMovie(movie: FavouriteMovie) {
+        if let favourites = activeUser?.favouriteFilmsArray,
+           let currentUser = activeUser {
+             var updatedFavourites = favourites
+            updatedFavourites.append(movie)
+            let updatedUser = User(name: currentUser.name, surname: currentUser.surname, email: currentUser.email, age: currentUser.age, avatar: currentUser.avatar, favouriteFilmsArray: updatedFavourites)
+            activeUser = updatedUser
+        }
     }
     
-    func makeUnFavourite(trackName: String) {
+    func deleteFavouriteMovie(movie: FavouriteMovie) {
+        if let favourites = activeUser?.favouriteFilmsArray,
+           let currentUser = activeUser {
+             var updatedFavourites = favourites
+            updatedFavourites.removeAll { $0.trackName == movie.trackName }
+            
+            let updatedUser = User(name: currentUser.name, surname: currentUser.surname, email: currentUser.email, age: currentUser.age, avatar: currentUser.avatar, favouriteFilmsArray: updatedFavourites)
+            activeUser = updatedUser
+        }
+    }
+    
+    func isFavouriteMovie(movie: FavouriteMovie) -> Bool {
+        guard let activeUser = activeUser,
+              let favourites = activeUser.favouriteFilmsArray else { return false }
+        if favourites.contains(where: {$0.trackName == movie.trackName}) {
+            return true
+        }
         
-        favouriteMovieArray = favouriteMovieArray.filter{$0.trackName != trackName}
-
-        
-        userDefaults.removeObject(forKey: "favouriteMovie")
-        print(userDefaults)
-        
-        
+        return false
         
     }
+        
 
+    func saveUser(user: User) {
+        users?.insert(user, at: 0)
+    }
+    
+    func saveActiveUser(user: User) {
+        activeUser = user
+    }
+    
+}
+
+extension FavouritesMoviesManager {
+    
+    enum SettingKeys: String {
+        case users
+        case activeUser
+    }
+    
 }
 
 
